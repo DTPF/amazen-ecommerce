@@ -1,3 +1,5 @@
+@import '../../../../../../scss/animations';
+
 .sections {
   display: flex;
   justify-content: space-around;
@@ -15,6 +17,7 @@
     background-color: #fff;
     padding: 15px 20px;
     padding-top: 5px;
+    @include fadeIn();
 
     img {
       width: 100%;
