@@ -1,0 +1,31 @@
+.sections {
+  display: flex;
+  justify-content: space-around;
+  flex-direction: row;
+  flex-wrap: wrap;
+  max-width: 1500px;
+  margin: 0 auto;
+
+  &__section {
+    display: flex;
+    flex-direction: column;
+    height: 380px;
+    margin: 20px;
+    max-width: 295px;
+    background-color: #fff;
+    padding: 15px 20px;
+    padding-top: 5px;
+
+    img {
+      width: 100%;
+      height: 100%;
+    }
+
+    a {
+      padding-top: 15px;
+      text-decoration: none;
+      font-size: .9rem;
+      color: #007185;
+    }
+  }
+}
