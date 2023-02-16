@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import selectCountryImage from '../../../../../../../assets/images/select_country.png';
-import Modal from "../../../../../../components/main/desktop/UI/modal/Modal";
+import Modal from "../../../../../../components/main/UI/modal";
 import { TfiLayoutLineSolid } from 'react-icons/tfi';
 import './SelectCountry.scss';
 
