@@ -1,6 +1,13 @@
 @import '../../../../../../scss/variables';
 
 .footer-main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   height: $footerHeigth;
   background-color: $bgPrimary;
+
+  &__copyright {
+    color: #fff;
+  }
 }
