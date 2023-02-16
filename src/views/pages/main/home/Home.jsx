@@ -1,11 +1,11 @@
 import React, { Suspense, lazy } from "react";
-import './Home.scss';
 import HelmetSEO from "../../../utils/helmetSEO/HelmetSEO";
+import './Home.scss';
 const Sections = lazy(() => import('../../../components/main/desktop/home/sections'))
 
-export default function Home(props) {
+export default function Home() {
   return (
-    <HelmetSEO title={'Amazen | Home'}>
+    <HelmetSEO title={'Amazén | Home'}>
       <Suspense fallback={<></>}>
         <div className="home">
           <Sections />
