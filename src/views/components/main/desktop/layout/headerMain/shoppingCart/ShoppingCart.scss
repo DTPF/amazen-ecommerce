@@ -1,0 +1,17 @@
+.shopping-cart {
+  display: flex;
+  position: absolute;
+  right: 5px;
+
+  span {
+    position: relative;
+    top: 4px;
+    left: 37px;
+    color: #F08804;
+    font-weight: bold;
+    font-size: 1.2rem;
+  }
+  img {
+    width: 100px;
+  }
+}
