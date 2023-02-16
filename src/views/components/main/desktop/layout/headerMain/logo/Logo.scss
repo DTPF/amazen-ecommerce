@@ -1,0 +1,16 @@
+@import '../../../../../../../scss/variables';
+
+.logo {
+  padding: 6px;
+  padding-bottom: 3px;
+
+  &__image {
+    width: 110px;
+  }
+
+  &:hover {
+    border: 1px solid #fff;
+    border-radius: 5px;
+    padding-left: 5px;
+  }
+}
