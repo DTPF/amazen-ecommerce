@@ -1,5 +1,7 @@
 .main-layout {
+  background-color: #E3E6E6;
+
   &__main {
-    min-height: calc(100vh - 150px);
+    min-height: calc(100vh - 140px);
   }
 }
