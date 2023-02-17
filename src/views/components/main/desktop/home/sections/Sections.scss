@@ -2,9 +2,10 @@
 
 .sections {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-evenly;
   flex-direction: row;
   flex-wrap: wrap;
+  width: auto;
   max-width: 1500px;
   margin: 0 auto;
 
