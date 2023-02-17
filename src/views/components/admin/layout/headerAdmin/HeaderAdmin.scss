@@ -1,0 +1,14 @@
+@import '../../../../../scss/animations';
+
+.header-admin {
+  display: flex;
+  align-items: center;
+  height: 70px;
+  background-color: #FF9900;
+  box-shadow: 2px 0px 19px 9px #00000032;
+
+  &__logo {
+  @include fadeIn();
+    width: 220px;
+  }
+}
