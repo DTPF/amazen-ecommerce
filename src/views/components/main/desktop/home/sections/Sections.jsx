@@ -1,14 +1,15 @@
+/* eslint-disable react/jsx-no-target-blank */
 import React from 'react';
 import './Sections.scss';
 
-import echoShow from '../../../../../../uploads/sections/echo-show.png';
-import gatoProgramador from '../../../../../../uploads/sections/gato-programador.jpg';
-import help from '../../../../../../uploads/sections/ayuda.png';
-import informatica from '../../../../../../uploads/sections/informatica.png';
-import outlet from '../../../../../../uploads/sections/outlet.png';
-import kitchen from '../../../../../../uploads/sections/cocina.png';
-import gift from '../../../../../../uploads/sections/gift.png';
-import beauty from '../../../../../../uploads/sections/beauty.png';
+import echoShowImg from '../../../../../../uploads/sections/echo-show.png';
+import gatoProgramadorImg from '../../../../../../uploads/sections/gato-programador.jpg';
+import helpImg from '../../../../../../uploads/sections/ayuda.png';
+import informaticaImg from '../../../../../../uploads/sections/informatica.png';
+import outletImg from '../../../../../../uploads/sections/outlet.png';
+import kitchenImg from '../../../../../../uploads/sections/cocina.png';
+import giftImg from '../../../../../../uploads/sections/gift.png';
+import beautyImg from '../../../../../../uploads/sections/beauty.png';
 
 export default function Sections(props) {
   const sectionsLs = localStorage.getItem('sections');
@@ -17,8 +18,8 @@ export default function Sections(props) {
 
   return (
     <div className='sections'>
-      {sectionsParse && sectionsParse.map((category) => (
-        <CategorySlide title={category.title} img={category.img} linkName={category.linkName} link={category.link} />
+      {sectionsParse && sectionsParse.map((category, index) => (
+        <CategorySlide key={index} title={category.title} img={category.img} linkName={category.linkName} link={category.link} />
       ))}
     </div>
   );
@@ -39,49 +40,49 @@ function CategorySlide(props) {
 const sections = [
   {
     title: 'Echo Show 10',
-    img: echoShow,
+    img: echoShowImg,
     linkName: 'Ver más',
     link: ''
   },
   {
     title: 'Ayuda a la gente de Turquía y Siria',
-    img: help,
+    img: helpImg,
     linkName: 'Si puedes, colabora',
     link: ''
   },
   {
     title: 'Informática y accesorios',
-    img: informatica,
+    img: informaticaImg,
     linkName: 'Descubre más',
     link: ''
   },
   {
     title: 'Ofertas en Outlet',
-    img: outlet,
+    img: outletImg,
     linkName: 'Explora ahora',
     link: ''
   },
   {
     title: 'Ideas para Casa y cocina',
-    img: kitchen,
+    img: kitchenImg,
     linkName: 'Saber más',
     link: ''
   },
   {
     title: '¿Buscas un regalo?',
-    img: gift,
+    img: giftImg,
     linkName: 'Descubre algunas ideas',
     link: ''
   },
   {
     title: 'Lo mejor en belleza',
-    img: beauty,
+    img: beautyImg,
     linkName: 'Explora ahora',
     link: ''
   },
   {
     title: 'Todo para tu gato programador',
-    img: gatoProgramador,
+    img: gatoProgramadorImg,
     linkName: '¡A programar!',
     link: 'https://www.google.com/search?q=gato+programador&sxsrf=AJOqlzWdjssiku06SEjCSG0F7I0Pym5ATg:1676560525810&source=lnms&tbm=isch&sa=X&ved=2ahUKEwi3_NbUqpr9AhVdUqQEHVCKAdAQ_AUoAXoECAEQAw&biw=2560&bih=1500&dpr=1'
   }
