@@ -1,16 +1,21 @@
-import React from 'react';
-import { DOMSubRoutes } from '../../../config/DOMRoutes';
+import React, { Suspense, lazy } from 'react';
+import { SubRoutes } from '../../../config/Routes';
+import './AdminLayout.scss';
+const HeaderAdmin = lazy(() => import('../../components/admin/layout/headerAdmin/HeaderAdmin'));
+const FooterAdmin = lazy(() => import('../../components/admin/layout/footerAdmin/FooterAdmin'));
 
 export default function AdminLayout({ routes }) {
   return (
-    <div className='main-layout'>
-      header admin
+    <div className='admin-layout'>
+      <Suspense fallback={<></>}>
+        <HeaderAdmin />
 
-      <div className='main-layout__main'>
-        <DOMSubRoutes routes={routes} /> {/* Switch views/pages/admin */}
-      </div>
+        <div className='admin-layout__main'>
+          <SubRoutes routes={routes} /> {/* Switch views/pages/admin */}
+        </div>
 
-      footer admin
+        <FooterAdmin />
+      </Suspense>
     </div>
   );
 }
