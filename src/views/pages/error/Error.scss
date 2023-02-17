@@ -1,0 +1,16 @@
+.error {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  height: calc(100vh - 200px);
+
+  button {
+    background-color: #FEBD69;
+    color: #000;
+    font-weight: bold;
+    &:hover {
+      background-color: #ffa530 !important;
+    }
+
+  }
+}
