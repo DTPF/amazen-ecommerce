@@ -1,0 +1,7 @@
+@import '../../../../scss/mixins';
+
+.products-admin {
+  &__title {
+    @include titleH1();
+  }
+}
