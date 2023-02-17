@@ -2,11 +2,15 @@
 import LayoutAdmin from "../views/layouts/adminLayout";
 import LayoutBasic from "../views/layouts/mainLayout";
 
-// Web Pages
+// Main Pages
 import Home from "../views/pages/main/home";
 import BestSellers from "../views/pages/main/bestSellers";
-import Stores from "../views/pages/main/stores/Stores";
-import Help from "../views/pages/main/help/Help";
+import Stores from "../views/pages/main/stores";
+import Help from "../views/pages/main/help";
+
+// Admin Pages
+import HomeAdmin from "../views/pages/admin/homeAdmin";
+import ProductsAdmin from "../views/pages/admin/productsAdmin";
 
 import Error from '../views/pages/error/Error';
 
@@ -37,7 +41,7 @@ const routes = [
         exact: true,
         component: Help,
       },
-       {
+      {
         path: "*",
         exact: "false",
         component: Error
@@ -49,6 +53,16 @@ const routes = [
     exact: false,
     component: LayoutAdmin,
     routes: [
+      {
+        path: "/",
+        exact: true,
+        component: HomeAdmin,
+      },
+      {
+        path: "/products",
+        exact: true,
+        component: ProductsAdmin,
+      },
       {
         path: "*",
         exact: "false",
