@@ -1,0 +1,7 @@
+@import '../../../../scss/mixins';
+
+.home-admin {
+  &__title {
+    @include titleH1();
+  }
+}
