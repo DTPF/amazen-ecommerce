@@ -1,0 +1,16 @@
+.order-history {
+  display: flex;
+  position: absolute;
+  right: 105px;
+
+  &:hover {
+    border: 1px solid #fff;
+    border-radius: 4px;
+  }
+
+  &__image {
+    width: 85px;
+    padding: 3px 2px;
+
+  }
+}
