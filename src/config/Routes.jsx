@@ -1,11 +1,11 @@
 import React from 'react';
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes as DOMRoutes, Route } from "react-router-dom";
 import routes from './routes.js'
 
-export function DOMRoutes() {
+export function Routes() {
   return (
     <BrowserRouter>
-      <Routes>
+      <DOMRoutes>
         {routes.map((route, index) => (
           <Route
             key={index}
@@ -14,14 +14,14 @@ export function DOMRoutes() {
             element={<route.component routes={route.routes} />}
           />
         ))}
-      </Routes>
+      </DOMRoutes>
     </BrowserRouter>
   )
 }
 
-export function DOMSubRoutes({ routes }) {
+export function SubRoutes({ routes }) {
   return (
-    <Routes>
+    <DOMRoutes>
       {routes.map((route, index) => (
         <Route
           key={index}
@@ -30,6 +30,6 @@ export function DOMSubRoutes({ routes }) {
           element={<route.component />}
         />
       ))}
-    </Routes>
+    </DOMRoutes>
   )
 }

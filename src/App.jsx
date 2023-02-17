@@ -1,8 +1,8 @@
-import { DOMRoutes } from './config/DOMRoutes';
+import { Routes } from './config/Routes';
 
 export default function App() {
   // Switch views/layouts
   return (
-    <DOMRoutes />
+    <Routes />
   );
 }
