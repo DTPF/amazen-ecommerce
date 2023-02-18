@@ -1,17 +1,14 @@
 .my-account {
-  display: flex;
-  position: absolute;
-  right: 195px;
-
-  &:hover {
-    border: 1px solid #fff;
-    border-radius: 4px;
-  }
 
   &__image {
     width: 125px;
     height: 35px;
     padding: 5px 2px;
     padding-bottom: 0;
+  }
+
+  &:hover {
+    border: 1px solid #fff;
+    border-radius: 2px;
   }
 }

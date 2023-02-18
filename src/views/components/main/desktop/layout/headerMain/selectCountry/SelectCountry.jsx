@@ -27,7 +27,7 @@ export default function SelectCountry() {
         </Modal>
       )}
       <div onClick={() => setIsVisibleModal(!isVisibleModal)} className='select-country'>
-        <img src={selectCountryImage} alt='Select Country' />
+        <img className='select-country__image' src={selectCountryImage} alt='Select Country' />
       </div>
     </>
   )

@@ -1,16 +1,15 @@
 .select-country {
-  margin-top: 4px;
-  margin-right: 10px;
   cursor: pointer;
+  border-radius: 2px;
+  padding: 2px;
+  padding-bottom: 3px;
 
-  img {
-    border-radius: 5px;
-    padding: 5px;
+  &__image {
     width: 140px;
+  }
 
-    &:hover {
-      border: 1px solid #fff;
-    }
+  &:hover {
+    border: 1px solid #fff;
   }
 }
 
