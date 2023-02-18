@@ -1,21 +1,31 @@
 import React from 'react';
-import Logo from './logo/Logo';
-import SelectCountry from './selectCountry/SelectCountry';
-import Search from './search/Search';
-import Chart from './shoppingCart/ShoppingCart';
+import Logo from './logo';
+import SelectCountry from './selectCountry';
+import Search from './search';
+import Chart from './shoppingCart';
+import OrderHistory from './oderHistory';
+import MyAccount from './myAccount';
+import Language from './language';
 import './HeaderMain.scss';
-import OrderHistory from './oderHistory/OrderHistory';
-import MyAccount from './myAccount/MyAccount';
 
 export default function HeaderMain() {
   return (
     <div className='header-main'>
-      <Logo />
-      <SelectCountry />
-      <Search />
-      <MyAccount />
-      <OrderHistory />
-      <Chart />
+      <div className='header-main__row-1'>
+        <Logo />
+        <SelectCountry />
+      </div>
+
+      <div className='header-main__row-2'>
+        <Search />
+      </div>
+
+      <div className='header-main__row-3'>
+        <Language />
+        <MyAccount />
+        <OrderHistory />
+        <Chart />
+      </div>
     </div>
   );
 }

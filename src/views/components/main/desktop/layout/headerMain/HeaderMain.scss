@@ -2,8 +2,29 @@
 
 .header-main {
   display: flex;
+  justify-content: space-between;
   align-items: center;
-  color: #fff;
   height: $headerHeigth;
+  color: #fff;
   background-color: $bgPrimary;
+
+  &__row-1,
+  &__row-2,
+  &__row-3 {
+    display: flex;
+    align-items: center;
+  }
+
+  &__row-1 {
+    justify-content: space-evenly;
+    width: 350px;
+  }
+
+  &__row-2 {
+    width: 100%;
+  }
+
+  &__row-3 {
+    width: 430px;
+  }
 }
