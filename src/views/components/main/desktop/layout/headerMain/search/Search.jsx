@@ -43,7 +43,7 @@ export default function Search(props) {
           </select>
         </span>
 
-        <input id="search" type="text" className="search__input-group--input" name="search" placeholder="Buscar Amazon.es" />
+        <input id="search" type="text" className="search__input-group--input" name="search" placeholder="Buscar Amazén.es" />
 
         <button className="search__input-group--button"><BsSearch /></button>
       </div>
