@@ -6,3 +6,13 @@
   margin: 0;
   padding: 30px 0;
 }
+
+@mixin buttonPrimary() {
+  background-color: #FEBD69;
+  color: #000;
+  font-weight: bold;
+
+  &:hover {
+    background-color: #ffa530 !important;
+  }
+}
