@@ -8,10 +8,59 @@
     color: #fff;
     text-decoration: none;
     padding: 11px 15px;
+    font-size: .8rem;
+    font-weight: 500;
 
     &:hover {
       border: 1px solid #fff;
       border-radius: 4px;
     }
+  }
+
+  &__all {
+    display: flex;
+    align-items: center;
+    font-weight: 700 !important;
+    padding: 2px 10px !important;
+    margin-left: 10px;
+
+    &--icon {
+      color: white;
+      font-size: 1.9rem;
+      display: flex;
+      place-content: center;
+    }
+  }
+
+  &__kindle {
+    @media (max-width: 970px) { display: none }
+  }
+
+  &__computing {
+    @media (max-width: 1070px) { display: none }
+  }
+
+  &__prime {
+    @media (max-width: 1130px) { display: none }
+  }
+
+  &__audible {
+    @media (max-width: 1220px) { display: none }
+  }
+
+  &__books {
+    @media (max-width: 1300px) { display: none }
+  }
+
+  &__home {
+    @media (max-width: 1450px) { display: none }
+  }
+
+  &__gifts {
+    @media (max-width: 1600px) { display: none }
+  }
+
+  &__electronics {
+    @media (max-width: 1750px) { display: none }
   }
 }
