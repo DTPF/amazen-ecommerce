@@ -1,8 +1,8 @@
 import React, { Suspense, lazy } from 'react';
-import { SubRoutes } from '../../../config/Routes';
 import './AdminLayout.scss';
 const HeaderAdmin = lazy(() => import('../../components/admin/layout/headerAdmin/HeaderAdmin'));
 const FooterAdmin = lazy(() => import('../../components/admin/layout/footerAdmin/FooterAdmin'));
+const SubRoutes = lazy(() => import('../../../config/SubRoutes'));
 
 export default function AdminLayout({ routes }) {
   return (
