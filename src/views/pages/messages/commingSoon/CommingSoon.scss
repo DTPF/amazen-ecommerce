@@ -1,0 +1,8 @@
+@import '../../../../scss/mixins';
+
+.comming-soon {
+
+  button {
+    @include buttonPrimary();
+  }
+}
