@@ -1,0 +1,11 @@
+@import '../../../../scss/mixins';
+
+.error {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+
+  button {
+    @include buttonPrimary();
+  }
+}
