@@ -1,0 +1,12 @@
+.language {
+  padding: 3px;
+
+  &__image {
+    width: 70px;
+  }
+
+  &:hover {
+    border: 1px solid #fff;
+    border-radius: 2px;
+  }
+}
