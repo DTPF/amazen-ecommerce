@@ -12,7 +12,9 @@ import Help from "../views/pages/main/help";
 import HomeAdmin from "../views/pages/admin/homeAdmin";
 import ProductsAdmin from "../views/pages/admin/productsAdmin";
 
-import Error from '../views/pages/error/Error';
+// Messages pages
+import Error from '../views/pages/messages/error';
+import CommingSoon from "../views/pages/messages/commingSoon";
 
 
 const routes = [
@@ -40,6 +42,11 @@ const routes = [
         path: "/help",
         exact: true,
         component: Help,
+      },
+            {
+        path: "/comming-soon",
+        exact: true,
+        component: CommingSoon,
       },
       {
         path: "*",
