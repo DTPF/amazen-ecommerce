@@ -1,4 +1,4 @@
-import { Routes } from './config/Routes';
+import Routes from './config/Routes';
 
 export default function App() {
   // Switch views/layouts
