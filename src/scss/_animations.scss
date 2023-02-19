@@ -1,4 +1,4 @@
-@mixin fadeIn() {
+@mixin fadeIn($duration: 800ms) {
   @keyframes fadeIn {
     from {
       opacity: 0;
@@ -7,5 +7,5 @@
       opacity: 1;
     }
   }
-  animation: fadeIn 800ms;
+  animation: fadeIn $duration;
 }
