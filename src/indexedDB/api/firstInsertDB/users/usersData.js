@@ -3,10 +3,10 @@ import avatar2 from '../../../../assets/images/userAvatar/avatar-1.png';
 
 export const usersData = [
   {
-    name: 'David Pizarro',
-    userName: 'David',
-    email: 'd@mail.es',
-    password: '12345',
+    name: 'Admin',
+    userName: 'admin',
+    email: 'admin@admin.com',
+    password: 'admin',
     avatar: avatar1,
     role: 'admin',
     createdAt: Date.now()
