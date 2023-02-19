@@ -1,12 +1,16 @@
 // Layout
 import LayoutAdmin from "../views/layouts/adminLayout";
 import LayoutBasic from "../views/layouts/mainLayout";
+import AuthLayout from "../views/layouts/authLayout";
 
 // Main Pages
 import Home from "../views/pages/main/home";
 import BestSellers from "../views/pages/main/bestSellers";
 import Stores from "../views/pages/main/stores";
 import Help from "../views/pages/main/help";
+
+// Auth pages
+import Login from "../views/pages/authentication/loginPage/LoginPage";
 
 // Admin Pages
 import HomeAdmin from "../views/pages/admin/homeAdmin";
@@ -47,6 +51,23 @@ const routes = [
         path: "/comming-soon",
         exact: true,
         component: CommingSoon,
+      },
+      {
+        path: "*",
+        exact: "false",
+        component: Error
+      }
+    ]
+  },
+  {
+    path: "/auth/*",
+    exact: false,
+    component: AuthLayout,
+    routes: [
+      {
+        path: "/",
+        exact: true,
+        component: Login,
       },
       {
         path: "*",
