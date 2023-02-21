@@ -4,6 +4,7 @@ import avatar2 from '../../../../assets/images/userAvatar/avatar-1.png';
 export const usersData = [
   {
     name: 'Admin',
+    lastname: 'Admin',
     userName: 'admin',
     email: 'admin@admin.com',
     password: 'admin',
@@ -12,8 +13,9 @@ export const usersData = [
     createdAt: Date.now()
   },
   {
-    name: 'User Romero',
-    userName: 'User',
+    name: 'User',
+    lastname: 'Romero',
+    userName: 'user',
     email: 'user@user.es',
     password: 'user',
     avatar: avatar2,

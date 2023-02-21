@@ -50,13 +50,14 @@ const getUser = async (db, setResponse, email, pwd) => {
       if (!findByEmail) {
         return setResponse('email-not-valid');
       } else {
-        const { id, name, userName, email, password, createdAt } = findByEmail;
+        const { id, name, lastname, userName, email, password, createdAt } = findByEmail;
         if (password !== pwd) {
           setResponse('password-not-valid');
         } else {
           const user = {
             id: id,
             name: name,
+            lastname: lastname,
             userName: userName,
             email: email,
             createdAt: createdAt
