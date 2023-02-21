@@ -2,7 +2,8 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useCheckIfUserIsLogged, useGetUser } from '../../../../../../../providers/authProvider';
 import Popover from '../../../../UI/popover';
-import myAccountImage from '../../../../../../../assets/images/my-account.png';
+import myAccountImageLogged from '../../../../../../../assets/images/my-account-logged.png';
+import myAccountImageNotLogged from '../../../../../../../assets/images/my-account-not-logged.png';
 import './MyAccount.scss';
 
 export default function MyAccount() {
@@ -22,8 +23,9 @@ export default function MyAccount() {
     >
       <img
         className='my-account__image'
-        src={myAccountImage} alt='My account'
+        src={userExist ? myAccountImageLogged : myAccountImageNotLogged} alt='My account'
       />
+      <p className='my-account__name'>{getUser && getUser.name}</p>
       {isVisible && (
         <Popover
           isVisible={isVisible}
