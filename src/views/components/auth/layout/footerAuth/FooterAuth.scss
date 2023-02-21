@@ -1,0 +1,25 @@
+.footer-auth {
+  height: calc(100vh - 550px);
+  background-color: #F8F8F8;
+  background: linear-gradient(to bottom,rgba(0,0,0,.14),rgba(0,0,0,.03) 3px,transparent);
+  text-align: center;
+  padding-top: 10px;
+
+  ul {
+    display: flex;
+    justify-content: center;
+
+    li {
+      padding: 10px;
+      list-style-type: none;
+      color: #0066C0;
+      font-size: .65rem;
+    }
+  }
+
+  p {
+    font-size: .67rem;
+    font-weight: 400;
+    color: #616161;
+  }
+}
