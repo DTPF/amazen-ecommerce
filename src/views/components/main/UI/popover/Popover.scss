@@ -1,17 +1,20 @@
 @import '../../../../../scss/_animations.scss';
 
-.popover {
+.popover-container {
   position: absolute;
-  top: 45px;
-  right: 180px;
-  background-color: #FFFFFF;
-  width: 300px;
-  height: 300px;
-  border: 1px solid #000;
-  border-radius: 4px;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  background-color: #00000075;
+  z-index: 10;
   @include fadeIn(400ms);
 
-  &:hover {
-    z-index: 999999;
+  &__popover {
+    z-index: 20;
+
+    &:hover {
+      background-color: #000;
+    }
   }
 }
