@@ -12,10 +12,10 @@ export const usersData = [
     createdAt: Date.now()
   },
   {
-    name: 'Pepe Romero',
-    userName: 'Pepín',
-    email: 'pepo@mail.es',
-    password: '12345',
+    name: 'User Romero',
+    userName: 'User',
+    email: 'user@user.es',
+    password: 'user',
     avatar: avatar2,
     role: 'user',
     createdAt: Date.now()
