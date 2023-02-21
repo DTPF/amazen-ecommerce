@@ -1,5 +1,7 @@
-.my-account {
+@import '../../../../../../../scss/mixins';
+@import '../../../../../../../scss/animations';
 
+.my-account {
   &__image {
     width: 125px;
     height: 35px;
@@ -7,8 +9,95 @@
     padding-bottom: 0;
   }
 
+  &__popover {
+    display: flex;
+    position: absolute;
+    justify-content: space-around;
+    align-items: center;
+
+    &--lists {
+      display: flex;
+      color: #232323;
+
+      &__my-lists,
+      &__my-account {
+        ul {
+          p {
+            font-size: 1rem;
+            font-weight: 600;
+          }
+
+          li {
+            padding: 4px 0;
+            font-size: .8rem;
+            list-style-type: none;
+            font-weight: 400;
+
+            &:hover {
+              color: #E47911;
+              font-weight: 500;
+              text-decoration: underline;
+            }
+          }
+        }
+      }
+
+      &__my-account {
+        &--logout {
+          cursor: pointer;
+        }
+      }
+    }
+
+    &--login-button {
+      display: flex;
+      justify-content: center;
+
+      button {
+        @include buttonPrimary();
+        width: 150px;
+        margin-top: 10px;
+        margin-bottom: 20px;
+        border: 1px solid grey;
+        font-weight: 500;
+        color: #000;
+      }
+    }
+
+    &--admin-button {
+      display: flex;
+      justify-content: center;
+
+      a {
+        text-decoration: none !important;
+
+        button {
+          @include buttonPrimary(#14191A, #3f3f3f);
+          color: #fff;
+          width: 150px;
+          margin-top: 10px;
+          margin-bottom: 20px;
+          border: 1px solid #fdba11;
+          font-weight: 900;
+        }
+      }
+    }
+  }
+
   &:hover {
     border: 1px solid #fff;
     border-radius: 2px;
+  }
+
+  .popover-container__popover {
+    position: absolute;
+    top: 45px;
+    right: 180px;
+    background-color: #FFFFFF;
+    width: 500px;
+    height: auto;
+    border: 1px solid #000;
+    border-radius: 4px;
+
   }
 }
