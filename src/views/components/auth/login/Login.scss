@@ -1,0 +1,128 @@
+@import '../../../../scss//mixins';
+
+.window-height {
+  height: 645px !important;
+}
+
+.login {
+  --warning-red: #C40000;
+  --color-blue: #0066C0;
+
+  display: flex;
+  flex-direction: column;
+  height: 550px;
+
+
+  &__image {
+    width: 142px;
+    margin: 8px auto;
+  }
+
+  &__validation-message {
+    display: flex;
+    margin: 5px auto;
+    margin-bottom: 15px;
+    border: 1px solid var(--warning-red);
+    width: 350px;
+    border-radius: 4px;
+
+    &--image {
+      width: 35px;
+      height: 35px;
+      padding: 10px;
+    }
+
+    &--message-div {
+
+      &--title {
+        color: var(--warning-red);
+        font-weight: 500;
+        margin-bottom: 5px;
+
+      }
+
+      &--content {
+        margin-top: 0;
+        font-size: .8rem;
+      }
+    }
+  }
+
+  &__form-container {
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    height: 325px;
+    margin: 0 auto;
+    padding: 25px;
+    border: 1px solid #d4d4d4;
+    border-radius: 4px;
+
+    &--title {
+      font-size: 1.6rem;
+      font-weight: 400;
+      margin: 0;
+      padding-bottom: 15px;
+    }
+
+    &--conditions {
+      font-size: .7rem;
+      line-height: 1.1rem;
+
+      span {
+        color: var(--color-blue);
+      }
+    }
+
+    &--help {
+      display: flex;
+      align-items: center;
+      font-size: .8rem;
+      font-weight: 400;
+      color: #5e5e5e;
+
+      span {
+        color: var(--color-blue);
+      }
+
+    }
+  }
+
+  &__register {
+    text-align: center;
+    padding: 10px 0;
+
+    p {
+      --text-divider-gap: 1rem;
+      display: flex;
+      align-items: center;
+      margin: 9px auto;
+      max-width: 353px;
+      color: #5b5b5b;
+      font-size: .7rem;
+
+    }
+
+    p::before,
+    p::after {
+      content: '';
+      height: 1px;
+      background-color: rgb(233, 233, 233);
+      flex-grow: 1;
+    }
+
+    p::before {
+      margin-right: var(--text-divider-gap);
+    }
+
+    p::after {
+      margin-left: var(--text-divider-gap);
+    }
+
+    button {
+      @include buttonPrimary(#F1F3F5, #DFE2E7);
+      width: 340px;
+      margin: 5px 0;
+    }
+  }
+}
