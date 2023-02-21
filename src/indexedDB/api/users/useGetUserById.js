@@ -7,17 +7,16 @@ export default function useGetUserById(id) {
 
   useEffect(() => {
     if (!isDBValid()) return;
-    let isMounted = true;
     const openRequest = indexedDB.open(DB_NAME_AMAZEN, DB_VERSION);
 
     openRequest.onupgradeneeded = function (e) {
       const db = e.target.result;
-      isMounted && getUserById(db, setUser, id);
+      getUserById(db, setUser, id);
     };
 
     openRequest.onsuccess = function (e) {
       const db = e.target.result;
-      isMounted && getUserById(db, setUser, id);
+      getUserById(db, setUser, id);
     };
 
     openRequest.onerror = function (e) {
@@ -26,16 +25,13 @@ export default function useGetUserById(id) {
         window.location.reload();
       }
     };
-
-    return () => { isMounted = false };
-  }, [id])
+  }, [id, setUser])
 
   return user;
 }
 
-const getUserById = async (db, setUser, id) => {
+const getUserById = (db, setUser, id) => {
   if (db.objectStoreNames.contains(USERS)) {
-    // console.log(id);
     if (id !== undefined) {
       const request = db.transaction(USERS, "readonly")
         .objectStore(USERS)
@@ -43,16 +39,16 @@ const getUserById = async (db, setUser, id) => {
 
       request.onsuccess = function () {
         const result = request.result;
-        setUser(result)
+        return setUser(result);
       };
 
       request.onerror = function (e) {
-        console.log("onerror!", e);
+        return console.log("onerror!", e);
       };
     } else {
       setUser('logged-out');
     }
   } else {
-    setUser('emptybbbbbb');
+    setUser('empty-object-store-name');
   }
 };
