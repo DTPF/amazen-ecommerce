@@ -9,6 +9,13 @@
     padding-bottom: 0;
   }
 
+  &__name {
+    position: absolute;
+    top: 1px;
+    right: 236px;
+    font-size: .85rem;
+  }
+
   &__popover {
     display: flex;
     position: absolute;
