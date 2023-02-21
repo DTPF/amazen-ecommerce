@@ -5,7 +5,7 @@ import './ShoppingCart.scss';
 export default function ShoppingCart(props) {
   return (
     <div className='shopping-cart'>
-      <span>3</span>
+      <span>0</span>
       <img src={shoppingCartImage} alt={'Shopping Cart'} />
     </div>
   );

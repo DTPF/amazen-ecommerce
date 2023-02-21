@@ -3,7 +3,7 @@ import { DB_NAME_AMAZEN, DB_VERSION, USERS } from "../../config";
 import { isDBValid } from "../../utils/validations";
 
 export default function useLogin(email, pwd) {
-  const [user, setUser] = useState('');
+  const [response, setResponse] = useState('');
 
   useEffect(() => {
     if (!isDBValid()) return;
@@ -12,12 +12,12 @@ export default function useLogin(email, pwd) {
 
     openRequest.onupgradeneeded = function (e) {
       const db = e.target.result;
-      isMounted && getUser(db, setUser, email, pwd);
+      isMounted && getUser(db, setResponse, email, pwd);
     };
 
     openRequest.onsuccess = function (e) {
       const db = e.target.result;
-      isMounted && getUser(db, setUser, email, pwd);
+      isMounted && getUser(db, setResponse, email, pwd);
     };
 
     openRequest.onerror = function (e) {
@@ -30,12 +30,15 @@ export default function useLogin(email, pwd) {
     return () => { isMounted = false };
   }, [email, pwd])
 
-  return user;
+  return response;
 }
 
-const getUser = async (db, setUser, email, pwd) => {
-  if (db.objectStoreNames.contains(USERS)) {
+const getUser = async (db, setResponse, email, pwd) => {
+  if (!email) {
+    return setResponse('empty-email');
+  }
 
+  if (db.objectStoreNames.contains(USERS)) {
     const request = db.transaction(USERS, "readonly")
       .objectStore(USERS)
       .getAll();
@@ -45,11 +48,11 @@ const getUser = async (db, setUser, email, pwd) => {
       let findByEmail = result.find((e) => e.email === email);
 
       if (!findByEmail) {
-        setUser('email-not-valid');
+        return setResponse('email-not-valid');
       } else {
         const { id, name, userName, email, password, createdAt } = findByEmail;
         if (password !== pwd) {
-          setUser('password-not-valid');
+          setResponse('password-not-valid');
         } else {
           const user = {
             id: id,
@@ -59,7 +62,7 @@ const getUser = async (db, setUser, email, pwd) => {
             createdAt: createdAt
           }
           localStorage.setItem('userLogged', JSON.stringify(user));
-          setUser(user);
+          setResponse('success');
         }
       }
     };
@@ -68,6 +71,6 @@ const getUser = async (db, setUser, email, pwd) => {
       console.log("onerror!", e);
     };
   } else {
-    setUser('empty');
+    setResponse('empty');
   }
 };
