@@ -9,7 +9,7 @@
 }
 
 @mixin buttonPrimary($color: #f9d16c, $colorHover: #F1C75D) {
-  min-width: 100px;
+  width: 100px;
   color: #000;
   background-color: $color;
   border-radius: 3px;

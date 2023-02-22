@@ -1,17 +1,14 @@
 @import '../../../../scss//mixins';
+@import '../../../../scss//variables';
 
 .window-height {
   height: 645px !important;
 }
 
 .login {
-  --warning-red: #C40000;
-  --color-blue: #0066C0;
-
   display: flex;
   flex-direction: column;
   height: 550px;
-
 
   &__image {
     width: 142px;
@@ -22,7 +19,7 @@
     display: flex;
     margin: 5px auto;
     margin-bottom: 15px;
-    border: 1px solid var(--warning-red);
+    border: 1px solid $redWarning;
     width: 350px;
     border-radius: 4px;
 
@@ -35,7 +32,7 @@
     &--message-div {
 
       &--title {
-        color: var(--warning-red);
+        color: $redWarning;
         font-weight: 500;
         margin-bottom: 5px;
 
@@ -70,7 +67,7 @@
       line-height: 1.1rem;
 
       span {
-        color: var(--color-blue);
+        color: $colorBlue;
       }
     }
 
@@ -82,7 +79,7 @@
       color: #5e5e5e;
 
       span {
-        color: var(--color-blue);
+        color: $colorBlue;
       }
 
     }
