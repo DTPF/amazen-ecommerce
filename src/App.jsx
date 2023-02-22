@@ -1,4 +1,4 @@
-import Routes from './config/Routes';
+import Routes from './routes/Routes';
 import indexedDB from './indexedDB';
 
 export default function App() {
