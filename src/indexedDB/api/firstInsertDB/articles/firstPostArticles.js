@@ -27,7 +27,15 @@ function postArticles(db, title, stars, price, image, sizes, info, stock, index)
   let request = articles.put(article);
 
   request.onsuccess = function (e) {
-    // console.log('artcles created');
+    const lsObj = localStorage.getItem('last_id');
+    const objParse = JSON.parse(lsObj);
+    const sectionObj = {
+      users: objParse && objParse.users,
+      sections: objParse && objParse.sections,
+      articles: e.target.result,
+    }
+
+    localStorage.setItem('last_id', JSON.stringify(sectionObj));
   };
 
   request.onerror = function () {
