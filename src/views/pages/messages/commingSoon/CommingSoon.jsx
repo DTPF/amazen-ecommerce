@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, Result } from 'antd';
+import { Result } from 'antd';
 import commingSoonImage from '../../../../assets/images/comming-soon.png';
 import './CommingSoon.scss';
 
@@ -9,9 +9,9 @@ export default function CommingSoon() {
       <Result
         icon={<img src={commingSoonImage} alt='Comming soon' />}
         extra={
-          <Button type="primary" onClick={() => window.history.back()}>
+          <button onClick={() => window.history.back()}>
             Volver
-          </Button>
+          </button>
         }
       />
     </div>

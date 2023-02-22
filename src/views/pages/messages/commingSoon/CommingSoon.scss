@@ -1,6 +1,9 @@
 @import '../../../../scss/mixins';
 
 .comming-soon {
+  img {
+    max-width: 500px;
+  }
 
   button {
     @include buttonPrimary();

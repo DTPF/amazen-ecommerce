@@ -1,4 +1,5 @@
 @import './variables';
+@import './animations';
 
 @mixin titleH1() {
   color: $colorSecondary;
@@ -8,15 +9,18 @@
 }
 
 @mixin buttonPrimary($color: #f9d16c, $colorHover: #F1C75D) {
-  background-color: $color;
+  min-width: 100px;
   color: #000;
-  font-weight: 500;
+  background-color: $color;
   border-radius: 3px;
   border: 1px solid #969696;
   padding: 6px;
-  box-shadow: -1px 3px 24px -7px rgba(0, 0, 0, 0.142);
-  
+  font-weight: 700;
+  box-shadow: -1px 3px 24px -7px rgba(0, 0, 0, 0.271);
+
   &:hover {
-    background-color: $colorHover !important;
+    @include scale(1, 1.02, 300ms);
+    
+    background-color: $colorHover;
   }
 }
