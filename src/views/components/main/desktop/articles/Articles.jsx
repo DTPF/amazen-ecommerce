@@ -1,0 +1,79 @@
+import React, { useContext } from 'react';
+import { useUserContext } from '../../../../../providers/UserProvider';
+import { CartContext } from '../../../../../providers/CartProvider';
+import { CgShoppingCart } from 'react-icons/cg';
+import useGetArticles from '../../../../../indexedDB/api/articles/useGetArticles';
+import fiveStarsImage from '../../../../../assets/images/five-stars.png';
+import './Articles.scss';
+
+export default function Articles() {
+  const articles = useGetArticles();
+
+  return (
+    <div className='articles-container'>
+      <div className='articles-container__articles'>
+        {articles.articlesIndexed && articles.articlesIndexed.map((article, index) => (
+          <ArticleSlide
+            key={index}
+            id={article.id}
+            title={article.title}
+            image={article.image}
+            stars={article.stars}
+            price={article.price}
+          />
+        ))}
+      </div>
+    </div>
+  );
+}
+
+function ArticleSlide(props) {
+  const { id, title, image, stars, price } = props;
+  const { user } = useUserContext();
+  const { setCart } = useContext(CartContext);
+
+  const handleAddToCart = () => {
+    if (user) {
+      const oldCart = localStorage.getItem('cart');
+
+      if (!oldCart) {
+        const article = [
+          {
+            id: 0,
+            userId: user.id,
+            articleId: id
+          }
+        ]
+        localStorage.setItem('cart', JSON.stringify(article));
+        setCart(article);
+      } else {
+        const parseOldCart = JSON.parse(oldCart);
+        const article = {
+          id: parseOldCart.length,
+          userId: user.id,
+          articleId: id
+        }
+        let newCart = [...parseOldCart, article];
+        setCart(newCart);
+        localStorage.setItem('cart', JSON.stringify(newCart));
+      }
+    }
+  }
+
+  return (
+    <div className='articles-container__articles__article'>
+      <img className='articles-container__articles__article--image' src={image} alt={title} />
+      <h3 className='articles-container__articles__article--title'>{title}</h3>
+      <p className='articles-container__articles__article--stars'>
+        <img src={fiveStarsImage} alt='Five stars' />
+        {stars}
+      </p>
+      <p className='articles-container__articles__article--price'>{price} €</p>
+      {user && (
+        <div className='articles-container__articles__article--add-to-cart'>
+          <button onClick={() => handleAddToCart()}><CgShoppingCart /></button>
+        </div>
+      )}
+    </div>
+  )
+}

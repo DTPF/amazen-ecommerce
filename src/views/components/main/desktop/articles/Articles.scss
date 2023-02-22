@@ -1,0 +1,78 @@
+@import '../../../../../scss/animations';
+@import '../../../../../scss/variables';
+@import '../../../../../scss/mixins';
+
+.articles-container {
+  background-color: #fff;
+  @include fadeIn();
+
+  &__articles {
+    display: flex;
+    flex-flow: wrap;
+    justify-content: space-evenly;
+    max-width: 1800px;
+    margin: 0 auto;
+
+
+    &__article {
+      display: flex;
+      flex-direction: column;
+      max-width: 220px;
+      margin: 15px 3px;
+
+      &--image {
+        width: 175px;
+        border-radius: 5px;
+        margin: 0 auto;
+      }
+
+      &--title {
+        padding: 0 5px;
+        color: $colorBlueSecondary;
+        font-weight: 400;
+        font-size: .85rem;
+        line-height: 1.3rem;
+      }
+
+      &--stars,
+      &--price {
+        margin: 0;
+      }
+
+      &--stars {
+        display: flex;
+        align-items: center;
+        color: $colorBlueSecondary;
+        font-size: .8rem;
+
+        img {
+          width: 100px;
+        }
+      }
+
+      &--price {
+        color: $colorRed;
+        font-size: .9rem;
+        margin-top: 10px;
+      }
+
+      &--add-to-cart {
+        display: flex;
+        justify-content: end;
+        margin-top: -25px;
+        padding: 0 10px;
+
+        button {
+          @include buttonPrimary();
+          width: 30px !important;
+          padding: 2px;
+          padding-top: 3px;
+        }
+      }
+
+      @media (max-width: 800px) {
+        margin: 5px;
+      }
+    }
+  }
+}
