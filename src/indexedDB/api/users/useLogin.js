@@ -34,9 +34,7 @@ export default function useLogin(email, pwd) {
 }
 
 const getUser = async (db, setResponse, email, pwd) => {
-  if (!email) {
-    return setResponse('empty-email');
-  }
+  if (!email) return setResponse('empty-email');
 
   if (db.objectStoreNames.contains(USERS)) {
     const request = db.transaction(USERS, "readonly")
@@ -50,7 +48,7 @@ const getUser = async (db, setResponse, email, pwd) => {
       if (!findByEmail) {
         return setResponse('email-not-valid');
       } else {
-        const { id, name, lastname, userName, email, password, createdAt } = findByEmail;
+        const { id, name, lastname, userName, email, password, role, createdAt } = findByEmail;
         if (password !== pwd) {
           setResponse('password-not-valid');
         } else {
@@ -60,10 +58,13 @@ const getUser = async (db, setResponse, email, pwd) => {
             lastname: lastname,
             userName: userName,
             email: email,
+            role: role, 
             createdAt: createdAt
           }
-          localStorage.setItem('userLogged', JSON.stringify(user));
-          setResponse('success');
+          setResponse({
+            status: 'success',
+            user: user
+          });
         }
       }
     };
