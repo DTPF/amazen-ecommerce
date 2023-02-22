@@ -20,7 +20,7 @@ export const articlesData = [
     },
     stock: 101
   },
-    {
+  {
     title: 'JETech Funda para iPhone 13 6,1 Pulgadas, Anti-Amarillo Carcasa de Parachoques Prueba Golpes',
     stars: 22877,
     price: 9.99,
@@ -32,7 +32,7 @@ export const articlesData = [
     },
     stock: 101
   },
-    {
+  {
     title: 'JETech Funda para iPhone 13 6,1 Pulgadas, Anti-Amarillo Carcasa de Parachoques Prueba Golpes',
     stars: 22877,
     price: 9.99,
@@ -44,7 +44,7 @@ export const articlesData = [
     },
     stock: 101
   },
-    {
+  {
     title: 'JETech Funda para iPhone 13 6,1 Pulgadas, Anti-Amarillo Carcasa de Parachoques Prueba Golpes',
     stars: 22877,
     price: 9.99,
@@ -56,7 +56,7 @@ export const articlesData = [
     },
     stock: 101
   },
-    {
+  {
     title: 'JETech Funda para iPhone 13 6,1 Pulgadas, Anti-Amarillo Carcasa de Parachoques Prueba Golpes',
     stars: 22877,
     price: 9.99,
@@ -68,7 +68,7 @@ export const articlesData = [
     },
     stock: 101
   },
-    {
+  {
     title: 'JETech Funda para iPhone 13 6,1 Pulgadas, Anti-Amarillo Carcasa de Parachoques Prueba Golpes',
     stars: 22877,
     price: 9.99,
@@ -80,7 +80,7 @@ export const articlesData = [
     },
     stock: 101
   },
-    {
+  {
     title: 'JETech Funda para iPhone 13 6,1 Pulgadas, Anti-Amarillo Carcasa de Parachoques Prueba Golpes',
     stars: 22877,
     price: 9.99,
@@ -92,7 +92,103 @@ export const articlesData = [
     },
     stock: 101
   },
-    {
+  {
+    title: 'JETech Funda para iPhone 13 6,1 Pulgadas, Anti-Amarillo Carcasa de Parachoques Prueba Golpes',
+    stars: 22877,
+    price: 9.99,
+    image: article8,
+    sizes: ['S', 'M', 'L'],
+    info: {
+      brand: 'JETech',
+      color: 'White'
+    },
+    stock: 101
+  },
+  {
+    title: 'JETech Funda para iPhone 13 6,1 Pulgadas, Anti-Amarillo Carcasa de Parachoques Prueba Golpes',
+    stars: 22877,
+    price: 9.99,
+    image: article1,
+    sizes: ['S', 'M', 'L'],
+    info: {
+      brand: 'JETech',
+      color: 'White'
+    },
+    stock: 101
+  },
+  {
+    title: 'JETech Funda para iPhone 13 6,1 Pulgadas, Anti-Amarillo Carcasa de Parachoques Prueba Golpes',
+    stars: 22877,
+    price: 9.99,
+    image: article2,
+    sizes: ['S', 'M', 'L'],
+    info: {
+      brand: 'JETech',
+      color: 'White'
+    },
+    stock: 101
+  },
+  {
+    title: 'JETech Funda para iPhone 13 6,1 Pulgadas, Anti-Amarillo Carcasa de Parachoques Prueba Golpes',
+    stars: 22877,
+    price: 9.99,
+    image: article3,
+    sizes: ['S', 'M', 'L'],
+    info: {
+      brand: 'JETech',
+      color: 'White'
+    },
+    stock: 101
+  },
+  {
+    title: 'JETech Funda para iPhone 13 6,1 Pulgadas, Anti-Amarillo Carcasa de Parachoques Prueba Golpes',
+    stars: 22877,
+    price: 9.99,
+    image: article4,
+    sizes: ['S', 'M', 'L'],
+    info: {
+      brand: 'JETech',
+      color: 'White'
+    },
+    stock: 101
+  },
+  {
+    title: 'JETech Funda para iPhone 13 6,1 Pulgadas, Anti-Amarillo Carcasa de Parachoques Prueba Golpes',
+    stars: 22877,
+    price: 9.99,
+    image: article5,
+    sizes: ['S', 'M', 'L'],
+    info: {
+      brand: 'JETech',
+      color: 'White'
+    },
+    stock: 101
+  },
+  {
+    title: 'JETech Funda para iPhone 13 6,1 Pulgadas, Anti-Amarillo Carcasa de Parachoques Prueba Golpes',
+    stars: 22877,
+    price: 9.99,
+    image: article6,
+    sizes: ['S', 'M', 'L'],
+    info: {
+      brand: 'JETech',
+      color: 'White'
+    },
+    stock: 101
+  },
+  {
+    title: 'JETech Funda para iPhone 13 6,1 Pulgadas, Anti-Amarillo Carcasa de Parachoques Prueba Golpes',
+    stars: 22877,
+    price: 9.99,
+    image: article7,
+    sizes: ['S', 'M', 'L'],
+    info: {
+      brand: 'JETech',
+      color: 'White'
+    },
+    stock: 101
+  },
+  {
     title: 'JETech Funda para iPhone 13 6,1 Pulgadas, Anti-Amarillo Carcasa de Parachoques Prueba Golpes',
     stars: 22877,
     price: 9.99,
