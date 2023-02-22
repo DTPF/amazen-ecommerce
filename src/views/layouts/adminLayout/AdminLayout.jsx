@@ -1,24 +1,23 @@
 import React, { useEffect, Suspense, lazy } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useGetUser } from '../../../providers/authProvider';
+import { useUserContext, useGetUserFromIndexedDB } from '../../../providers/UserProvider';
 import './AdminLayout.scss';
 const HeaderAdmin = lazy(() => import('../../components/admin/layout/headerAdmin/HeaderAdmin'));
 const FooterAdmin = lazy(() => import('../../components/admin/layout/footerAdmin/FooterAdmin'));
 const SubRoutes = lazy(() => import('../../../routes/SubRoutes'));
 
 export default function AdminLayout({ routes }) {
-  const getUser = useGetUser();
+  const { user } = useUserContext();
+  // const { user } = useGetUserFromIndexedDB();
   let navigate = useNavigate();
 
   useEffect(() => {
-    if (getUser && (getUser.role !== 'admin')) {
-      navigate('/');
-    }
-  }, [getUser, navigate]);
+    user?.role !== 'admin' && navigate('/');
+  }, [user, navigate]);
 
   return (
     <div className='admin-layout'>
-      {getUser.role === 'admin' && (
+      {user?.role === 'admin' && (
         <Suspense fallback={<></>}>
           <HeaderAdmin />
 

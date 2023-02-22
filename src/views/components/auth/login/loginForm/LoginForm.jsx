@@ -1,9 +1,11 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import useLogin from '../../../../../indexedDB/api/users/useLogin';
+import { UserContext } from '../../../../../providers/UserProvider';
 import './LoginForm.scss';
 
 export default function LoginForm({ setShowValidationMessage }) {
+  const { setUser } = useContext(UserContext)
   const [inputs, setInputs] = useState({
     email: "",
     password: "",
@@ -27,8 +29,9 @@ export default function LoginForm({ setShowValidationMessage }) {
     e.preventDefault();
     if (response === 'email-not-valid' || response === 'password-not-valid') {
       return setShowValidationMessage(true);
-    } else if (response === 'success') {
+    } else if (response.status === 'success') {
       setShowValidationMessage(false);
+      setUser(response.user)
       return navigate('/');
     };
   }

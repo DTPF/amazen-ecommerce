@@ -1,18 +1,16 @@
 import React, { useEffect, Suspense, lazy } from "react";
 import { useNavigate } from 'react-router-dom';
-import { useCheckIfUserIsLogged } from "../../../providers/authProvider";
+import { useUserContext } from "../../../providers/UserProvider";
 const SubRoutes = lazy(() => import('../../../routes/SubRoutes'));
 const FooterAuth = lazy(() => import('../../components/auth/layout/footerAuth'));
 
 export default function AuthLayout({ routes }) {
-  const isUserLogged = useCheckIfUserIsLogged();
+  const { user } = useUserContext();
   let navigate = useNavigate();
 
   useEffect(() => {
-    let isMounted = true;
-    isUserLogged && isMounted && navigate('/');
-    return () => { isMounted = false }
-  }, [isUserLogged, navigate]);
+    user && navigate('/');
+  }, [user, navigate]);
 
   return (
     <div className='auth-layout'>

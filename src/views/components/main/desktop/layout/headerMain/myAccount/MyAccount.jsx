@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { useCheckIfUserIsLogged, useGetUser } from '../../../../../../../providers/authProvider';
+import { useUserContext } from '../../../../../../../providers/UserProvider';
 import Popover from '../../../../UI/popover';
 import myAccountImageLogged from '../../../../../../../assets/images/my-account-logged.png';
 import myAccountImageNotLogged from '../../../../../../../assets/images/my-account-not-logged.png';
@@ -8,11 +8,10 @@ import './MyAccount.scss';
 
 export default function MyAccount() {
   const [isVisible, setIsVisible] = useState(false);
-  const userExist = useCheckIfUserIsLogged();
-  const getUser = useGetUser();
+  const { user } = useUserContext();
 
   const handleLogout = () => {
-    localStorage.removeItem('userLogged');
+    localStorage.clear();
     window.location.reload();
   }
 
@@ -23,9 +22,9 @@ export default function MyAccount() {
     >
       <img
         className='my-account__image'
-        src={userExist ? myAccountImageLogged : myAccountImageNotLogged} alt='My account'
+        src={user ? myAccountImageLogged : myAccountImageNotLogged} alt='My account'
       />
-      <p className='my-account__name'>{getUser && getUser.name}</p>
+      <p className='my-account__name'>{user && user.name}</p>
       {isVisible && (
         <Popover
           isVisible={isVisible}
@@ -66,12 +65,12 @@ export default function MyAccount() {
                 <li>Mi Amazén Drive</li>
                 <li>Mis Apps y dispositivos</li>
                 <li>Cambiar de cuenta</li>
-                {userExist && <li className='my-account__popover--lists__my-account--logout' onClick={() => handleLogout()}>Cerrar sesión</li>}
+                {user && <li className='my-account__popover--lists__my-account--logout' onClick={() => handleLogout()}>Cerrar sesión</li>}
               </ul>
             </div>
           </div>
-          {!userExist && <LoginButton />}
-          <LinkToAdmin getUser={getUser} />
+          {!user && <LoginButton />}
+          <LinkToAdmin user={user} />
         </Popover>
       )}
     </div>
@@ -90,10 +89,10 @@ function LoginButton() {
   )
 }
 
-function LinkToAdmin({ getUser }) {
+function LinkToAdmin({ user }) {
   return (
     <div className='my-account__popover--admin-button'>
-      {getUser.role === 'admin' && (
+      {user?.role === 'admin' && (
         <Link to={'./admin'}>
           <button>Admin</button>
         </Link>
