@@ -5,14 +5,16 @@ export const UserContext = createContext(null);
 
 export function UserProvider({ children }) {
   const [user, setUser] = useState(undefined);
-  const getUser = useGetUserById(Math.floor(user?.id));
+  const userId = localStorage.getItem('user_id');
+  const getUser = useGetUserById(Math.floor(userId && userId));
 
   useEffect(() => {
-    if ((getUser !== 'logged-out')) {
+      if (user && user.id !== getUser.id) return;
+    if (userId && (getUser !== 'logged-out')) {
       delete getUser.password;
       setUser(getUser);
     }
-  }, [getUser, user]);
+  }, [getUser, userId, user]);
 
   return (
     <UserContext.Provider value={{ user, setUser }} >
@@ -29,7 +31,7 @@ export function useUserContext() {
   return context;
 }
 
-export function useGetUserFromIndexedDB() {  
+export function useGetUserFromIndexedDB() {
   const hasUserLocalStorage = localStorage.getItem('userLogged');
   const user = JSON.parse(hasUserLocalStorage);
   const getUser = useGetUserById(user?.id);

@@ -31,6 +31,7 @@ export default function LoginForm({ setShowValidationMessage }) {
       return setShowValidationMessage(true);
     } else if (response.status === 'success') {
       setShowValidationMessage(false);
+      localStorage.setItem('user_id', response.user.id)
       setUser(response.user)
       return navigate('/');
     };
