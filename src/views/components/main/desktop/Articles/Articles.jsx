@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import useUserContext from '../../../../../hooks/users/useUserContext';
+import useUserContext from '../../../../../hooks/useUserContext';
 import { CartContext } from '../../../../../providers/CartProvider';
 import useGetArticles from '../../../../../indexedDB/api/articles/useGetArticles';
 import fiveStarsImage from '../../../../../assets/images/five-stars.png';

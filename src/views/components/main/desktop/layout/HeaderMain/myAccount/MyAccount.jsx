@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import useUserContext from '../../../../../../../hooks/users/useUserContext';
+import useUserContext from '../../../../../../../hooks/useUserContext';
 import deleteUserIDB from '../../../../../../../indexedDB/api/auth/deleteUserIDB';
 import Popover from '../../../../UI/Popover';
 import myAccountImageLogged from '../../../../../../../assets/images/my-account-logged.png';

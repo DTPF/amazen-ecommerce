@@ -1,7 +1,7 @@
 import React, { useEffect, Suspense, lazy } from 'react';
 import { useNavigate } from 'react-router-dom';
 // import useGetUserFromIndexedDB from '../../../hooks/users/useGetUserFromIndexedDB';
-import useUserContext from '../../../hooks/users/useUserContext';
+import useUserContext from '../../../hooks/useUserContext';
 import './AdminLayout.scss';
 const HeaderAdmin = lazy(() => import('../../components/admin/layout/HeaderAdmin/HeaderAdmin'));
 const FooterAdmin = lazy(() => import('../../components/admin/layout/FooterAdmin'));

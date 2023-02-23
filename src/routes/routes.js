@@ -10,7 +10,7 @@ import Stores from "../views/pages/main/Stores";
 import Help from "../views/pages/main/Help";
 
 // Auth pages
-import Login from "../views/pages/authentication/LoginPage/LoginPage";
+import Login from "../views/pages/auth/LoginPage";
 
 // Admin Pages
 import HomeAdmin from "../views/pages/admin/HomeAdmin";
