@@ -1,17 +1,20 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useUserContext } from '../../../../../../../providers/UserProvider';
+import deleteUserIDB from '../../../../../../../indexedDB/api/auth/deleteUserIDB';
 import Popover from '../../../../UI/popover';
 import myAccountImageLogged from '../../../../../../../assets/images/my-account-logged.png';
 import myAccountImageNotLogged from '../../../../../../../assets/images/my-account-not-logged.png';
 import './MyAccount.scss';
 
+
 export default function MyAccount() {
   const [isVisible, setIsVisible] = useState(false);
-  const { user } = useUserContext();
+  const { userContext } = useUserContext();
 
   const handleLogout = () => {
     localStorage.clear();
+    deleteUserIDB();
     window.location.reload();
   }
 
@@ -22,9 +25,9 @@ export default function MyAccount() {
     >
       <img
         className='my-account__image'
-        src={user ? myAccountImageLogged : myAccountImageNotLogged} alt='My account'
+        src={userContext ? myAccountImageLogged : myAccountImageNotLogged} alt='My account'
       />
-      <p className='my-account__name'>{user && user.name}</p>
+      <p className='my-account__name'>{userContext && userContext.name}</p>
       {isVisible && (
         <Popover
           isVisible={isVisible}
@@ -65,12 +68,12 @@ export default function MyAccount() {
                 <li>Mi Amazén Drive</li>
                 <li>Mis Apps y dispositivos</li>
                 <li>Cambiar de cuenta</li>
-                {user && <li className='my-account__popover--lists__my-account--logout' onClick={() => handleLogout()}>Cerrar sesión</li>}
+                {userContext && <li className='my-account__popover--lists__my-account--logout' onClick={() => handleLogout()}>Cerrar sesión</li>}
               </ul>
             </div>
           </div>
-          {!user && <LoginButton />}
-          <LinkToAdmin user={user} />
+          {!userContext && <LoginButton />}
+          <LinkToAdmin userContext={userContext} />
         </Popover>
       )}
     </div>
@@ -89,10 +92,10 @@ function LoginButton() {
   )
 }
 
-function LinkToAdmin({ user }) {
+function LinkToAdmin({ userContext }) {
   return (
     <div className='my-account__popover--admin-button'>
-      {user?.role === 'admin' && (
+      {userContext?.role === 'admin' && (
         <Link to={'./admin'}>
           <button>Admin</button>
         </Link>

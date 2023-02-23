@@ -7,17 +7,17 @@ const FooterAdmin = lazy(() => import('../../components/admin/layout/footerAdmin
 const SubRoutes = lazy(() => import('../../../routes/SubRoutes'));
 
 export default function AdminLayout({ routes }) {
-  const { user } = useUserContext();
+  const { userContext } = useUserContext();
   // const { user } = useGetUserFromIndexedDB();
   let navigate = useNavigate();
 
   useEffect(() => {
-    user?.role !== 'admin' && navigate('/');
-  }, [user, navigate]);
+    userContext?.role !== 'admin' && navigate('/');
+  }, [userContext, navigate]);
 
   return (
     <div className='admin-layout'>
-      {user?.role === 'admin' && (
+      {userContext?.role === 'admin' && (
         <Suspense fallback={<></>}>
           <HeaderAdmin />
 

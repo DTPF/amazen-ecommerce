@@ -5,22 +5,24 @@ const SubRoutes = lazy(() => import('../../../routes/SubRoutes'));
 const FooterAuth = lazy(() => import('../../components/auth/layout/footerAuth'));
 
 export default function AuthLayout({ routes }) {
-  const { user } = useUserContext();
+  const { userContext } = useUserContext();
   let navigate = useNavigate();
 
   useEffect(() => {
-    user && navigate('/');
-  }, [user, navigate]);
+    userContext && navigate('/');
+  }, [userContext, navigate]);
 
   return (
     <div className='auth-layout'>
-      <Suspense fallback={<></>}>
-        <div className='auth-layout__main'>
-          <SubRoutes routes={routes} /> {/* Switch views/pages/main */}
-        </div>
+      {!userContext && (
+        <Suspense fallback={<></>}>
+          <div className='auth-layout__main'>
+            <SubRoutes routes={routes} /> {/* Switch views/pages/main */}
+          </div>
 
-        <FooterAuth />
-      </Suspense>
+          <FooterAuth />
+        </Suspense>
+      )}
     </div>
   );
 }

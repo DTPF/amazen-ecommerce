@@ -29,18 +29,18 @@ export default function Articles() {
 
 function ArticleSlide(props) {
   const { id, title, image, stars, price } = props;
-  const { user } = useUserContext();
+  const { userContext } = useUserContext();
   const { setCart } = useContext(CartContext);
 
   const handleAddToCart = () => {
-    if (user) {
+    if (userContext) {
       const oldCart = localStorage.getItem('cart');
 
       if (!oldCart) {
         const article = [
           {
             id: 0,
-            userId: user.id,
+            userId: userContext.id,
             articleId: id
           }
         ]
@@ -50,7 +50,7 @@ function ArticleSlide(props) {
         const parseOldCart = JSON.parse(oldCart);
         const article = {
           id: parseOldCart.length,
-          userId: user.id,
+          userId: userContext.id,
           articleId: id
         }
         let newCart = [...parseOldCart, article];
@@ -69,7 +69,7 @@ function ArticleSlide(props) {
         {stars}
       </p>
       <p className='articles-container__articles__article--price'>{price} €</p>
-      {user && (
+      {userContext && (
         <div className='articles-container__articles__article--add-to-cart'>
           <button onClick={() => handleAddToCart()}><CgShoppingCart /></button>
         </div>
