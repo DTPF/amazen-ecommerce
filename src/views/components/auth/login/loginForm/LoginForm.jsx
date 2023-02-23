@@ -1,11 +1,14 @@
-import React, { useEffect, useState, useContext } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { DB_NAME_AMAZEN, DB_VERSION } from '../../../../../indexedDB/config';
+import { useUserContext } from '../../../../../providers/UserProvider';
+import storeUserIDB from '../../../../../indexedDB/api/auth/storeUserIDB';
 import useLogin from '../../../../../indexedDB/api/users/useLogin';
-import { UserContext } from '../../../../../providers/UserProvider';
 import './LoginForm.scss';
 
+
 export default function LoginForm({ setShowValidationMessage }) {
-  const { setUser } = useContext(UserContext)
+  const { setUserContext } = useUserContext();
   const [inputs, setInputs] = useState({
     email: "",
     password: "",
@@ -30,9 +33,19 @@ export default function LoginForm({ setShowValidationMessage }) {
     if (response === 'email-not-valid' || response === 'password-not-valid') {
       return setShowValidationMessage(true);
     } else if (response.status === 'success') {
-      setShowValidationMessage(false);
-      localStorage.setItem('user_id', response.user.id)
-      setUser(response.user)
+      let openRequest = indexedDB.open(DB_NAME_AMAZEN, DB_VERSION);
+
+      openRequest.onsuccess = function (e) {
+        const db = e.target.result;
+        storeUserIDB(db, response.user);
+        setUserContext(response.user)
+        setShowValidationMessage(false);
+      }
+
+      openRequest.onerror = function() {
+        console.log('Login error, LoginForm.jsx ~ 47');
+      }
+
       return navigate('/');
     };
   }
