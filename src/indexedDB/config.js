@@ -10,3 +10,4 @@ export const LS_VERSION = localStorage.getItem(LS_NAME);
 export const USERS = "users";
 export const SECTIONS = "sections";
 export const ARTICLES = "articles";
+export const AUTH = "auth";
