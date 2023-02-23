@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import useUserContext from '../../../../../../../hooks/users/useUserContext';
 import deleteUserIDB from '../../../../../../../indexedDB/api/auth/deleteUserIDB';
-import Popover from '../../../../UI/popover';
+import Popover from '../../../../UI/Popover';
 import myAccountImageLogged from '../../../../../../../assets/images/my-account-logged.png';
 import myAccountImageNotLogged from '../../../../../../../assets/images/my-account-not-logged.png';
 import './MyAccount.scss';

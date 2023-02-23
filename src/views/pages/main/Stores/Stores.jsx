@@ -1,5 +1,5 @@
 import React from 'react';
-import HelmetSEO from "../../../utils/helmetSEO/HelmetSEO";
+import HelmetSEO from "../../../utils/HelmetSEO/HelmetSEO";
 import './Stores.scss';
 
 export default function Stores() {

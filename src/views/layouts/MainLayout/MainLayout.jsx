@@ -1,8 +1,8 @@
 import React, { Suspense, lazy } from "react";
 import './MainLayout.scss';
-const HeaderMain = lazy(() => import('../../components/main/desktop/layout/headerMain'));
-const FooterMain = lazy(() => import('../../components/main/desktop/layout/footerMain'));
-const MenuMain = lazy(() => import('../../components/main/desktop/layout/menuMain/MenuMain'));
+const HeaderMain = lazy(() => import('../../components/main/desktop/layout/HeaderMain'));
+const FooterMain = lazy(() => import('../../components/main/desktop/layout/FooterMain'));
+const MenuMain = lazy(() => import('../../components/main/desktop/layout/MenuMain'));
 const SubRoutes = lazy(() => import('../../../routes/SubRoutes'));
 
 export default function MainLayout({ routes }) {

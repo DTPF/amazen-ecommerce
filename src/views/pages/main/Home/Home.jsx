@@ -1,6 +1,6 @@
 import React from "react";
-import HelmetSEO from "../../../utils/helmetSEO/HelmetSEO";
-import Sections from '../../../components/main/desktop/home/sections';
+import HelmetSEO from "../../../utils/HelmetSEO/HelmetSEO";
+import Sections from '../../../components/main/desktop/home/Sections';
 import './Home.scss';
 
 export default function Home() {

@@ -3,8 +3,8 @@ import { useNavigate } from 'react-router-dom';
 // import useGetUserFromIndexedDB from '../../../hooks/users/useGetUserFromIndexedDB';
 import useUserContext from '../../../hooks/users/useUserContext';
 import './AdminLayout.scss';
-const HeaderAdmin = lazy(() => import('../../components/admin/layout/headerAdmin/HeaderAdmin'));
-const FooterAdmin = lazy(() => import('../../components/admin/layout/footerAdmin/FooterAdmin'));
+const HeaderAdmin = lazy(() => import('../../components/admin/layout/HeaderAdmin/HeaderAdmin'));
+const FooterAdmin = lazy(() => import('../../components/admin/layout/FooterAdmin'));
 const SubRoutes = lazy(() => import('../../../routes/SubRoutes'));
 
 export default function AdminLayout({ routes }) {

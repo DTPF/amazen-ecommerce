@@ -1,5 +1,5 @@
 import React from 'react';
-import HelmetSEO from "../../../utils/helmetSEO/HelmetSEO";
+import HelmetSEO from "../../../utils/HelmetSEO/HelmetSEO";
 import { Result } from 'antd';
 import commingSoonImage from '../../../../assets/images/comming-soon.png';
 import './CommingSoon.scss';

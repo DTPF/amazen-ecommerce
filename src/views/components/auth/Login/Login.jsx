@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import LoginForm from './loginForm/LoginForm';
+import LoginForm from './LoginForm/LoginForm';
 import amazenLogo from '../../../../assets/images/amazen-logo-white.png';
 import validationWarningIcon from '../../../../assets/images/validation-warning-icon.png';
 import { RxTriangleRight } from 'react-icons/rx';

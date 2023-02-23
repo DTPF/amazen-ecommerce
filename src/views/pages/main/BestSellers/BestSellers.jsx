@@ -1,6 +1,6 @@
 import React from 'react';
-import Articles from '../../../components/main/desktop/articles/Articles';
-import HelmetSEO from "../../../utils/helmetSEO/HelmetSEO";
+import Articles from '../../../components/main/desktop/Articles';
+import HelmetSEO from "../../../utils/HelmetSEO/HelmetSEO";
 import './BestSellers.scss';
 
 export default function BestSellers() {

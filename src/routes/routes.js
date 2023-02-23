@@ -1,24 +1,24 @@
 // Layout
-import LayoutAdmin from "../views/layouts/adminLayout";
-import LayoutBasic from "../views/layouts/mainLayout";
-import AuthLayout from "../views/layouts/authLayout";
+import LayoutAdmin from "../views/layouts/AdminLayout";
+import LayoutBasic from "../views/layouts/MainLayout";
+import AuthLayout from "../views/layouts/AuthLayout";
 
 // Main Pages
-import Home from "../views/pages/main/home";
-import BestSellers from "../views/pages/main/bestSellers";
-import Stores from "../views/pages/main/stores";
-import Help from "../views/pages/main/help";
+import Home from "../views/pages/main/Home";
+import BestSellers from "../views/pages/main/BestSellers";
+import Stores from "../views/pages/main/Stores";
+import Help from "../views/pages/main/Help";
 
 // Auth pages
-import Login from "../views/pages/authentication/loginPage/LoginPage";
+import Login from "../views/pages/authentication/LoginPage/LoginPage";
 
 // Admin Pages
-import HomeAdmin from "../views/pages/admin/homeAdmin";
-import ProductsAdmin from "../views/pages/admin/productsAdmin";
+import HomeAdmin from "../views/pages/admin/HomeAdmin";
+import ProductsAdmin from "../views/pages/admin/ProductsAdmin";
 
 // Messages pages
-import Error from '../views/pages/messages/error';
-import CommingSoon from "../views/pages/messages/commingSoon";
+import Error from '../views/pages/messages/Error';
+import CommingSoon from "../views/pages/messages/CommingSoon";
 
 
 const routes = [
