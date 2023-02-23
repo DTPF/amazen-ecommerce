@@ -1,9 +1,9 @@
 import React, { useContext } from 'react';
-import { useUserContext } from '../../../../../providers/UserProvider';
+import useUserContext from '../../../../../hooks/users/useUserContext';
 import { CartContext } from '../../../../../providers/CartProvider';
-import { CgShoppingCart } from 'react-icons/cg';
 import useGetArticles from '../../../../../indexedDB/api/articles/useGetArticles';
 import fiveStarsImage from '../../../../../assets/images/five-stars.png';
+import { CgShoppingCart } from 'react-icons/cg';
 import './Articles.scss';
 
 export default function Articles() {
