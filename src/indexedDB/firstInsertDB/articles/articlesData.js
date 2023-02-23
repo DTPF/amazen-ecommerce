@@ -1,11 +1,11 @@
-import article1 from '../../../../uploads/articles/article-1.png';
-import article2 from '../../../../uploads/articles/article-2.png';
-import article3 from '../../../../uploads/articles/article-3.png';
-import article4 from '../../../../uploads/articles/article-4.png';
-import article5 from '../../../../uploads/articles/article-5.png';
-import article6 from '../../../../uploads/articles/article-6.png';
-import article7 from '../../../../uploads/articles/article-7.png';
-import article8 from '../../../../uploads/articles/article-8.png';
+import article1 from '../../../uploads/articles/article-1.png';
+import article2 from '../../../uploads/articles/article-2.png';
+import article3 from '../../../uploads/articles/article-3.png';
+import article4 from '../../../uploads/articles/article-4.png';
+import article5 from '../../../uploads/articles/article-5.png';
+import article6 from '../../../uploads/articles/article-6.png';
+import article7 from '../../../uploads/articles/article-7.png';
+import article8 from '../../../uploads/articles/article-8.png';
 
 export const articlesData = [
   {

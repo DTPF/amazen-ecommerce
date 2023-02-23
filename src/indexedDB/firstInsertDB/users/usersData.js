@@ -1,5 +1,5 @@
-import avatar1 from '../../../../assets/images/userAvatar/avatar-1.png';
-import avatar2 from '../../../../assets/images/userAvatar/avatar-1.png';
+import avatar1 from '../../../assets/images/userAvatar/avatar-1.png';
+import avatar2 from '../../../assets/images/userAvatar/avatar-1.png';
 
 export const usersData = [
   {

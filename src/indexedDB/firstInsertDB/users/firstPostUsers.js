@@ -1,4 +1,4 @@
-import { USERS } from "../../../config";
+import { USERS } from "../../config";
 import { usersData } from "./usersData";
 
 export default function firstPostUsers(vls, db) {

@@ -1,11 +1,11 @@
-import echoShowImg from '../../../../uploads/sections/echo-show.png';
-import gatoProgramadorImg from '../../../../uploads/sections/gato-programador.jpg';
-import helpImg from '../../../../uploads/sections/ayuda.png';
-import informaticaImg from '../../../../uploads/sections/informatica.png';
-import outletImg from '../../../../uploads/sections/outlet.png';
-import kitchenImg from '../../../../uploads/sections/cocina.png';
-import giftImg from '../../../../uploads/sections/gift.png';
-import beautyImg from '../../../../uploads/sections/beauty.png';
+import echoShowImg from '../../../uploads/sections/echo-show.png';
+import gatoProgramadorImg from '../../../uploads/sections/gato-programador.jpg';
+import helpImg from '../../../uploads/sections/ayuda.png';
+import informaticaImg from '../../../uploads/sections/informatica.png';
+import outletImg from '../../../uploads/sections/outlet.png';
+import kitchenImg from '../../../uploads/sections/cocina.png';
+import giftImg from '../../../uploads/sections/gift.png';
+import beautyImg from '../../../uploads/sections/beauty.png';
 
 export const sectionsData = [
   {
