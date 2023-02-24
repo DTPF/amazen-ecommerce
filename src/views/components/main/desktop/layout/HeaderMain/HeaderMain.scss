@@ -1,4 +1,5 @@
 @import '../../../../../../scss/variables';
+@import '../../../../../../scss/animations';
 
 .header-main {
   display: flex;
@@ -7,6 +8,7 @@
   height: $headerHeigth;
   color: #fff;
   background-color: $bgPrimary;
+  @include fadeIn(300ms);
 
   &__row-1,
   &__row-2,
