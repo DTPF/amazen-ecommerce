@@ -1,6 +1,6 @@
 import { DB_NAME_AMAZEN, DB_VERSION, AUTH } from "../../config";
 
-export default function deleteUserIDB() {
+export default async function deleteUserIDB() {
   let openRequest = indexedDB.open(DB_NAME_AMAZEN, DB_VERSION);
   openRequest.onupgradeneeded = function () {
     let db = openRequest.result;
