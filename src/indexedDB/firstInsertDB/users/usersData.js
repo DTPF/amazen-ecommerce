@@ -1,5 +1,4 @@
-import avatar1 from '../../../assets/images/userAvatar/avatar-1.png';
-import avatar2 from '../../../assets/images/userAvatar/avatar-1.png';
+import randomAvatar from '../../utils/randomAvatar';
 
 export const usersData = [
   {
@@ -7,7 +6,7 @@ export const usersData = [
     lastname: 'Admin',
     email: 'admin@admin.com',
     password: 'admin',
-    avatar: avatar1,
+    avatar: randomAvatar(),
     role: 'admin',
     createdAt: Date.now()
   },
@@ -16,7 +15,7 @@ export const usersData = [
     lastname: 'Romero',
     email: 'user@user.es',
     password: 'user',
-    avatar: avatar2,
+    avatar: randomAvatar(),
     role: 'user',
     createdAt: Date.now()
   }
