@@ -120,6 +120,11 @@
       @include buttonPrimary(#F1F3F5, #DFE2E7);
       width: 340px;
       margin: 5px 0;
+
+      a {
+        text-decoration: none;
+        color: #000;
+      }
     }
   }
 }
