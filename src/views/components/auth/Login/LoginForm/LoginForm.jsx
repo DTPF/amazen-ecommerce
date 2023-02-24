@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { DB_NAME_AMAZEN, DB_VERSION } from '../../../../../indexedDB/config';
 import useUserContext from '../../../../../hooks/useUserContext';
@@ -7,22 +7,14 @@ import useLogin from '../../../../../indexedDB/api/users/useLogin';
 import './LoginForm.scss';
 
 
-export default function LoginForm({ setShowValidationMessage }) {
+export default function LoginForm({ setMessage, setShowValidationMessage }) {
   const { setUserContext } = useUserContext();
   const [inputs, setInputs] = useState({
     email: "",
     password: "",
   });
-  const [result, setResult] = useState('');
   const response = useLogin(inputs.email, inputs.password);
   let navigate = useNavigate();
-
-  useEffect(() => {
-    let isMounted = true;
-    isMounted && setResult(response);
-
-    return () => { isMounted = false }
-  }, [response]);
 
   const handleChangeForm = (e) => {
     setInputs({ ...inputs, [e.target.name]: e.target.value });
@@ -30,9 +22,25 @@ export default function LoginForm({ setShowValidationMessage }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (response === 'email-not-valid' || response === 'password-not-valid') {
-      return setShowValidationMessage(true);
-    } else if (response.status === 'success') {
+    if (!inputs.email) {
+      setMessage('Introduce tu e-mail');
+      setShowValidationMessage(true);
+      return;
+    }
+
+    if (response === 'email-not-valid') {
+      setMessage('E-mail incorrecto');
+      setShowValidationMessage(true);
+      return;
+    }
+
+    if (response === 'password-not-valid') {
+      setMessage('Contraseña incorrecta');
+      setShowValidationMessage(true);
+      return;
+    }
+
+    if (response.status === 'success') {
       let openRequest = indexedDB.open(DB_NAME_AMAZEN, DB_VERSION);
 
       openRequest.onsuccess = function (e) {
@@ -40,14 +48,22 @@ export default function LoginForm({ setShowValidationMessage }) {
         storeUserIDB(db, response.user);
         setUserContext(response.user)
         setShowValidationMessage(false);
+        return navigate('/');
       }
 
-      openRequest.onerror = function() {
+      openRequest.onerror = function () {
         console.log('Login error, LoginForm.jsx ~ 47');
       }
 
-      return navigate('/');
     };
+  }
+
+  const setClassnames = () => {
+    if (response === 'email-not-valid') {
+      return 'validation-warning';
+    } else {
+      return inputs.email ? 'validation-success' : '';
+    }
   }
 
   return (
@@ -55,10 +71,10 @@ export default function LoginForm({ setShowValidationMessage }) {
       <label htmlFor='email'>
         Dirección de e-mail
         <input
-          className={`${((result === 'email-not-valid') ? 'validation-warning' : '')} ${((result === 'success' || result === 'password-not-valid') ? 'validation-success' : '')} `}
+          className={setClassnames()}
           name='email'
-          id='email'
           type="email"
+          value={inputs.email}
           onChange={(e) => handleChangeForm(e)}
         />
       </label>
@@ -67,8 +83,8 @@ export default function LoginForm({ setShowValidationMessage }) {
         Contraseña
         <input
           name='password'
-          id='password'
           type="password"
+          value={inputs.password}
           onChange={(e) => handleChangeForm(e)}
         />
       </label>
