@@ -14,10 +14,15 @@ export default function Login() {
     <div className={`login ${showValidationMessage ? 'window-height' : ''}`}>
       <img className='login__image' src={amazenLogo} alt='Amazen logo' />
       {showValidationMessage && <ValidationMessage message={message} />}
-      <FormContainer setMessage={setMessage} setShowValidationMessage={setShowValidationMessage} />
+      <FormContainer 
+        setMessage={setMessage} 
+        setShowValidationMessage={setShowValidationMessage} 
+      />
       <div className='login__register'>
         <p>¿Eres nuevo en Amazén?</p>
-        <button><Link to={'/auth/register'}>Crea tu cuenta de Amazén</Link></button>
+        <Link to={'/auth/register'}>
+          <button>Crea tu cuenta de Amazén</button>
+        </Link>
       </div>
     </div>
   );
@@ -27,7 +32,10 @@ function FormContainer({ setMessage, setShowValidationMessage }) {
   return (
     <div className='login__form-container'>
       <p className='login__form-container--title'>Iniciar sesión</p>
-      <LoginForm setMessage={setMessage} setShowValidationMessage={setShowValidationMessage} />
+      <LoginForm 
+        setMessage={setMessage} 
+        setShowValidationMessage={setShowValidationMessage} 
+      />
       <Conditions />
       <Help />
     </div>
