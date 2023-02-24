@@ -7,18 +7,16 @@ import myAccountImageLogged from '../../../../../../../assets/images/my-account-
 import myAccountImageNotLogged from '../../../../../../../assets/images/my-account-not-logged.png';
 import './MyAccount.scss';
 
-
 export default function MyAccount() {
   const [isVisible, setIsVisible] = useState(false);
   const { userContext } = useUserContext();
 
-  const handleLogout = () => {
-    deleteUserIDB().then(() => {
+  const handleLogout = async () => {
+    await deleteUserIDB().then(() => {
       localStorage.clear();
       window.location.reload();
     });
   }
-
   return (
     <div className='my-account'
       onMouseEnter={() => setIsVisible(true)}
@@ -28,7 +26,7 @@ export default function MyAccount() {
         className='my-account__image'
         src={userContext ? myAccountImageLogged : myAccountImageNotLogged} alt='My account'
       />
-      <p className='my-account__name'>{userContext && userContext.name}</p>
+      <p className='my-account__name'>{userContext?.name}</p>
       {isVisible && (
         <Popover
           isVisible={isVisible}

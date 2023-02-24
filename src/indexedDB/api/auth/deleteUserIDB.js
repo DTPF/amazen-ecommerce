@@ -11,6 +11,10 @@ export default async function deleteUserIDB() {
     let db = openRequest.result;
     deleteUser(db);
   }
+
+  openRequest.onerror = function () {
+    console.log('Delete auth error');
+  }
 }
 
 const deleteUser = (db) => {
