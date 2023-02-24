@@ -13,9 +13,10 @@ export default function MyAccount() {
   const { userContext } = useUserContext();
 
   const handleLogout = () => {
-    localStorage.clear();
-    deleteUserIDB();
-    window.location.reload();
+    deleteUserIDB().then(() => {
+      localStorage.clear();
+      window.location.reload();
+    });
   }
 
   return (
