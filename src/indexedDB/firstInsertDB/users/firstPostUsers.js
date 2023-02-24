@@ -15,7 +15,7 @@ function postUsers(db, name, lastname, userName, email, password, avatar, role, 
   let transaction = db.transaction([USERS], "readwrite");
   let users = transaction.objectStore(USERS);
   let user = {
-    id: index,
+    id: `:r1:${email}`,
     name: name,
     lastname: lastname,
     userName: userName,
