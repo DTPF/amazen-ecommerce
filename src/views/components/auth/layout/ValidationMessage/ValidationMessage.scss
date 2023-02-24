@@ -1,0 +1,31 @@
+@import '../../../../../scss//variables';
+
+.validation-message {
+    display: flex;
+    margin: 5px auto;
+    margin-bottom: 15px;
+    border: 1px solid $redWarning;
+    width: 350px;
+    border-radius: 4px;
+
+    &--image {
+      width: 35px;
+      height: 35px;
+      padding: 10px;
+    }
+
+    &--message-div {
+
+      &--title {
+        color: $redWarning;
+        font-weight: 500;
+        margin-bottom: 5px;
+
+      }
+
+      &--content {
+        margin-top: 0;
+        font-size: .75rem;
+      }
+    }
+  }
