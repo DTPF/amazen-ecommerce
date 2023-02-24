@@ -6,7 +6,6 @@ export default function firstPostUsers(vls, db) {
     usersData.forEach((user, index) => {
       const { name, lastname, userName, email, password, avatar, role, createdAt } = user;
       postUsers(db, name, lastname, userName, email, password, avatar, role, createdAt, index);
-      localStorage.setItem("amazen_idb_vs", db.version);
     });
   }
 }
@@ -28,14 +27,6 @@ function postUsers(db, name, lastname, userName, email, password, avatar, role, 
   let request = users.put(user);
 
   request.onsuccess = function (e) {
-    const lsObj = localStorage.getItem('last_id');
-    const objParse = JSON.parse(lsObj);
-    const sectionObj = {
-      users: e.target.result,
-      sections: objParse && objParse.sections
-    }
-
-    localStorage.setItem('last_id', JSON.stringify(sectionObj));
   };
 
   request.onerror = function () {
