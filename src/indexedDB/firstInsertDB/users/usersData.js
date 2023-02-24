@@ -5,7 +5,6 @@ export const usersData = [
   {
     name: 'Admin',
     lastname: 'Admin',
-    userName: 'admin',
     email: 'admin@admin.com',
     password: 'admin',
     avatar: avatar1,
@@ -15,7 +14,6 @@ export const usersData = [
   {
     name: 'User',
     lastname: 'Romero',
-    userName: 'user',
     email: 'user@user.es',
     password: 'user',
     avatar: avatar2,
