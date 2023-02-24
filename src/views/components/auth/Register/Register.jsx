@@ -1,27 +1,28 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import ValidationMessage from '../layout/ValidationMessage';
 import RegisterForm from './RegisterForm/RegisterForm';
 import amazenLogo from '../../../../assets/images/amazen-logo-white.png';
-import validationWarningIcon from '../../../../assets/images/validation-warning-icon.png';
 import './Register.scss';
 
 export default function Register() {
+  const [message, setMessage] = useState('');
   const [showValidationMessage, setShowValidationMessage] = useState(false);
 
   return (
     <div className={`register ${showValidationMessage ? 'window-height' : ''}`}>
       <img className='register__image' src={amazenLogo} alt='Amazen logo' />
-      {showValidationMessage && <ValidationMessage />}
-      <FormContainer setShowValidationMessage={setShowValidationMessage} />
+      {showValidationMessage && <ValidationMessage message={message} />}
+      <FormContainer setMessage={setMessage} showValidationMessage={showValidationMessage} setShowValidationMessage={setShowValidationMessage} />
     </div>
   );
 }
 
-function FormContainer({ setShowValidationMessage }) {
+function FormContainer({ setMessage, showValidationMessage, setShowValidationMessage }) {
   return (
     <div className='register__form-container'>
       <p className='register__form-container--title'>Crear cuenta</p>
-      <RegisterForm setShowValidationMessage={setShowValidationMessage} />
+      <RegisterForm setMessage={setMessage} showValidationMessage={showValidationMessage} setShowValidationMessage={setShowValidationMessage} />
       <Conditions />
       <Help />
     </div>
@@ -48,23 +49,9 @@ function Help() {
       </div>
       <div>
         ¿Compras para tu empresa?
-        <Link to={'/auth'}>Crear una cuenta de empresa gratuita</Link>
-      </div>
-    </div>
-  )
-}
-
-function ValidationMessage() {
-  return (
-    <div className='register__validation-message'>
-      <img className='register__validation-message--image' src={validationWarningIcon} alt='Warning icon' />
-      <div className='register__validation-message--message-div'>
-        <p className='register__validation-message--message-div--title'>
-          Ha surgido un problema
-        </p>
-        <p className='register__validation-message--message-div--content'>
-          No encontramos ninguna cuenta con esa dirección de correo electrónico
-        </p>
+        <Link to={'/comming-soon'}>
+          Crear una cuenta de empresa gratuita
+        </Link>
       </div>
     </div>
   )
