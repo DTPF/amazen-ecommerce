@@ -32,7 +32,6 @@ export default function useGetUserById(id) {
 
 const getUserById = (db, setUser, id) => {
   if (db.objectStoreNames.contains(USERS)) {
-    if (isNaN(id)) return;
 
     if (id || id !== undefined) {
       const request = db.transaction(USERS, "readonly")
