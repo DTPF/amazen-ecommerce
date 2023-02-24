@@ -1,0 +1,95 @@
+@import '../../../../scss//mixins';
+@import '../../../../scss//variables';
+
+.window-height {
+  height: 645px !important;
+}
+
+.register {
+  display: flex;
+  flex-direction: column;
+  height: 710px;
+
+  &__image {
+    width: 142px;
+    margin: 8px auto;
+  }
+
+  &__validation-message {
+    display: flex;
+    margin: 5px auto;
+    margin-bottom: 15px;
+    border: 1px solid $redWarning;
+    width: 350px;
+    border-radius: 4px;
+
+    &--image {
+      width: 35px;
+      height: 35px;
+      padding: 10px;
+    }
+
+    &--message-div {
+
+      &--title {
+        color: $redWarning;
+        font-weight: 500;
+        margin-bottom: 5px;
+
+      }
+
+      &--content {
+        margin-top: 0;
+        font-size: .8rem;
+      }
+    }
+  }
+
+  &__form-container {
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    height: 550px;
+    margin: 0 auto;
+    padding: 25px;
+    border: 1px solid #d4d4d4;
+    border-radius: 4px;
+
+    &--title {
+      font-size: 1.6rem;
+      font-weight: 400;
+      margin: 0;
+      padding-bottom: 15px;
+    }
+
+    &--conditions {
+      font-size: .7rem;
+      line-height: 1.1rem;
+
+      span {
+        color: $colorBlue;
+      }
+    }
+
+    &--help {
+      display: flex;
+      flex-direction: column;
+      justify-content: start;
+      font-size: .8rem;
+      font-weight: 400;
+      margin-top: 15px;
+
+      div {
+      margin: 5px 0;
+        font-size: 0.75rem;
+
+      a {
+        color: $colorBlue;
+        text-decoration: none;
+        padding-left: 5px;
+        font-weight: 500;
+      }
+      }
+    }
+  }
+}
