@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import LoginForm from './LoginForm/LoginForm';
 import amazenLogo from '../../../../assets/images/amazen-logo-white.png';
 import validationWarningIcon from '../../../../assets/images/validation-warning-icon.png';
@@ -15,7 +16,7 @@ export default function Login() {
       <FormContainer setShowValidationMessage={setShowValidationMessage} />
       <div className='login__register'>
         <p>¿Eres nuevo en Amazén?</p>
-        <button>Crea tu cuenta de Amazén</button>
+        <button><Link to={'/auth/register'}>Crea tu cuenta de Amazén</Link></button>
       </div>
     </div>
   );
