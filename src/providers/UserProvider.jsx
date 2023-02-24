@@ -12,6 +12,7 @@ export function UserProvider({ children }) {
   useEffect(() => {
     if (userId && (getUser !== 'logged-out')) {
       delete getUser.password;
+      delete getUser.repeatPassword;
       setUserContext(getUser);
     }
   }, [getUser, userId]);
