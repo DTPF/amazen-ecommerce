@@ -11,6 +11,7 @@ import Help from "../views/pages/main/Help";
 
 // Auth pages
 import Login from "../views/pages/auth/LoginPage";
+import Register from "../views/pages/auth/RegisterPage";
 
 // Admin Pages
 import HomeAdmin from "../views/pages/admin/HomeAdmin";
@@ -47,7 +48,7 @@ const routes = [
         exact: true,
         component: Help,
       },
-            {
+      {
         path: "/comming-soon",
         exact: true,
         component: CommingSoon,
@@ -68,6 +69,11 @@ const routes = [
         path: "/",
         exact: true,
         component: Login,
+      },
+      {
+        path: "/register",
+        exact: true,
+        component: Register,
       },
       {
         path: "*",
