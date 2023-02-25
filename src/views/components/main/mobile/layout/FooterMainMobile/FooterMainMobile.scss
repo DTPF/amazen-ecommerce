@@ -1,0 +1,49 @@
+@import '../../../../../../scss/variables';
+
+.footer-main-mobile {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  position: fixed;
+  bottom: 0;
+  width: 100vw;
+  height: 50px;
+  background-color: #FFFFFF;
+  border-top: 1px solid #bcbcbc;
+
+  a {
+    padding: 10px;
+    color: #585858;
+    font-size: 1.4rem;
+    cursor: pointer;
+
+    &:hover,
+    &:focus {
+      color: $colorBlueSecondary;
+      border-top: 3px solid $colorBlueSecondary;
+    }
+
+    &.active {
+      color: $colorBlueSecondary;
+      border-top: 3px solid $colorBlueSecondary;
+    }
+  }
+
+  &__logged {
+    padding: 10px;
+    color: #58585872;
+    font-size: 1.4rem;
+  }
+
+  &__cart {
+    span {
+      position: absolute;
+      top: 0;
+      padding-left: 19px;
+      padding-top: 3px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: $colorOrange;
+    }
+  }
+}
