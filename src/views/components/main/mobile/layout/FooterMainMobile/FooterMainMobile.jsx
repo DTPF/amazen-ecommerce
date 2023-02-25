@@ -3,7 +3,7 @@ import { NavLink, Link } from 'react-router-dom';
 import useUserContext from '../../../../../../hooks/useUserContext';
 import handleSessionLogout from '../../../../../utils/sessionLogout';
 import useSetCartCount from '../../../../../../hooks/useSetCartCount';
-import useGetUserFromIndexedDB from '../../../../../../hooks/users/useGetUserFromIndexedDB';
+import useGetUserFromIndexedDB from '../../../../../../hooks/useGetUserFromIndexedDB';
 import { AiOutlineUser, AiOutlineHome, AiOutlineStar } from 'react-icons/ai';
 import { MdExitToApp } from 'react-icons/md';
 import { RiAdminLine } from 'react-icons/ri';

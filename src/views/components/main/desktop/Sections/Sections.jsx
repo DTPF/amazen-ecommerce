@@ -1,7 +1,7 @@
 /* eslint-disable react/jsx-no-target-blank */
 import React from 'react';
 import './Sections.scss';
-import useGetSections from '../../../../../../indexedDB/api/sections/useGetSections';
+import useGetSections from '../../../../../indexedDB/api/sections/useGetSections';
 import { Link } from 'react-router-dom';
 
 export default function Sections() {
