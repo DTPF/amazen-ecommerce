@@ -1,0 +1,17 @@
+.nav-bar-mobile {
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-end;
+  height: 18px;
+  background: linear-gradient(to top right, #82D9E2, #A4E6D0);
+  font-size: 0.8rem;
+  font-weight: 400;
+  padding-bottom: 13px;
+  padding-top: 5px;
+
+  a {
+    color: #4e4e4e;
+    text-decoration: none;
+    text-shadow: 0px 0px 2px #00000024;
+  }
+}
