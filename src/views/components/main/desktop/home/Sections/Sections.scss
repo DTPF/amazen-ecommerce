@@ -8,6 +8,8 @@
   width: auto;
   max-width: 1500px;
   margin: 0 auto;
+  padding-bottom: 40px;
+  background-color: #E3E6E6;
 
   &__section {
     display: flex;
@@ -30,6 +32,19 @@
       text-decoration: none;
       font-size: .9rem;
       color: #007185;
+    }
+
+  }
+
+  @media (max-width: 761px) {
+    padding: 20px 0;
+    padding-bottom: 50px;
+
+    &__section {
+
+      margin: 10px 5px;
+      width: 170px;
+      height: auto;
     }
   }
 }

@@ -1,7 +1,9 @@
 @import '../../../../scss/mixins';
 
 .comming-soon {
+  background-color: #fff;
   img {
+    width: 100%;
     max-width: 500px;
   }
 
