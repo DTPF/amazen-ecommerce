@@ -1,0 +1,42 @@
+.header-main-mobile {
+  background: linear-gradient(to bottom right, #82D9E2, #A4E6D0);;
+  height: 60px;
+  display: flex;
+  justify-content: center;
+
+  &__input-div {
+    position: absolute;
+    margin-top: 13px;
+
+    svg {
+      position: absolute;
+      top: 13px;
+      left: 9px;
+      color: #2f2f2f;
+      font-size: 0.8rem;
+    }
+
+    input {
+      width: 80vw;
+      height: 36px;
+      border: 1.5px solid #80808073;
+      border-radius: 5px;
+      padding-left: 28px;
+      box-shadow: 1px 2px 15px 0px rgba(0, 0, 0, 0.157);
+      padding-top: 3px;
+      text-shadow: 0px 0px 2px #00000034;
+    }
+
+    &--camera-icon {
+      position: absolute;
+      top: -1px;
+      right: 36px;
+
+      svg {
+      color: #6b6b6b;
+      font-size: 1rem;
+
+      }
+    }
+  }
+}
