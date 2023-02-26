@@ -9,7 +9,7 @@ export function WishlistProvider( { children }) {
 
   useEffect(() => {
     let isMounted = true;
-    isMounted && setWishlist(wishlistIdb.wishlistIndexed);
+    isMounted && setWishlist(wishlistIdb);
     return () => { isMounted = false }
   }, [wishlistIdb]);
 
