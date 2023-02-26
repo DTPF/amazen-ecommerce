@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { DB_NAME_AMAZEN, DB_VERSION, WISHLIST } from "../../config";
 import { isDBValid } from "../../utils/validations";
 
-export default function useGetWishlistByUserId(userId) {
+export default function useGetWishlistByUserId(userId, status) {
   const [wishlist, setWishlist] = useState('');
 
   useEffect(() => {
@@ -12,12 +12,12 @@ export default function useGetWishlistByUserId(userId) {
 
     openRequest.onupgradeneeded = function (e) {
       const db = e.target.result;
-      isMounted && getWishlist(db, setWishlist, userId);
+      isMounted && getWishlist(db, setWishlist, userId, status);
     };
 
     openRequest.onsuccess = function (e) {
       const db = e.target.result;
-      isMounted && getWishlist(db, setWishlist, userId);
+      isMounted && getWishlist(db, setWishlist, userId, status);
     };
 
     openRequest.onerror = function (e) {
@@ -28,12 +28,12 @@ export default function useGetWishlistByUserId(userId) {
     };
 
     return () => { isMounted = false };
-  }, [userId])
+  }, [userId, status])
 
   return wishlist;
 }
 
-const getWishlist = (db, setWishlist, userId) => {
+const getWishlist = (db, setWishlist, userId, status) => {
   if (db.objectStoreNames.contains(WISHLIST)) {
     const request = db.transaction(WISHLIST, "readonly")
       .objectStore(WISHLIST)
@@ -45,21 +45,32 @@ const getWishlist = (db, setWishlist, userId) => {
 
       result && result.forEach(element => {
         if (element.userId === userId) {
-          arr.push(element);
+          if (status) {
+            if (status === 'active') {
+              if (element.status === 'active') {
+                arr.push(element);
+                return;
+              }
+            }
+            if (status === 'completed') {
+              if (element.status === 'completed') {
+                arr.push(element);
+                return;
+              }
+            }
+          } else {
+            arr.push(element);
+          }
         }
       });
 
-      setWishlist({
-        wishlistIndexed: arr ? arr : [],
-      });
+      setWishlist(arr ? arr : [],);
     };
 
     request.onerror = function (e) {
       console.log("onerror!", e);
     };
   } else {
-    setWishlist({
-      wishlistIndexed: [],
-    });
+    setWishlist([]);
   }
 };
