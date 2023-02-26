@@ -1,8 +1,12 @@
-import './App.css';
-import WishList from './pages/WishList';
+import { WishlistProvider } from './providers/WishlistProvider';
+import dbIndexed from './indexedDB';
+import WishlistPage from './pages/WishlistPage';
 
 export default function App() {
+  dbIndexed();
   return (
-    <WishList />
+    <WishlistProvider>
+      <WishlistPage />
+    </WishlistProvider>
   );
 }
