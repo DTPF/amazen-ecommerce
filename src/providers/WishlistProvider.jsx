@@ -1,20 +1,25 @@
-import React, { useEffect, createContext, useContext, useState } from 'react';
+import React, {
+  useEffect,
+  createContext,
+  useContext,
+  useState
+} from 'react';
 import useGetWishlistByUserId from '../indexedDB/api/wishlist/useGetWishlistByUserId';
 
 export const WishlistContext = createContext(null);
 
-export function WishlistProvider( { children }) {
+export function WishlistProvider({ children }) {
   const [wishlist, setWishlist] = useState([]);
-  const wishlistIdb = useGetWishlistByUserId('d@mail.com');
+  const currentURL = window.location.pathname;
+  const wishlistIdb =
+    useGetWishlistByUserId('d@mail.com', currentURL.substring(1));
 
   useEffect(() => {
-    let isMounted = true;
-    isMounted && setWishlist(wishlistIdb);
-    return () => { isMounted = false }
+    setWishlist(wishlistIdb);
   }, [wishlistIdb]);
 
   return (
-    <WishlistContext.Provider value={{wishlist, setWishlist}} >
+    <WishlistContext.Provider value={{ wishlist, setWishlist }} >
       {children}
     </WishlistContext.Provider>
   )
