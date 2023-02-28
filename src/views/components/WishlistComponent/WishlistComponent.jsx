@@ -2,7 +2,10 @@ import React, { useEffect } from 'react';
 import { useWishlistContext } from '../../../providers/WishlistProvider';
 import useGetWishlistByUserId from '../../../indexedDB/api/wishlist/useGetWishlistByUserId';
 import HeaderWishlist from './HeaderWishlist';
+import PostNewItem from './PostNewItem';
 import WishlistItem from './WishListItem';
+import BottomList from './BottomList';
+import './WishlistComponent.scss';
 
 export default function WishlistComponent({ status }) {
   const { wishlist, setWishlist } = useWishlistContext();
@@ -13,15 +16,27 @@ export default function WishlistComponent({ status }) {
   }, [setWishlist, wishlistIdb]);
 
   return (
-    <div>
+    <div className='wishlist-component'>
       <HeaderWishlist />
-      {wishlist.length === 0 && <div>Lista vacía</div>}
-      {wishlist && wishlist.map((wishlistItem, index) => (
-        <WishlistItem
-          key={index}
-          wishlistItem={wishlistItem}
+      {status !== 'completed' && (
+        <PostNewItem
+          wishlist={wishlist}
+          setWishlist={setWishlist}
         />
-      ))}
+      )}
+      <div className='wishlist-component__empty-list-msg'>
+        {wishlist.length === 0 && <div>Lista vacía...</div>}
+      </div>
+      <div className='wishlist-component__list'>
+        {wishlist && wishlist.map((wishlistItem, index) => (
+          <WishlistItem
+            key={index}
+            wishlistItem={wishlistItem}
+            status={status}
+          />
+        ))}
+      </div>
+      {(wishlist.length > 0) && <BottomList />}
     </div>
   )
 }
