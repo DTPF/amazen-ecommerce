@@ -13,35 +13,46 @@
   transition: all 0.3s ease;
   @include fromMarginTopToMarginTop();
 
-  &:first-child {
-    border: 0;
-    border-top-right-radius: 5px;
-    border-top-left-radius: 5px;
-  }
-
-  &:last-child {
-    border-bottom-right-radius: 5px;
-    border-bottom-left-radius: 5px;
-  }
-
   &__title {
     display: flex;
     align-items: center;
-      margin-top: 2px;
+    margin-top: 2px;
 
     &--link {
-      padding: 5px;
-      font-size: 1.4rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
 
-      svg {
-        color: #2e85ff;
+      h3 {
+        width: 365px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        font-size: 1.15rem;
+        font-weight: 400;
+        color: #525252;
+      }
+
+      a {
+        text-decoration: none;
+
+        svg {
+          color: #2e85ff;
+          padding: 0 10px;
+          font-size: 1.4rem;
+        }
       }
     }
 
-    span {
+    input {
       color: #525252;
-      font-size: 1.1rem;
-      font-weight: 500;
+      background-color: transparent;
+      font-size: 1.15rem;
+      font-weight: 400;
+      width: 385px;
+      border: 0;
+      font-family: 'Ubuntu';
+      outline: none;
     }
   }
 
@@ -110,6 +121,17 @@
       opacity: 1;
       @include fadeIn(400ms);
     }
+  }
+
+  &:first-child {
+    border: 0;
+    border-top-right-radius: 8px;
+    border-top-left-radius: 8px;
+  }
+
+  &:last-child {
+    border-bottom-right-radius: 8px;
+    border-bottom-left-radius: 8px;
   }
 }
 
