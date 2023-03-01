@@ -7,7 +7,7 @@
 
 ### Instructions
 ```
-$ git clone https://github.com/jesusfvj/beFriends.git
+$ git clone https://github.com/DTPF/skeleton-node-express-mongo.git
 $ npm install
 $ npm start
 ```
