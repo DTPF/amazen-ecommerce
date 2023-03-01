@@ -4,7 +4,7 @@ import { useWishlistContext } from '../../../../providers/WishlistProvider';
 import './HeaderWishlist.scss';
 
 export default function HeaderWishlist() {
-   const { wishlist } = useWishlistContext();
+  const { wishlist } = useWishlistContext();
 
   return (
     <div className='header-wishlist'>
@@ -16,20 +16,20 @@ export default function HeaderWishlist() {
         <NavLink to={'/'}>
           <button className='header-wishlist__nav--button'>
             Todo
-            <div className='header-wishlist__nav--button__items-count'>{wishlist.length}</div>
           </button>
+          <div className='header-wishlist__nav--items-count'>{wishlist.length}</div>
         </NavLink>
         <NavLink to={'/active'}>
           <button className='header-wishlist__nav--button'>
             Activo
-            <div className='header-wishlist__nav--button__items-count'>{wishlist.length}</div>
           </button>
+          <div className='header-wishlist__nav--items-count'>{wishlist.length}</div>
         </NavLink>
         <NavLink to={'/completed'}>
           <button className='header-wishlist__nav--button'>
             Completado
-            <div className='header-wishlist__nav--button__items-count'>{wishlist.length}</div>
           </button>
+          <div className='header-wishlist__nav--items-count'>{wishlist.length}</div>
         </NavLink>
       </div>
     </div>
