@@ -1,6 +1,8 @@
+import { v4 as uuidv4 } from 'uuid';
+
 export const wishlistData = [
   {
-    id: '1',
+    id: uuidv4(),
     userId: 'd@mail.com',
     title: 'JETech Funda para iPhone 13 6,1 Pulgadas, Anti-Amarillo Carcasa de Parachoques Prueba Golpes',
     link: '/comming-soon',
@@ -8,28 +10,28 @@ export const wishlistData = [
     createdAt: Date.now()
   },
   {
-    id: '2',
+    id: uuidv4(),
     userId: 'd@mail.com',
     title: 'Junta de la trócola',
     status: 'active',
     createdAt: Date.now()
   },
   {
-    id: '3',
+    id: uuidv4(),
     userId: 'd@mail.com',
     title: 'Cangrejos de río',
     status: 'completed',
     createdAt: Date.now()
   },
   {
-    id: '4',
+    id: uuidv4(),
     userId: 'm@mail.com',
-    title: 'Cangrejos de río',
+    title: 'Maria',
     status: 'completed',
     createdAt: Date.now()
   },
   {
-    id: '5',
+    id: uuidv4(),
     userId: 'd@mail.com',
     title: 'JETech Funda para iPhone 13 6,1 Pulgadas, Anti-Amarillo Carcasa de Parachoques Prueba Golpes',
     link: '/comming-soon',
@@ -37,23 +39,23 @@ export const wishlistData = [
     createdAt: Date.now()
   },
   {
-    id: '6',
+    id: uuidv4(),
     userId: 'd@mail.com',
     title: 'Junta de la trócola',
     status: 'active',
     createdAt: Date.now()
   },
   {
-    id: '7',
+    id: uuidv4(),
     userId: 'd@mail.com',
     title: 'Cangrejos de río',
     status: 'completed',
     createdAt: Date.now()
   },
   {
-    id: '8',
+    id: uuidv4(),
     userId: 'm@mail.com',
-    title: 'Cangrejos de río',
+    title: 'Maria',
     status: 'completed',
     createdAt: Date.now()
   }
