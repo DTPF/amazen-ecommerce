@@ -3,6 +3,7 @@ import { useWishlistContext } from '../../../../providers/WishlistProvider';
 import deleteWishItemById from '../../../../indexedDB/api/wishlist/deleteItemByIdIDB';
 import { DB_NAME_AMAZEN, DB_VERSION, WISHLIST } from '../../../../indexedDB/config';
 import { FiExternalLink, FiTrash2 } from 'react-icons/fi';
+import { EMAIL } from '../../../../providers/WishlistProvider';
 import './WishlistItem.scss'
 
 export default function WishlistItem({ wishlistItem, status }) {
@@ -13,46 +14,57 @@ export default function WishlistItem({ wishlistItem, status }) {
     setIsChecked(wishlistItem.status === 'completed' ? true : false)
   }, [wishlistItem])
 
-  const handleOnChange = () => {
+  const handleOnChangeCheckbox = () => {
     let openRequest = indexedDB.open(DB_NAME_AMAZEN, DB_VERSION);
 
-    openRequest.onsuccess = async function (e) {
+    openRequest.onsuccess = function (e) {
       let db = e.target.result;
       let transaction = db.transaction([WISHLIST], "readwrite");
       let listItem = transaction.objectStore(WISHLIST);
-      let request = listItem.get(wishlistItem.id);
+      let request = listItem.getAll();
 
-      request.onsuccess = function (e) {
+      request.onsuccess = function () {
         let result = request.result;
+        let newResult = [];
 
-        if (result.status === 'completed') {
-          result.status = 'active';
-          listItem.put(result);
-          let newWishlist = [...wishlist]
-          wishlist && wishlist.forEach((item, key) => {
-            if (item.id === result.id) {
-              newWishlist[key].status = 'active';
+        result.forEach((item) => {
+          if (item.userId === EMAIL) {
+            newResult.push(item);
+          }
+        });
+
+        if (newResult) {
+          newResult.forEach((item) => {
+            if (item.id === wishlistItem.id) {
+              if (item.status === 'completed') {
+                item.status = 'active';
+                listItem.put(item);
+                newResult && newResult.forEach((item, key) => {
+                  if (item.id === wishlistItem.id) {
+                    newResult[key].status = 'active';
+                    setWishlist(newResult);
+                    removeDOMItem(status, wishlist, setWishlist, item);
+                    setIsChecked(!isChecked);
+                  }
+                })
+                return;
+              }
+
+              if (item.status === 'active') {
+                item.status = 'completed';
+                listItem.put(item);
+                newResult && newResult.forEach((item, key) => {
+                  if (item.id === wishlistItem.id) {
+                    newResult[key].status = 'completed';
+                    setWishlist(newResult);
+                    removeDOMItem(status, wishlist, setWishlist, item);
+                    setIsChecked(!isChecked);
+                  }
+                })
+                return;
+              }
             }
           })
-          setWishlist(newWishlist);
-          setIsChecked(!isChecked);
-          removeDOMItem(status, wishlist, setWishlist, result);
-          return;
-        }
-
-        if (result.status === 'active') {
-          result.status = 'completed';
-          listItem.put(result);
-          let newWishlist = [...wishlist]
-          wishlist && wishlist.forEach((item, key) => {
-            if (item.id === result.id) {
-              newWishlist[key].status = 'completed';
-            }
-          })
-          setWishlist(newWishlist);
-          setIsChecked(!isChecked);
-          removeDOMItem(status, wishlist, setWishlist, result);
-          return;
         }
       };
 
@@ -80,14 +92,14 @@ export default function WishlistItem({ wishlistItem, status }) {
   }
 
   const title = () => {
-    const length = 40;
+    const length = 36;
     if (wishlistItem.title.length > length) {
       return `${wishlistItem.title.substring(0, length)}...`;
     } else {
       return wishlistItem.title;
     }
   }
-
+  
   return (
     <div className={`wishlist-item ${isChecked ? 'wishlist-item-checked' : ''}`} id={wishlistItem.id}>
       <div className='wishlist-item__title'>
@@ -100,7 +112,7 @@ export default function WishlistItem({ wishlistItem, status }) {
         <span className='wishlist-item__check-delete--trash' onClick={() => handleDeleteItem(wishlistItem.id)}><FiTrash2 /></span>
         <div className='wishlist-item__check-delete--checkbox'>
           <label>
-            <input type="checkbox" onChange={() => handleOnChange()} checked={isChecked} />
+            <input type="checkbox" onChange={() => handleOnChangeCheckbox()} checked={wishlistItem.status === 'completed' ? true : false} />
             <span></span>
           </label>
         </div>
@@ -109,11 +121,11 @@ export default function WishlistItem({ wishlistItem, status }) {
   )
 }
 
-function removeDOMItem(status, wishlist, setWishlist, result) {
+function removeDOMItem(status, wishlist, setWishlist, wishlistItem) {
   if (status !== '') {
     let list = [...wishlist];
     list.forEach((item, key) => {
-      if (item.id === result.id) {
+      if (item.id === wishlistItem.id) {
         list.splice(key, 1);
       }
     })
