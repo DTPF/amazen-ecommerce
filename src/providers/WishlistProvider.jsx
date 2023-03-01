@@ -13,11 +13,9 @@ export const WishlistContext = createContext(null);
 export function WishlistProvider({ children }) {
   const [wishlist, setWishlist] = useState([]);
   const wishlistIdb = useGetWishlistByUserId(EMAIL, window.location.pathname.substring(1));
-  let newWishlist = [...wishlist];
 
   useEffect(() => {
-    setWishlist(newWishlist.sort((a,b) => a.createdAt - b.createdAt))
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    setWishlist(wishlistIdb)
   }, [wishlistIdb]);
 
   return (
