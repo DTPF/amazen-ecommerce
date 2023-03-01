@@ -1,14 +1,15 @@
-import React, { useState, useId, useRef } from 'react';
+import React, { useState, useRef } from 'react';
+import { v4 as uuidv4 } from 'uuid';
 import { DB_NAME_AMAZEN, DB_VERSION, WISHLIST } from '../../../../indexedDB/config';
+import { EMAIL } from '../../../../providers/WishlistProvider';
 import { RiSendPlaneFill } from 'react-icons/ri';
 import './PostNewItem.scss';
 
 export default function PostNewItem({ wishlist, setWishlist }) {
-  const id = useId();
   const form = useRef();
   const [inputs, setInputs] = useState({
-    id: '',
-    userId: 'd@mail.com',
+    id: uuidv4(),
+    userId: EMAIL,
     title: undefined,
     link: undefined,
     status: 'active',
@@ -32,6 +33,8 @@ export default function PostNewItem({ wishlist, setWishlist }) {
       request.onsuccess = function () {
         form.current.reset();
         let newList = [...wishlist];
+        inputs.id = uuidv4();
+        inputs.createdAt = Date.now();
         newList.push(inputs);
         setWishlist(newList);
       };
@@ -47,7 +50,6 @@ export default function PostNewItem({ wishlist, setWishlist }) {
   }
 
   const handleChangeForm = (e) => {
-    inputs.id = id + inputs.title
     setInputs({ ...inputs, [e.target.name]: e.target.value });
   };
 
