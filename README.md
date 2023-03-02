@@ -7,7 +7,7 @@
 
 ### Instructions
 ```
-$ git clone https://github.com/DTPF/skeleton-node-express-mongo.git
+$ git clone https://github.com/DTPF/amazen-ecommerce.git
 $ npm install
 $ npm start
 ```
