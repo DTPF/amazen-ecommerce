@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { signInApi } from '../../../../../api/user';
 import useAuth from '../../../../../hooks/useAuth';
 import jwtDecode from "jwt-decode";
-import { DB_NAME_AMAZEN, DB_VERSION, AUTH } from '../../../../../indexedDB/config';
+import { DB_NAME_AMAZEN, DB_VERSION, AUTH } from '../../../../../indexedDB/utils/config';
 import './LoginForm.scss';
 
 export default function LoginForm({ setValtidationMsg }) {

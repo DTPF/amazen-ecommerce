@@ -1,4 +1,4 @@
-import { SECTIONS, ARTICLES, AUTH, DB_VERSION, LS_NAME } from "../config";
+import { SECTIONS, ARTICLES, AUTH, DB_VERSION, LS_NAME } from "./config";
 
 export function createObjects(db) {
   if (!db.objectStoreNames.contains(SECTIONS)) {

@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { DB_NAME_AMAZEN, DB_VERSION, SECTIONS } from "../../config";
+import { DB_NAME_AMAZEN, DB_VERSION, SECTIONS } from "../../utils/config";
 import { isDBValid } from "../../utils/validations";
 
 export default function useGetSections() {

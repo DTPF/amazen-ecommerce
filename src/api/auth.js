@@ -1,6 +1,6 @@
 import { basePath, apiVersion } from "./utils/config";
 import jwtDecode from "jwt-decode";
-import { DB_NAME_AMAZEN, DB_VERSION, AUTH } from "../indexedDB/config";
+import { DB_NAME_AMAZEN, DB_VERSION, AUTH } from "../indexedDB/utils/config";
 import { useState } from "react";
 
 export function useGetAccessTokenApi() {

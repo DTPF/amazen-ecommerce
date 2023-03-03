@@ -1,4 +1,4 @@
-import { SECTIONS } from "../../config";
+import { SECTIONS } from "../../utils/config";
 import { sectionsData } from "./sectionsData";
 
 export default function firstPostSections(vls, db) {

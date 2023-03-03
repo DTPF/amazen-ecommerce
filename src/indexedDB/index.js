@@ -1,4 +1,4 @@
-import { DB_NAME_AMAZEN, DB_VERSION, LS_VERSION } from "./config";
+import { DB_NAME_AMAZEN, DB_VERSION, LS_VERSION } from "./utils/config";
 import { createObjects } from "./utils/manageObjects";
 import firstPostSections from "./firstInsertDB/sections/firstPostSections";
 import firstPostArticles from "./firstInsertDB/articles/firstPostArticles";

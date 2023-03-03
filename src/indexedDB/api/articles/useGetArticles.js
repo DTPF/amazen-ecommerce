@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import { DB_NAME_AMAZEN, DB_VERSION, ARTICLES } from "../../../indexedDB/config";
-import { isDBValid } from "../../../indexedDB/utils/validations";
+import { DB_NAME_AMAZEN, DB_VERSION, ARTICLES } from "../../utils/config";
+import { isDBValid } from "../../utils/validations";
 
 export default function useGetArticles() {
   const [articles, setArticles] = useState('');

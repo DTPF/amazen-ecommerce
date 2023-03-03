@@ -1,4 +1,4 @@
-import { ARTICLES } from "../../config";
+import { ARTICLES } from "../../utils/config";
 import { articlesData } from "./articlesData";
 
 export default function firstPostArticles(vls, db) {
