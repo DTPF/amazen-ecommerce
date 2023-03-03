@@ -1,26 +1,25 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { signInApi } from '../../../../../api/user';
+import { AUTH } from '../../../../../indexedDB/config';
+import useAuth from '../../../../../hooks/useAuth';
+import jwtDecode from "jwt-decode";
 import { DB_NAME_AMAZEN, DB_VERSION } from '../../../../../indexedDB/config';
-import useUserContext from '../../../../../hooks/useUserContext';
-import storeUserIDB from '../../../../../indexedDB/api/auth/storeUserIDB';
-import useLogin from '../../../../../indexedDB/api/users/useLogin';
 import './LoginForm.scss';
 
-
 export default function LoginForm({ setMessage, setShowValidationMessage }) {
-  const { setUserContext } = useUserContext();
+  const { setUser } = useAuth();
   const [inputs, setInputs] = useState({
     email: "",
     password: "",
   });
-  const response = useLogin(inputs.email, inputs.password);
-  let navigate = useNavigate();
+  const navigate = useNavigate();
 
   const handleChangeForm = (e) => {
     setInputs({ ...inputs, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (!inputs.email) {
       setMessage('Introduce tu e-mail');
@@ -28,41 +27,38 @@ export default function LoginForm({ setMessage, setShowValidationMessage }) {
       return;
     }
 
-    if (response === 'email-not-valid') {
-      setMessage('E-mail incorrecto');
-      setShowValidationMessage(true);
-      return;
-    }
-
-    if (response === 'password-not-valid') {
-      setMessage('Contraseña incorrecta');
-      setShowValidationMessage(true);
-      return;
-    }
-
-    if (response.status === 'success') {
-      let openRequest = indexedDB.open(DB_NAME_AMAZEN, DB_VERSION);
-
-      openRequest.onsuccess = function (e) {
-        const db = e.target.result;
-        storeUserIDB(db, response.user);
-        setUserContext(response.user)
-        setShowValidationMessage(false);
-        return navigate('/');
-      }
-
-      openRequest.onerror = function () {
-        console.log('Login error, LoginForm.jsx ~ 47');
-      }
-
-    };
-  }
-
-  const setClassnames = () => {
-    if (response === 'email-not-valid') {
-      return 'validation-warning';
+    const result = await signInApi(inputs);
+    if (result.message) {
+      //////////
+      console.log(result);
+      //////////
     } else {
-      return inputs.email ? 'validation-success' : '';
+      const { accessToken, refreshToken } = result;      
+      const openRequest = indexedDB.open(DB_NAME_AMAZEN, DB_VERSION);
+      
+      openRequest.onsuccess = function(e) {
+        const result = e.target.result;
+        const transaction = result.transaction([AUTH], "readwrite");
+        let auth = transaction.objectStore(AUTH);
+        const obj = {
+          id: 0,
+          ACCESS_TOKEN: accessToken,
+          REFRESH_TOKEN: refreshToken
+        }
+        const request = auth.put(obj);
+        
+        request.onsuccess = function (e) {
+          setUser({
+            isLoading: false,
+            userData: jwtDecode(accessToken),
+          });
+          navigate('/');
+        };
+      
+        request.onerror = function () {
+          console.log("Error", request.error);
+        };
+      }
     }
   }
 
@@ -71,7 +67,6 @@ export default function LoginForm({ setMessage, setShowValidationMessage }) {
       <label htmlFor='email'>
         Dirección de e-mail
         <input
-          className={setClassnames()}
           name='email'
           type="email"
           value={inputs.email}
