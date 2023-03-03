@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import useUserContext from '../../../../../../../hooks/useUserContext';
-import deleteUserIDB from '../../../../../../../indexedDB/api/auth/deleteUserIDB';
+import { logout } from '../../../../../../../api/auth';
+import useAuth from '../../../../../../../hooks/useAuth';
 import Popover from '../../../../UI/Popover';
 import myAccountImageLogged from '../../../../../../../assets/images/my-account-logged.png';
 import myAccountImageNotLogged from '../../../../../../../assets/images/my-account-not-logged.png';
@@ -9,14 +9,18 @@ import './MyAccount.scss';
 
 export default function MyAccount() {
   const [isVisible, setIsVisible] = useState(false);
-  const { userContext } = useUserContext();
+  const { user, setUser } = useAuth();
+  const { userData } = user;
 
-  const handleLogout = async () => {
-    await deleteUserIDB().then(() => {
-      localStorage.clear();
-      window.location.reload();
+  const handleLogout = () => {
+    logout().then(() => {
+      setUser({
+        isLoading: false,
+        userData: null,
+      });
     });
   }
+
   return (
     <div className='my-account'
       onMouseEnter={() => setIsVisible(true)}
@@ -24,9 +28,9 @@ export default function MyAccount() {
     >
       <img
         className='my-account__image'
-        src={userContext ? myAccountImageLogged : myAccountImageNotLogged} alt='My account'
+        src={userData ? myAccountImageLogged : myAccountImageNotLogged} alt='My account'
       />
-      <p className='my-account__name'>{userContext?.name}</p>
+      <p className='my-account__name'>{userData?.name}</p>
       {isVisible && (
         <Popover
           isVisible={isVisible}
@@ -67,12 +71,12 @@ export default function MyAccount() {
                 <li>Mi Amazén Drive</li>
                 <li>Mis Apps y dispositivos</li>
                 <li>Cambiar de cuenta</li>
-                {userContext && <li className='my-account__popover--lists__my-account--logout' onClick={() => handleLogout()}>Cerrar sesión</li>}
+                {userData && <li className='my-account__popover--lists__my-account--logout' onClick={() => handleLogout()}>Cerrar sesión</li>}
               </ul>
             </div>
           </div>
-          {!userContext && <LoginButton />}
-          <LinkToAdmin userContext={userContext} />
+          {!userData && <LoginButton />}
+          <LinkToAdmin userData={userData} />
         </Popover>
       )}
     </div>
@@ -91,10 +95,10 @@ function LoginButton() {
   )
 }
 
-function LinkToAdmin({ userContext }) {
+function LinkToAdmin({ userData }) {
   return (
     <div className='my-account__popover--admin-button'>
-      {userContext?.role === 'admin' && (
+      {userData?.role === 'admin' && (
         <Link to={'./admin'}>
           <button>Admin</button>
         </Link>
