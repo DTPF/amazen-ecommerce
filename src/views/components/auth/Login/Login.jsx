@@ -1,15 +1,19 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import LoginForm from './LoginForm/LoginForm';
+import ValidationMessage from '../layout/ValidationMessage/ValidationMessage';
 import amazenLogo from '../../../../assets/images/amazen-logo-white.png';
 import { RxTriangleRight } from 'react-icons/rx';
 import './Login.scss';
 
 export default function Login() {
+  const [valtidationMsg, setValtidationMsg] = useState(undefined);
+
   return (
-    <div className='login'>
+    <div className={`login ${valtidationMsg ? 'login-window-height' : ''}`}>
       <img className='login__image' src={amazenLogo} alt='Amazen logo' />
-      <FormContainer />
+      {valtidationMsg && <ValidationMessage valtidationMsg={valtidationMsg} />}
+      <FormContainer setValtidationMsg={setValtidationMsg} />
       <div className='login__register'>
         <p>¿Eres nuevo en Amazén?</p>
         <Link to={'/auth/register'}>
@@ -20,11 +24,11 @@ export default function Login() {
   );
 }
 
-function FormContainer() {
+function FormContainer({ setValtidationMsg }) {
   return (
     <div className='login__form-container'>
       <p className='login__form-container--title'>Iniciar sesión</p>
-      <LoginForm />
+      <LoginForm setValtidationMsg={setValtidationMsg} />
       <Conditions />
       <Help />
     </div>

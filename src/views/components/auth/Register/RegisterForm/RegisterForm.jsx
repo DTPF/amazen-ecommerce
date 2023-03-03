@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { signUpApi } from '../../../../../api/user';
 import './RegisterForm.scss';
 
-export default function RegisterForm() {
+export default function RegisterForm({ setValtidationMsg }) {
   let navigate = useNavigate();
   const [inputs, setInputs] = useState({
     name: "",
@@ -17,6 +17,7 @@ export default function RegisterForm() {
 
   const handleChangeForm = (e) => {
     setInputs({ ...inputs, [e.target.name]: e.target.value });
+    (e.target.value === '') && setValtidationMsg(undefined);
   };
 
   const handleSubmit = async (e) => {
@@ -24,14 +25,10 @@ export default function RegisterForm() {
     const result = await signUpApi(inputs);
     
     if (result.status === 200) {
-      console.log(result.message);
+      setValtidationMsg(undefined);
       navigate('/auth');
     } else {
-      if (result.status === 500) {
-        console.log(result.message);
-      } else {
-        console.log(result.message);
-      }
+      setValtidationMsg(result.message);
     }
   }
 

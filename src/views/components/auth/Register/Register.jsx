@@ -1,24 +1,27 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-// import ValidationMessage from '../layout/ValidationMessage';
 import RegisterForm from './RegisterForm/RegisterForm';
+import ValidationMessage from '../layout/ValidationMessage';
 import amazenLogo from '../../../../assets/images/amazen-logo-white.png';
 import './Register.scss';
 
 export default function Register() {
+  const [valtidationMsg, setValtidationMsg] = useState(undefined);
+
   return (
-    <div className='register'>
+    <div className={`register ${valtidationMsg ? 'register-window-height' : ''}`}>
       <img className='register__image' src={amazenLogo} alt='Amazen logo' />
-      <FormContainer />
+      {valtidationMsg && <ValidationMessage valtidationMsg={valtidationMsg} />}
+      <FormContainer setValtidationMsg={setValtidationMsg} />
     </div>
   );
 }
 
-function FormContainer() {
+function FormContainer({ setValtidationMsg }) {
   return (
     <div className='register__form-container'>
       <p className='register__form-container--title'>Crear cuenta</p>
-      <RegisterForm />
+      <RegisterForm setValtidationMsg={setValtidationMsg} />
       <Conditions />
       <Help />
     </div>
