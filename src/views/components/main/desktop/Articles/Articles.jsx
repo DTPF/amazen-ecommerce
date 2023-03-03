@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import useAuth from '../../../../../hooks/useAuth';
 import { CartContext } from '../../../../../providers/CartProvider';
 import useGetArticles from '../../../../../indexedDB/api/articles/useGetArticles';
+import toaster from '../../../UI/toast/toast';
 import fiveStarsImage from '../../../../../assets/images/five-stars.png';
 import { CgShoppingCart } from 'react-icons/cg';
 import './Articles.scss';
@@ -47,6 +48,7 @@ function ArticleSlide(props) {
         ]
         localStorage.setItem('cart', JSON.stringify(article));
         setCart(article);
+        toaster('Artículo añadido a la cesta', 'success');
       } else {
         const parseOldCart = JSON.parse(oldCart);
         const article = {
@@ -57,6 +59,7 @@ function ArticleSlide(props) {
         let newCart = [...parseOldCart, article];
         setCart(newCart);
         localStorage.setItem('cart', JSON.stringify(newCart));
+        toaster('Artículo añadido a la cesta', 'success');
       }
     }
   }
