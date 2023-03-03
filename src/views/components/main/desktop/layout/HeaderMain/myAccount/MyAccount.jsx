@@ -2,15 +2,18 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { logout } from '../../../../../../../api/auth';
 import useAuth from '../../../../../../../hooks/useAuth';
-import Popover from '../../../../UI/Popover';
+import Popover from '../../../../../UI/Popover';
+import useCartContext from '../../../../../../../hooks/useCart';
 import myAccountImageLogged from '../../../../../../../assets/images/my-account-logged.png';
 import myAccountImageNotLogged from '../../../../../../../assets/images/my-account-not-logged.png';
+import toaster from '../../../../../UI/toast';
 import './MyAccount.scss';
 
 export default function MyAccount() {
   const [isVisible, setIsVisible] = useState(false);
   const { user, setUser } = useAuth();
   const { userData } = user;
+  const { setCart } = useCartContext();
 
   const handleLogout = () => {
     logout().then(() => {
@@ -18,6 +21,9 @@ export default function MyAccount() {
         isLoading: false,
         userData: null,
       });
+      setIsVisible(false);
+      setCart(0)
+      toaster('¡Hasta pronto!');
     });
   }
 
