@@ -1,7 +1,7 @@
 import React from 'react';
 import { NavLink, Link } from 'react-router-dom';
 import useAuth from '../../../../../../hooks/useAuth';
-import useSetCartCount from '../../../../../../hooks/useSetCartCount';
+import useCartContext from '../../../../../../hooks/useCart';
 import { AiOutlineUser, AiOutlineHome, AiOutlineStar } from 'react-icons/ai';
 import { MdExitToApp } from 'react-icons/md';
 import { RiAdminLine } from 'react-icons/ri';
@@ -11,7 +11,7 @@ import './FooterMainMobile.scss';
 export default function FooterMainMobile() {
   const { user } = useAuth();
   const { userData } = user;
-  const cartCount = useSetCartCount();
+  const { cart } = useCartContext();
   
   return (
     <div className='footer-main-mobile'>
@@ -19,7 +19,7 @@ export default function FooterMainMobile() {
       <NavLink to={'/comming-soon'}><AiOutlineStar /></NavLink>
       {userData && (
         <div className='footer-main-mobile__cart'>
-          <span>{cartCount}</span>
+          <span>{cart?.length}</span>
           <NavLink to={'/comming-soon'}>
             <BiCart />
           </NavLink>

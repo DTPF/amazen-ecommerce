@@ -1,21 +1,14 @@
-import React, { useEffect, useContext, useState } from 'react';
-import { CartContext } from '../../../../../../../providers/CartProvider';
+import React from 'react';
+import useCartContext from '../../../../../../../hooks/useCart';
 import shoppingCartImage from '../../../../../../../assets/images/chart.png';
 import './ShoppingCart.scss';
 
 export default function ShoppingCart() {
-  const [cartCount, setCartCount] = useState(0);
-  const { cart } = useContext(CartContext);
-
-  useEffect(() => {
-    if (cart) {
-      setCartCount(cart.length)
-    }
-  }, [cart]);
+  const { cart } = useCartContext();
 
   return (
     <div className='shopping-cart'>
-      <span className={`${(cart?.length >= 10) ? 'more-than-ten-items' : ''}`}>{cartCount}</span>
+      <span className={`${(cart?.length >= 10) ? 'more-than-ten-items' : ''}`}>{cart ? cart.length : 0}</span>
       <img src={shoppingCartImage} alt={'Shopping Cart'} />
     </div>
   );
