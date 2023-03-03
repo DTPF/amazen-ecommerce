@@ -1,23 +1,15 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import LoginForm from './LoginForm/LoginForm';
-import ValidationMessage from '../layout/ValidationMessage';
 import amazenLogo from '../../../../assets/images/amazen-logo-white.png';
 import { RxTriangleRight } from 'react-icons/rx';
 import './Login.scss';
 
 export default function Login() {
-  const [message, setMessage] = useState('');
-  const [showValidationMessage, setShowValidationMessage] = useState(false);
-
   return (
-    <div className={`login ${showValidationMessage ? 'window-height' : ''}`}>
+    <div className='login'>
       <img className='login__image' src={amazenLogo} alt='Amazen logo' />
-      {showValidationMessage && <ValidationMessage message={message} />}
-      <FormContainer 
-        setMessage={setMessage} 
-        setShowValidationMessage={setShowValidationMessage} 
-      />
+      <FormContainer />
       <div className='login__register'>
         <p>¿Eres nuevo en Amazén?</p>
         <Link to={'/auth/register'}>
@@ -28,14 +20,11 @@ export default function Login() {
   );
 }
 
-function FormContainer({ setMessage, setShowValidationMessage }) {
+function FormContainer() {
   return (
     <div className='login__form-container'>
       <p className='login__form-container--title'>Iniciar sesión</p>
-      <LoginForm 
-        setMessage={setMessage} 
-        setShowValidationMessage={setShowValidationMessage} 
-      />
+      <LoginForm />
       <Conditions />
       <Help />
     </div>

@@ -1,28 +1,24 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
-import ValidationMessage from '../layout/ValidationMessage';
+// import ValidationMessage from '../layout/ValidationMessage';
 import RegisterForm from './RegisterForm/RegisterForm';
 import amazenLogo from '../../../../assets/images/amazen-logo-white.png';
 import './Register.scss';
 
 export default function Register() {
-  const [message, setMessage] = useState('');
-  const [showValidationMessage, setShowValidationMessage] = useState(false);
-
   return (
-    <div className={`register ${showValidationMessage ? 'window-height' : ''}`}>
+    <div className='register'>
       <img className='register__image' src={amazenLogo} alt='Amazen logo' />
-      {showValidationMessage && <ValidationMessage message={message} />}
-      <FormContainer setMessage={setMessage} showValidationMessage={showValidationMessage} setShowValidationMessage={setShowValidationMessage} />
+      <FormContainer />
     </div>
   );
 }
 
-function FormContainer({ setMessage, showValidationMessage, setShowValidationMessage }) {
+function FormContainer() {
   return (
     <div className='register__form-container'>
       <p className='register__form-container--title'>Crear cuenta</p>
-      <RegisterForm setMessage={setMessage} showValidationMessage={showValidationMessage} setShowValidationMessage={setShowValidationMessage} />
+      <RegisterForm />
       <Conditions />
       <Help />
     </div>
