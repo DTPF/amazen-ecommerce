@@ -2,7 +2,7 @@
 @import '../../../../scss//variables';
 
 .register-window-height {
-  height: 800px !important;
+  height: 800px;
 }
 
 .register {
@@ -11,8 +11,12 @@
   height: 710px;
 
   &__image {
-    width: 142px;
-    margin: 8px auto;
+    margin: 0 auto;
+    
+    img {
+      width: 142px;
+      margin: 8px auto;
+    }
   }
 
   &__validation-message {

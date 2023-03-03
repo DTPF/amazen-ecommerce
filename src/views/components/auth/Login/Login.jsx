@@ -11,7 +11,9 @@ export default function Login() {
 
   return (
     <div className={`login ${valtidationMsg ? 'login-window-height' : ''}`}>
-      <img className='login__image' src={amazenLogo} alt='Amazen logo' />
+      <Link className='login__image' to={'/'}>
+        <img src={amazenLogo} alt='Amazen logo' />
+      </Link>
       {valtidationMsg && <ValidationMessage valtidationMsg={valtidationMsg} />}
       <FormContainer setValtidationMsg={setValtidationMsg} />
       <div className='login__register'>

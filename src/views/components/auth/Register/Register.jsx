@@ -10,7 +10,9 @@ export default function Register() {
 
   return (
     <div className={`register ${valtidationMsg ? 'register-window-height' : ''}`}>
-      <img className='register__image' src={amazenLogo} alt='Amazen logo' />
+      <Link className='login__image' to={'/'}>
+        <img src={amazenLogo} alt='Amazen logo' />
+      </Link>
       {valtidationMsg && <ValidationMessage valtidationMsg={valtidationMsg} />}
       <FormContainer setValtidationMsg={setValtidationMsg} />
     </div>

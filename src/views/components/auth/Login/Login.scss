@@ -11,8 +11,12 @@
   height: 550px;
 
   &__image {
-    width: 142px;
-    margin: 8px auto;
+    margin: 0 auto;
+    
+    img {
+      width: 142px;
+      margin: 8px auto;
+    }
   }
 
   &__validation-message {
