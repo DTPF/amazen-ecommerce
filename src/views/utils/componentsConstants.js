@@ -1,1 +1,1 @@
-export const responsiveBreak = 1080;
+export const responsiveBreak = 815;
