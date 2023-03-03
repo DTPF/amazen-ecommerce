@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import useUserContext from '../../../../../hooks/useUserContext';
+import useAuth from '../../../../../hooks/useAuth';
 import { CartContext } from '../../../../../providers/CartProvider';
 import useGetArticles from '../../../../../indexedDB/api/articles/useGetArticles';
 import fiveStarsImage from '../../../../../assets/images/five-stars.png';
@@ -29,18 +29,19 @@ export default function Articles() {
 
 function ArticleSlide(props) {
   const { id, title, image, stars, price } = props;
-  const { userContext } = useUserContext();
+  const { user } = useAuth();
+  const { userData } = user;
   const { setCart } = useContext(CartContext);
 
   const handleAddToCart = () => {
-    if (userContext) {
+    if (userData) {
       const oldCart = localStorage.getItem('cart');
 
       if (!oldCart) {
         const article = [
           {
             id: 0,
-            userId: userContext.id,
+            userId: userData.id,
             articleId: id
           }
         ]
@@ -50,7 +51,7 @@ function ArticleSlide(props) {
         const parseOldCart = JSON.parse(oldCart);
         const article = {
           id: parseOldCart.length,
-          userId: userContext.id,
+          userId: userData.id,
           articleId: id
         }
         let newCart = [...parseOldCart, article];
@@ -69,7 +70,7 @@ function ArticleSlide(props) {
         {stars}
       </p>
       <p className='articles-container__articles__article--price'>{price} €</p>
-      {userContext && (
+      {userData && (
         <div className='articles-container__articles__article--add-to-cart'>
           <button onClick={() => handleAddToCart()}><CgShoppingCart /></button>
         </div>
