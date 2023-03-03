@@ -12,4 +12,8 @@
   &__image {
     width: 85px;
   }
+
+  @media(max-width: 920px) {
+    display: none;
+  }
 }
