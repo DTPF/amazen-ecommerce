@@ -32,11 +32,13 @@ export default function MyAccount() {
       onMouseEnter={() => setIsVisible(true)}
       onMouseLeave={() => setIsVisible(false)}
     >
-      <img
-        className='my-account__image'
-        src={userData ? myAccountImageLogged : myAccountImageNotLogged} alt='My account'
-      />
-      <p className='my-account__name'>{userData?.name}</p>
+      <div className='my-account__container'>
+        <img
+          className='my-account__container--image'
+          src={userData ? myAccountImageLogged : myAccountImageNotLogged} alt='My account'
+        />
+        <div className='my-account__container--name'>{userData?.name}</div>
+      </div>
       {isVisible && (
         <Popover
           isVisible={isVisible}

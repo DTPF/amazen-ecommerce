@@ -2,18 +2,21 @@
 @import '../../../../../../../scss/animations';
 
 .my-account {
-  &__image {
-    width: 125px;
-    height: 35px;
-    padding: 5px 2px;
-    padding-bottom: 0;
-  }
 
-  &__name {
-    position: absolute;
-    top: 1px;
-    right: 236px;
-    font-size: .85rem;
+  &__container {
+    &--image {
+      width: 125px;
+      height: 35px;
+      padding: 5px 2px;
+      padding-bottom: 0;
+    }
+    
+    &--name {
+      position: absolute;
+      top: 14.5px;
+      margin-left: 40px;
+      font-size: .90rem;
+    }
   }
 
   &__popover {
