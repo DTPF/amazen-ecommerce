@@ -1,18 +1,16 @@
-import React, { useState, useEffect, createContext } from "react";
+import React, { useState, useEffect } from "react";
+import { AuthContext } from "./AuthContext";
 import jwtDecode from "jwt-decode";
-import { useGetAccessTokenApi, useGetRefreshTokenApi } from "../api/auth";
+import { useGetAccessTokenApi, useGetRefreshTokenApi } from "../../api/auth";
 
-export const AuthContext = createContext();
-
-export default function AuthProvider(props) {
+export default function AuthProvider({ children }) {
   const accessToken = useGetAccessTokenApi();
   const refreshToken = useGetRefreshTokenApi();
-  const { children } = props;
   const [user, setUser] = useState({
     userData: null,
     isLoading: true,
   });
-
+  
   useEffect(() => {
     checkUserLogin(setUser, accessToken, refreshToken);
   }, [setUser, accessToken, refreshToken]);

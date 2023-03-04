@@ -1,10 +1,9 @@
-import React, { createContext, useEffect, useState } from 'react';
-import { getCartItemsByUserId } from '../api/cart';
-import useAuth from '../hooks/useAuth';
+import React, { useEffect, useState } from 'react';
+import { CartContext } from './CartContext';
+import { getCartItemsByUserId } from '../../api/cart';
+import useAuth from '../../hooks/useAuth';
 
-export const CartContext = createContext(null);
-
-export function CartProvider({ children }) {
+export default function CartProvider({ children }) {
   const [cart, setCart] = useState([]);
   const { user } = useAuth();
   const { userData } = user;

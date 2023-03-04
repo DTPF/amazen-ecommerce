@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import useAuth from '../../../../hooks/useAuth';
-import { CartContext } from '../../../../providers/CartProvider';
+import { CartContext } from '../../../../context/Cart/CartContext';
 import { addToCart } from '../../../../api/cart';
 import useGetArticles from '../../../../indexedDB/api/articles/useGetArticles';
 import toaster from '../../UI/toast/toast';
