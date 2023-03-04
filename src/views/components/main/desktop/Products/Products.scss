@@ -2,11 +2,11 @@
 @import '../../../../../scss/variables';
 @import '../../../../../scss/mixins';
 
-.articles-container {
+.products-container {
   background-color: #fff;
   @include fadeIn();
 
-  &__articles {
+  &__products {
     display: flex;
     flex-flow: wrap;
     justify-content: space-evenly;
@@ -67,6 +67,7 @@
           width: 30px !important;
           padding: 2px;
           padding-top: 3px;
+          cursor: pointer;
         }
       }
 
