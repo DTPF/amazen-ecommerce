@@ -1,5 +1,5 @@
 import React from 'react';
-import Articles from '../../../components/main/desktop/Products';
+import Articles from '../../../components/main/Products';
 import HelmetSEO from "../../../utils/HelmetSEO/HelmetSEO";
 import './BestSellers.scss';
 

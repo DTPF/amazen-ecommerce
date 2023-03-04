@@ -1,10 +1,10 @@
 import React, { useContext } from 'react';
-import useAuth from '../../../../../hooks/useAuth';
-import { CartContext } from '../../../../../providers/CartProvider';
-import { addToCart } from '../../../../../api/cart';
-import useGetArticles from '../../../../../indexedDB/api/articles/useGetArticles';
-import toaster from '../../../UI/toast/toast';
-import fiveStarsImage from '../../../../../assets/images/five-stars.png';
+import useAuth from '../../../../hooks/useAuth';
+import { CartContext } from '../../../../providers/CartProvider';
+import { addToCart } from '../../../../api/cart';
+import useGetArticles from '../../../../indexedDB/api/articles/useGetArticles';
+import toaster from '../../UI/toast/toast';
+import fiveStarsImage from '../../../../assets/images/five-stars.png';
 import { CgShoppingCart } from 'react-icons/cg';
 import './Products.scss';
 
