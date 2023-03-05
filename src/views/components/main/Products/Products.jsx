@@ -1,28 +1,30 @@
 import React, { useContext } from 'react';
 import useAuth from '../../../../hooks/useAuth';
+import { useGetAccessTokenApi } from '../../../../api/auth';
 import { CartContext } from '../../../../context/Cart/CartContext';
+import useProduct from '../../../../hooks/useProduct';
 import { addToCart } from '../../../../api/cart';
-import useGetArticles from '../../../../indexedDB/api/articles/useGetArticles';
 import toaster from '../../UI/toast/toast';
+import randomAvatar from './ramdomProductImage';
 import fiveStarsImage from '../../../../assets/images/five-stars.png';
 import { CgShoppingCart } from 'react-icons/cg';
 import './Products.scss';
 
 
 export default function Products() {
-  const products = useGetArticles();
+  const { products } = useProduct();
 
   return (
     <div className='products-container'>
       <div className='products-container__products'>
-        {products.articlesIndexed && products.articlesIndexed.map((article, index) => (
+        {products && products.map((product, index) => (
           <ProductsRender
             key={index}
-            id={article.id}
-            title={article.title}
-            image={article.image}
-            stars={article.stars}
-            price={article.price}
+            id={product._id}
+            title={product.title}
+            image={product.image ? product.image : randomAvatar()}
+            stars={product.stars}
+            price={product.sizeAndPrice[0].price}
           />
         ))}
       </div>
@@ -35,14 +37,15 @@ function ProductsRender(props) {
   const { user } = useAuth();
   const { userData } = user;
   const { cart, setCart } = useContext(CartContext);
+  const token = useGetAccessTokenApi();
 
-  const handleAddToCart = () => {
+  const handleAddToCart = async () => {
     const productObj = {
       userId: userData.id,
       productId: id
     }
 
-    addToCart(productObj)
+    await addToCart(token, productObj)
       .then(product => {
         if (product.status === 200) {
           let list = [...cart];
