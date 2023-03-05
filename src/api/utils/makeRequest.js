@@ -1,7 +1,7 @@
 export default async function makeRequest(
   url,
-  params = null,
-  responseToJson = true,
+  haveParams = false,
+  haveToConvertToJson = true,
   headerMethod = null,
   headerToken = null,
   bodyData = null,
@@ -28,8 +28,8 @@ export default async function makeRequest(
     }
   }
   try {
-    const response = await fetch(url, params && getParam());
-    if (responseToJson) {
+    const response = await fetch(url, haveParams && getParam());
+    if (haveToConvertToJson) {
       const result = await response.json();
       return result;
     } else {
