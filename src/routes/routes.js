@@ -8,6 +8,7 @@ import Home from "../views/pages/main/Home";
 import BestSellers from "../views/pages/main/BestSellers";
 import Stores from "../views/pages/main/Stores";
 import Help from "../views/pages/main/Help";
+import Cart from "../views/pages/main/Cart";
 
 // Auth pages
 import Login from "../views/pages/auth/LoginPage";
@@ -47,6 +48,11 @@ const routes = [
         path: "/help",
         exact: true,
         component: Help,
+      },
+      {
+        path: "/cart",
+        exact: true,
+        component: Cart,
       },
       {
         path: "/comming-soon",
