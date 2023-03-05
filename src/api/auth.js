@@ -17,18 +17,15 @@ export function useGetAccessTokenApi() {
       const result = e.target.result;
       setAccessToken(result?.ACCESS_TOKEN);
     };
-
     request.onerror = function () {
       console.log("Error", request.error);
     };
   }
-
+  
   if (!accessToken || accessToken === "null") {
     return null;
   }
-
   willExpireToken(accessToken) && logout();
-
   return willExpireToken(accessToken) ? null : accessToken;
 }
 
@@ -55,9 +52,7 @@ export function useGetRefreshTokenApi() {
   if (!refreshToken || refreshToken === "null") {
     return null;
   }
-
   willExpireToken(refreshToken) && logout();
-
   return willExpireToken(refreshToken) ? null : refreshToken;
 }
 
