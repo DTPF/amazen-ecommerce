@@ -8,5 +8,4 @@ export const LS_VERSION = localStorage.getItem(LS_NAME);
 
 // Table names
 export const SECTIONS = "sections";
-export const ARTICLES = "articles";
 export const AUTH = "auth";

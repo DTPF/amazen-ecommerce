@@ -1,12 +1,8 @@
-import { SECTIONS, ARTICLES, AUTH, DB_VERSION, LS_NAME } from "./config";
+import { SECTIONS, AUTH, DB_VERSION, LS_NAME } from "./config";
 
 export function createObjects(db) {
   if (!db.objectStoreNames.contains(SECTIONS)) {
     db.createObjectStore(SECTIONS, { keyPath: 'id' });
-  }
-
-  if (!db.objectStoreNames.contains(ARTICLES)) {
-    db.createObjectStore(ARTICLES, { keyPath: 'id' });
   }
 
   if (!db.objectStoreNames.contains(AUTH)) {
