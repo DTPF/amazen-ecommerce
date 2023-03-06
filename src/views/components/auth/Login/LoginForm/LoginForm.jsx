@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
 import { signInApi } from '../../../../../api/user';
 import useAuthContext from '../../../../../hooks/useAuthContext';
 import jwtDecode from "jwt-decode";
@@ -13,7 +12,6 @@ export default function LoginForm({ setValtidationMsg }) {
     email: "",
     password: "",
   });
-  const navigate = useNavigate();
 
   const handleChangeForm = (e) => {
     setInputs({ ...inputs, [e.target.name]: e.target.value });
@@ -50,7 +48,7 @@ export default function LoginForm({ setValtidationMsg }) {
             userData: jwtDecode(accessToken),
           });
           setValtidationMsg(undefined);
-          navigate('/');
+          window.history.back();
           toaster('¡Bienvenido/a!');
         };
 
