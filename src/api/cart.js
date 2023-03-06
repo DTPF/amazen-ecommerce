@@ -15,3 +15,8 @@ export async function deleteCartItemApi(token, cartId) {
   const url = `${basePath}/${apiVersion}/delete-cart-item-by-id/${cartId}`;
   return makeRequest(url, true, true, "DELETE", token);
 }
+
+export async function updateCartItemQuantityApi(token, cartItemId, newQuantity) {
+  const url = `${basePath}/${apiVersion}/update-cart-item-quantity/${cartItemId}`;
+  return makeRequest(url, true, true, "PUT", token, JSON.stringify(newQuantity));
+}
