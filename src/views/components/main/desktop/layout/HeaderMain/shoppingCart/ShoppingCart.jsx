@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import useCartContext from '../../../../../../../hooks/useCart';
+import useCartContext from '../../../../../../../hooks/useCartContext';
 import shoppingCartImage from '../../../../../../../assets/images/chart.png';
 import './ShoppingCart.scss';
 

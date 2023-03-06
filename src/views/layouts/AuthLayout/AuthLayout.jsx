@@ -1,11 +1,11 @@
 import React, { useEffect, Suspense, lazy } from "react";
 import { useNavigate } from 'react-router-dom';
-import useAuth from "../../../hooks/useAuth";
+import useAuthContext from "../../../hooks/useAuthContext";
 const SubRoutes = lazy(() => import('../../../routes/SubRoutes'));
 const FooterAuth = lazy(() => import('../../components/auth/layout/FooterAuth'));
 
 export default function AuthLayout({ routes }) {
-  const { user, setUser } = useAuth();
+  const { user, setUser } = useAuthContext();
   const { userData, isLoading } = user;
   let navigate = useNavigate();
 

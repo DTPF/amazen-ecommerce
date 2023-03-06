@@ -1,14 +1,14 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { signInApi } from '../../../../../api/user';
-import useAuth from '../../../../../hooks/useAuth';
+import useAuthContext from '../../../../../hooks/useAuthContext';
 import jwtDecode from "jwt-decode";
 import { DB_NAME_AMAZEN, DB_VERSION, AUTH } from '../../../../../indexedDB/utils/config';
 import toaster from '../../../UI/toast/toast';
 import './LoginForm.scss';
 
 export default function LoginForm({ setValtidationMsg }) {
-  const { setUser } = useAuth();
+  const { setUser } = useAuthContext();
   const [inputs, setInputs] = useState({
     email: "",
     password: "",

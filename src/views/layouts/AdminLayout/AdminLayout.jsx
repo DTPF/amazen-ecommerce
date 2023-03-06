@@ -1,13 +1,13 @@
 import React, { useEffect, Suspense, lazy } from 'react';
 import { useNavigate } from 'react-router-dom';
-import useAuth from '../../../hooks/useAuth';
+import useAuthContext from '../../../hooks/useAuthContext';
 import './AdminLayout.scss';
 const HeaderAdmin = lazy(() => import('../../components/admin/layout/HeaderAdmin/HeaderAdmin'));
 const FooterAdmin = lazy(() => import('../../components/admin/layout/FooterAdmin'));
 const SubRoutes = lazy(() => import('../../../routes/SubRoutes'));
 
 export default function AdminLayout({ routes }) {
-  const { user } = useAuth();
+  const { user } = useAuthContext();
   const { userData, isLoading } = user;
   const navigate = useNavigate();
 

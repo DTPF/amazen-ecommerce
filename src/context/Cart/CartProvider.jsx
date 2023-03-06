@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import { CartContext } from './CartContext';
-import useAuth from '../../hooks/useAuth';
+import useAuthContext from '../../hooks/useAuthContext';
 import { useGetAccessTokenApi } from '../../api/auth';
 import { getCartItemsByUserId } from '../../api/cart';
 import toaster from '../../views/components/UI/toast/toast';
 
 export default function CartProvider({ children }) {
   const [cart, setCart] = useState([]);
-  const { user } = useAuth();
+  const { user } = useAuthContext();
   const { userData } = user;
   const token = useGetAccessTokenApi();
 

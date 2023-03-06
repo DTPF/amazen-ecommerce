@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { logout } from '../../../../../../../api/auth';
-import useAuth from '../../../../../../../hooks/useAuth';
+import useAuthContext from '../../../../../../../hooks/useAuthContext';
+import useCartContext from '../../../../../../../hooks/useCartContext';
 import Popover from '../../../../../UI/Popover';
-import useCartContext from '../../../../../../../hooks/useCart';
 import myAccountImageLogged from '../../../../../../../assets/images/my-account-logged.png';
 import myAccountImageNotLogged from '../../../../../../../assets/images/my-account-not-logged.png';
 import toaster from '../../../../../UI/toast';
@@ -11,7 +11,7 @@ import './MyAccount.scss';
 
 export default function MyAccount() {
   const [isVisible, setIsVisible] = useState(false);
-  const { user, setUser } = useAuth();
+  const { user, setUser } = useAuthContext();
   const { userData } = user;
   const { setCart } = useCartContext();
 
