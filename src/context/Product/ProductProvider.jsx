@@ -6,12 +6,14 @@ export default function ProductProvider({ children }) {
   const [products, setProducts] = useState(undefined);
 
   useEffect(() => {
+    let isMounted = true;
     const fetchData = async function () {
       await getProductsApi().then(data => {
-        setProducts(data.products)
+        isMounted && setProducts(data.products)
       })
     }
     fetchData();
+    return () => { isMounted = false }
   }, []);
 
   return (
