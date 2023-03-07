@@ -1,4 +1,5 @@
-import Routes from './routes/Routes';
+import { RouterProvider } from "react-router-dom";
+import { router } from './routes/routes';
 import indexedDB from './indexedDB';
 import AuthProvider from './context/Auth/AuthProvider';
 import ProductProvider from './context/Product/ProductProvider';
@@ -13,7 +14,10 @@ export default function App() {
       <ProductProvider>
         <CartProvider>
           <Toaster />
-          <Routes />
+          <RouterProvider
+            router={router}
+            fallbackElement={<div>Loading</div>}
+          />
         </CartProvider>
       </ProductProvider>
     </AuthProvider>
