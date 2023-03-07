@@ -9,5 +9,8 @@ export default function userLogout(setUser, setCart) {
     });
     setCart(0)
     toaster('¡Hasta pronto!');
+  })
+  .catch(err => {
+    toaster(err.message, 'error');
   });
 }
