@@ -1,18 +1,19 @@
 import React, { Suspense, lazy } from "react";
+import { Outlet } from "react-router-dom";
 import useWindowSizeReport from "../../../hooks/useWindowSizeReport";
-import HeaderMainMobile from "../../components/main/mobile/layout/HeaderMainMobile";
-import NavBarMobile from "../../components/main/mobile/layout/NavBarMobile";
 import { responsiveBreak } from "../../utils/componentsConstants";
 import './MainLayout.scss';
+// Desktop
 const HeaderMainDesktop = lazy(() => import('../../components/main/desktop/layout/HeaderMain'));
 const FooterMainDesktop = lazy(() => import('../../components/main/desktop/layout/FooterMain'));
 const MenuMain = lazy(() => import('../../components/main/desktop/layout/MenuMain'));
-const SubRoutes = lazy(() => import('../../../routes/SubRoutes'));
-
+//Mobile
+const HeaderMainMobile = lazy(() => import('../../components/main/mobile/layout/HeaderMainMobile'));
 const FooterMainMobile = lazy(() => import('../../components/main/mobile/layout/FooterMainMobile'));
+const NavBarMobile = lazy(() => import('../../components/main/mobile/layout/NavBarMobile'));
 
-export default function MainLayout({ routes }) {
-  const innerWidth = useWindowSizeReport();
+export default function MainLayout(props) {
+  const [innerWidth] = useWindowSizeReport();
 
   return (
     <div className='main-layout'>
@@ -30,7 +31,7 @@ export default function MainLayout({ routes }) {
         )}
 
         <div className='main-layout__main'>
-          <SubRoutes routes={routes} /> {/* Switch views/pages/main */}
+          <Outlet />
         </div>
 
         {(innerWidth > responsiveBreak) ? <FooterMainDesktop /> : <FooterMainMobile />}
