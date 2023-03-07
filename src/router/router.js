@@ -1,5 +1,5 @@
 import { createBrowserRouter } from "react-router-dom";
-import { ProtectedRoute, AdminRoute, RejectUserLoggedRoute } from "./routerMiddlewares";
+import { ProtectedRoute, AdminRoute, RejectUserLoggedRoute } from "./RouterMiddlewares";
 
 // Layout
 import BasicLayout from "../views/layouts/MainLayout";
