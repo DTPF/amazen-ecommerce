@@ -13,5 +13,5 @@ export default function useWindowSizeReport() {
     return () => { isMounted = false }
   }, [])
 
-  return innerWidth;
+  return [innerWidth];
 }
