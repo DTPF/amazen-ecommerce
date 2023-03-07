@@ -1,12 +1,11 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { logout } from '../../../../../../../api/auth';
 import useAuthContext from '../../../../../../../hooks/useAuthContext';
 import useCartContext from '../../../../../../../hooks/useCartContext';
+import userLogout from '../../../../../../../hooks/useUser/userLogout';
 import Popover from '../../../../../UI/Popover';
 import myAccountImageLogged from '../../../../../../../assets/images/my-account-logged.png';
 import myAccountImageNotLogged from '../../../../../../../assets/images/my-account-not-logged.png';
-import toaster from '../../../../../UI/toast';
 import './MyAccount.scss';
 
 export default function MyAccount() {
@@ -16,15 +15,8 @@ export default function MyAccount() {
   const { setCart } = useCartContext();
 
   const handleLogout = () => {
-    logout().then(() => {
-      setUser({
-        isLoading: false,
-        userData: null,
-      });
-      setIsVisible(false);
-      setCart(0)
-      toaster('¡Hasta pronto!');
-    });
+    userLogout(setUser, setCart);
+    setIsVisible(false)
   }
 
   return (
@@ -94,7 +86,7 @@ export default function MyAccount() {
 function LoginButton() {
   return (
     <div className='my-account__popover--login-button'>
-      <Link to={'./auth'}>
+      <Link to={'./auth/login'}>
         <button>
           Identificarse
         </button>
@@ -107,7 +99,7 @@ function LinkToAdmin({ userData }) {
   return (
     <div className='my-account__popover--admin-button'>
       {userData?.role === 'admin' && (
-        <Link to={'./admin'}>
+        <Link to={'./admin/home'}>
           <button>Admin</button>
         </Link>
       )}
