@@ -16,7 +16,7 @@ export function getProductImageApi(imageName) {
   return makeRequest(url, null, false);
 }
 
-export function deleteProductApi(userId) {
-  const url = `${basePath}/${apiVersion}/delete-product/${userId}`;
-  return makeRequest(url, true, true, "DELETE");
+export function deleteProductApi(token, productId) {
+  const url = `${basePath}/${apiVersion}/delete-product/${productId}`;
+  return makeRequest(url, true, true, "DELETE", token);
 }
