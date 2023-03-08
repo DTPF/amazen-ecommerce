@@ -1,7 +1,11 @@
 .admin-layout {
-  background-color: #E3E6E6;
-
   &__main {
-    min-height: calc(100vh - 160px);
+    height: 100%;
+  }
+
+  &__footer {
+    width: 100%;
+    position: fixed;
+    bottom: 0;
   }
 }
