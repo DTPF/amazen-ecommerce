@@ -144,7 +144,7 @@ function CartRender({ item, cart, setCart }) {
     <div className='cart__component--item'>
       <div className='cart__component--item__product'>
         <div className='cart__component--item__product--image'>
-          <img src={(product?.images.length === 0) ? randomProductImage() : image} alt={product?.title} />
+          <img src={image ? image : randomProductImage()} alt={product?.title} />
         </div>
         <div className='cart__component--item__product--info'>
           <div className='cart__component--item__product--info__title-price'>

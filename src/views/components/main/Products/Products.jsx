@@ -20,7 +20,6 @@ export default function Products() {
         {products && products.map((product, index) => (
           <ProductsRender
             key={index}
-            imageRandom={product.image ? product.image : randomProductImage()}
             product={product}
           />
         ))}
@@ -29,12 +28,12 @@ export default function Products() {
   );
 }
 
-function ProductsRender({ imageRandom, product }) {
+function ProductsRender({ product }) {
   const { _id, title, stars, sizeAndPrice } = product;
   const { user } = useAuth();
   const { userData } = user;
   const { cart, setCart } = useCartContext();
-  const [image] = useGetProductImage(product)
+  const [image] = useGetProductImage(product);
   const token = useGetAccessTokenApi();
 
   const handleAddToCart = async () => {
@@ -72,7 +71,7 @@ function ProductsRender({ imageRandom, product }) {
   return (
     <div className='products-container__products__article'>
       <div className='products-container__products__article--image'>
-        <img src={image ? image : imageRandom} alt={title} />
+        <img src={image ? image : randomProductImage()} alt={title} />
       </div>
       <div>
 
