@@ -3,12 +3,17 @@
 .header-admin {
   display: flex;
   align-items: center;
-  height: 70px;
-  background-color: #FF9900;
-  box-shadow: 2px 0px 19px 9px #00000032;
+  justify-content: space-between;
+  height: 100px;
+  background-color: #ff990085;
+  box-shadow: 2px 0px 20px 9px #d7d7d7;
 
   &__logo {
-  @include fadeIn();
-    width: 220px;
+    @include fadeIn();
+    width: 250px;
+  }
+
+  &__prime {
+    width: 180px;
   }
 }
