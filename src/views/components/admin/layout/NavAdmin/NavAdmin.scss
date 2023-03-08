@@ -1,0 +1,53 @@
+@import '../../../../../scss/variables';
+
+.nav-admin {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  height: auto;
+  margin-top: 30px;
+
+  a {
+    margin: 0 30px;
+    margin-bottom: 0px;
+    padding: 2px;
+    color: #14191A;
+    text-decoration: none;
+    font-weight: 400;
+    border-top: 0;
+    font-size: 1.3em;
+
+    &.active {
+      border-bottom: 1px solid rgb(132, 132, 132);
+      font-weight: 600;
+    }
+  }
+}
+
+.swal2-popup {
+  max-width: 450px !important;
+
+  h2 {
+    font-size: 1.4rem;
+  }
+
+  .swal2-icon {
+    width: 4em;
+    height: 4em;
+  }
+
+  .swal2-html-container {
+    font-size: 1rem;
+  }
+
+  .swal2-confirm,
+  .swal2-cancel {
+    padding: 8px 10px;
+    border: 1px solid #acacac;
+    border-radius: 2px !important;
+  }
+
+  .swal2-cancel {
+    background-color: #B12704 !important;
+  }
+}
