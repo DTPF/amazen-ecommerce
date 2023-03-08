@@ -1,0 +1,21 @@
+@import '../../../../scss/mixins';
+
+.home-admin-component {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  padding-top: 50px;
+
+  &__doughnut-chart,
+  &__radar-chart {
+    width: 100%;
+    max-width: 700px;
+    height: auto;
+    padding: 20px;
+
+    h4 {
+      font-size: 1.1rem;
+      font-weight: 500;
+    }
+  }
+}
