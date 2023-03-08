@@ -1,10 +1,11 @@
 import React from 'react';
-import './ProductsAdmin.scss';
+import ProductAdminComponent from '../../../components/admin/ProductsAdmin/ProductAdminComponent';
+import HelmetSEO from "../../../utils/HelmetSEO/HelmetSEO";
 
-export default function ProductsAdmin(props) {
+export default function ProductsAdmin() {
   return (
-    <div className='products-admin'>
-      <h1 className='products-admin__title'>Products</h1>
-    </div>
+    <HelmetSEO title={'Amazén | Admin Products'}>
+       <ProductAdminComponent />
+    </HelmetSEO>
   );
 }
