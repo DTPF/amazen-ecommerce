@@ -68,7 +68,7 @@ export default function ProductForm({ product, setIsVisibleAddModal, setIsVisibl
     } else {
       addProductApi(token, inputs)
         .then(res => {
-          setProducts([...products, res.product])
+          setProducts([res.product, ...products])
           toaster(res.message, 'success');
           setIsVisibleAddModal(false);
         })
@@ -323,7 +323,12 @@ function Images({ imageName, product, token, products, setProducts }) {
               })
               setProducts(newProduct);
               toaster(res.message, 'success');
+            } else {
+              return toaster(res.message, 'error');
             }
+          })
+          .catch(err => {
+            toaster(err.message, 'error');
           })
       }
     })
