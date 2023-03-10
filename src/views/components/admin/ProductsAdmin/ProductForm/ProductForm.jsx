@@ -105,7 +105,6 @@ export default function ProductForm({ product, setIsVisibleAddModal, setIsVisibl
     <div className='product-form'>
       {product && (
         <div className='product-form__images'>
-          {/* {product?.images.length > 0 && ( */}
             <div className='product-form__images--container'>
               {products && products.map((item, key) => {
                 if (item._id === product._id) {
