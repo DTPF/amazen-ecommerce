@@ -1,0 +1,92 @@
+@import '../../../../scss/mixins';
+@import '../../../../scss/variables';
+
+.product-admin-component {
+  margin: 10px auto;
+  margin-bottom: 90px;
+  width: 90vw;
+  max-width: 1200px;
+
+  &__new-product-btn {
+    display: flex;
+    justify-content: flex-end;
+    margin: 15px 0;
+    margin-bottom: 20px;
+
+    button {
+      @include buttonPrimary(rgb(0, 121, 0), rgb(0, 95, 0));
+      color: #fff;
+      width: auto;
+      font-size: 1rem;
+    }
+  }
+
+  &__product-container {
+    box-shadow: 0px 0px 21px 0px rgba(0, 0, 0, 0.15);
+    border-radius: 5px;
+
+    &--product {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: #E3E6E6;
+      margin: 0 auto;
+      padding: 10px;
+      border-bottom: 1px solid #c3c3c3;
+
+      &:first-child {
+        border-top-left-radius: 5px;
+        border-top-right-radius: 5px;
+      }
+
+      &:last-child {
+        border: 0;
+        border-bottom-left-radius: 5px;
+        border-bottom-right-radius: 5px;
+      }
+
+      &--row1 {
+        display: flex;
+        align-items: center;
+
+        &__title,
+        &__date {
+          padding: 10px 0;
+        }
+
+        &__title {
+          font-size: 1.3rem;
+          font-weight: 500;
+        }
+
+        &__date {
+          font-size: 1rem;
+
+          span {
+            font-style: italic;
+          }
+        }
+      }
+
+      &--row2 {
+        &__edit-product-btn {
+          @include buttonPrimary();
+        }
+
+        &__delete-product-btn {
+          @include buttonPrimary($colorRed, $redWarning);
+          color: #fff;
+          margin: 0 15px;
+        }
+
+        &__edit-product-btn,
+        &__delete-product-btn {
+          width: 40px;
+          padding-bottom: 2px;
+          font-size: 1.5rem;
+        }
+      }
+    }
+  }
+
+}
