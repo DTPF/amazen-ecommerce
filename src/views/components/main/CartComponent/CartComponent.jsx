@@ -68,7 +68,7 @@ export default function CartComponent() {
 
 function CartRender({ item, cart, setCart }) {
   const [product, setProduct] = useState(undefined);
-  const [image] = useGetProductImage(product);
+  const [image] = useGetProductImage(product && product.images[product.defaultImage - 1]);
   const [showQuantityButton, setQuantityButton] = useState(false);
   const token = useGetAccessTokenApi();
   const [quantityInput, setQuantityInput] = useState(0);

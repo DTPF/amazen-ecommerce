@@ -29,11 +29,11 @@ export default function Products() {
 }
 
 function ProductsRender({ product }) {
-  const { _id, title, stars, sizeAndPrice } = product;
+  const { _id, title, stars, sizeAndPrice, images, defaultImage } = product;
   const { user } = useAuth();
   const { userData } = user;
   const { cart, setCart } = useCartContext();
-  const [image] = useGetProductImage(product);
+  const [image] = useGetProductImage(images && images[defaultImage - 1]);
   const token = useGetAccessTokenApi();
 
   const handleAddToCart = async () => {
