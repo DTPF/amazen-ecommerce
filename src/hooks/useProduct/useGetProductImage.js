@@ -1,19 +1,19 @@
 import { useEffect, useState } from 'react';
 import { getProductImageApi } from '../../api/products';
 
-export default function useGetProductImage(product) {
+export default function useGetProductImage(imageName) {
   const [image, setImage] = useState(undefined);
   
   useEffect(() => {
     let isMounted = true;
-    if (product && product.images[0]) {
-      getProductImageApi(product.images[0])
+    if (imageName) {
+      getProductImageApi(imageName)
         .then(res => {
           isMounted && setImage(res.url)
         })
     }
     return () => { isMounted = false }
-  }, [product])
+  }, [imageName])
 
   return [image];
 }
