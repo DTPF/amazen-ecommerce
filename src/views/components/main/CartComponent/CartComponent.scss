@@ -153,7 +153,7 @@
     display: flex;
     justify-content: flex-end;
     width: 90vw;
-    max-width: 1240px;
+    max-width: 1200px;
     margin: 0 auto;
     @include fadeIn(350ms);
 
@@ -185,7 +185,7 @@
         border-top: 1px solid #000;
 
         b {
-          font-size: 1.1rem;
+          font-size: 1.2rem;
         }
       }
     }
