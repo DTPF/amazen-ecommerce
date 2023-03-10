@@ -1,0 +1,103 @@
+@import '../../../../../scss/mixins';
+@import '../../../../../scss/variables';
+
+.product-form {
+  &__images {
+    max-width: 400px;
+    margin: 0 auto;
+    background-color: rgba(128, 128, 128, 0.18);
+    padding: 20px 5px;
+    border-radius: 5px;
+    box-shadow: 0px 0px 26px 0px rgba(0, 0, 0, 0.05);
+    margin-bottom: 20px;
+
+    &--container {
+      margin: 20px 0;
+
+      img {
+        width: 180px;
+        padding: 10px;
+      }
+    }
+
+    &--dropzone-container {
+      display: flex;
+      justify-content: center;
+
+      &__input {
+        max-width: 200px;
+        background-color: #fff;
+        margin-bottom: 20px;
+      }
+
+      &__default-image {
+        input {
+          max-width: 50px;
+          margin: 5px;
+          padding: 5px 2px;
+        }
+      }
+    }
+  }
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+    width: 340px;
+    margin: 0 auto;
+
+    label {
+      text-align: left;
+    }
+
+    input {
+      width: 100%;
+      margin-top: 5px;
+      margin-bottom: 18px;
+      height: 25px
+    }
+
+    input[type=submit] {
+      margin: 0 auto;
+      @include buttonPrimary();
+    }
+
+    &--buttons {
+      text-align: right;
+
+      input[type=submit] {
+        height: auto;
+        margin-right: -5px;
+      }
+
+    }
+
+    &--size-price {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+
+      &__row1,
+      &__row2 {
+        display: flex;
+        justify-content: space-between;
+        gap: 20px;
+
+        label {
+          display: flex;
+          flex-direction: column;
+        }
+
+        input {
+          width: 100%;
+          display: flex;
+        }
+      }
+    }
+
+    &--stock-stars {
+      display: flex;
+      gap: 20px;
+    }
+  }
+}
