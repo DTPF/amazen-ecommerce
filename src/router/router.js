@@ -1,30 +1,32 @@
 import { createBrowserRouter } from "react-router-dom";
 import { ProtectedRoute, AdminRoute, RejectUserLoggedRoute } from "./RouterMiddlewares";
 
-// Layout
+// LAYOUTS
 import BasicLayout from "../views/layouts/MainLayout";
 import AdminLayout from "../views/layouts/AdminLayout";
 import AuthLayout from "../views/layouts/AuthLayout";
 
-// Main Pages
+// MAIN PAGES
 import Home from "../views/pages/main/Home";
-import ProductsPage from "../views/pages/main/ProductsPage";
-import AllProductPage from "../views/pages/main/ProductsPage/AllProductPage";
+//------- Products ---------
+import Products from "../views/pages/main/ProductsPage";
+import AllProduct from "../views/pages/main/ProductsPage/AllProductPage";
 import Travel from "../views/pages/main/ProductsPage/TravelPage";
 import Book from "../views/pages/main/ProductsPage/BookPage";
 import Technology from "../views/pages/main/ProductsPage/TechnologyPage";
+//--------------------------
 import Help from "../views/pages/main/Help";
 import Cart from "../views/pages/main/Cart";
 
-// Auth pages
+// AUTH PAGES
 import Login from "../views/pages/auth/LoginPage";
 import Register from "../views/pages/auth/RegisterPage";
 
-// Admin Pages
+// ADMIN PAGES
 import HomeAdmin from "../views/pages/admin/HomeAdmin";
 import ProductsAdmin from "../views/pages/admin/ProductsAdmin";
 
-// Messages pages
+// MESSAGES PAGES
 import Error from '../views/pages/messages/Error';
 import CommingSoon from "../views/pages/messages/CommingSoon";
 
@@ -39,11 +41,11 @@ const router = createBrowserRouter([
       },
       {
         path: "products",
-        element: <ProductsPage />,
+        element: <Products />,
         children: [
           {
             path: "all",
-            element: <AllProductPage />,
+            element: <AllProduct />,
           },
           {
             path: "travel",
@@ -106,6 +108,10 @@ const router = createBrowserRouter([
       {
         path: "products",
         element: <AdminRoute><ProductsAdmin /></AdminRoute>,
+      },
+      {
+        path: "users",
+        element: <AdminRoute><CommingSoon /></AdminRoute>,
       },
       {
         path: "*",
