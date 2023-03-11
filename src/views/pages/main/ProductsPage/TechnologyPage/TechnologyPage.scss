@@ -1,0 +1,8 @@
+@import '../../../../../scss/mixins';
+@import '../../../../../scss/variables';
+
+.technology-page {
+  h1 {
+    @include titleH1();
+  }
+}
