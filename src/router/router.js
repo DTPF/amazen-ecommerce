@@ -8,8 +8,11 @@ import AuthLayout from "../views/layouts/AuthLayout";
 
 // Main Pages
 import Home from "../views/pages/main/Home";
-import BestSellers from "../views/pages/main/BestSellers";
-import Stores from "../views/pages/main/Stores";
+import ProductsPage from "../views/pages/main/ProductsPage";
+import AllProductPage from "../views/pages/main/ProductsPage/AllProductPage";
+import Travel from "../views/pages/main/ProductsPage/TravelPage";
+import Book from "../views/pages/main/ProductsPage/BookPage";
+import Technology from "../views/pages/main/ProductsPage/TechnologyPage";
 import Help from "../views/pages/main/Help";
 import Cart from "../views/pages/main/Cart";
 
@@ -35,12 +38,26 @@ const router = createBrowserRouter([
         element: <Home />,
       },
       {
-        path: "bestsellers",
-        element: <BestSellers />,
-      },
-      {
-        path: "stores",
-        element: <Stores />,
+        path: "products",
+        element: <ProductsPage />,
+        children: [
+          {
+            path: "all",
+            element: <AllProductPage />,
+          },
+          {
+            path: "travel",
+            element: <Travel />,
+          },
+          {
+            path: "book",
+            element: <Book />,
+          },
+          {
+            path: "technology",
+            element: <Technology />,
+          }
+        ]
       },
       {
         path: "help",
