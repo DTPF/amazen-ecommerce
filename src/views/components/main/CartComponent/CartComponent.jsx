@@ -149,14 +149,22 @@ function CartRender({ item, cart, setCart }) {
         <div className='cart__component--item__product--info'>
           <div className='cart__component--item__product--info__title-price'>
             <h4>{product?.title}</h4>
-            <div>{(product?.sizeAndPrice[0].price) * quantityInput} €</div>
+            <div>{((product?.sizeAndPrice[0].price) * quantityInput).toFixed(2)} €</div>
           </div>
           <div className={`cart__component--item__product--info__stock--${product?.stock === 0 ? 'dont-have-stock' : 'have-stock'}`}>
             {product?.stock === 0 ? 'Sin stock' : 'En stock'}
           </div>
-          <div className='cart__component--item__product--info__size'><b>Tamaño:</b> {product?.sizeAndPrice[0].size}</div>
+          {product?.sizeAndPrice[0].size && (
+            <div className='cart__component--item__product--info__size'>
+              <b>Tamaño:</b> {product?.sizeAndPrice[0].size}
+            </div>
+          )}
           <div></div>
-          <div className='cart__component--item__product--info__color'><b>Color:</b> {product?.info.color}</div>
+          {product?.info.color && (
+            <div className='cart__component--item__product--info__color'>
+              <b>Color:</b> {product?.info.color}
+            </div>
+          )}
           <div className='cart__component--item__product--info__bottom-group'>
             <form onSubmit={(e) => handleUpdateQuantity(e)}>
               <label htmlFor='quantity'>
