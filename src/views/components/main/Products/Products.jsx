@@ -3,6 +3,7 @@ import useCartContext from '../../../../hooks/useCartContext';
 import useProductContext from '../../../../hooks/useProductContext';
 import useAuth from '../../../../hooks/useAuthContext';
 import { useGetAccessTokenApi } from '../../../../api/auth';
+import useSearchProducts from '../../../../hooks/useSearchProducts';
 import { addToCart } from '../../../../api/cart';
 import useGetProductImage from '../../../../hooks/useProduct/useGetProductImage';
 import toaster from '../../UI/toast/toast';
@@ -11,22 +12,43 @@ import fiveStarsImage from '../../../../assets/images/five-stars.png';
 import { CgShoppingCart } from 'react-icons/cg';
 import './Products.scss';
 
-export default function Products({ category }) {
+export default function Products({ category, title }) {
   const { products, setCategory } = useProductContext();
+  const [query] = useSearchProducts();
 
   useEffect(() => {
     setCategory(category);
-  }, [category, setCategory])
+  }, [category, setCategory]);
 
   return (
     <div className='products-container'>
+      <h1>{title}</h1>
       <div className='products-container__products'>
-        {products && products.map((product, index) => (
-          <ProductsRender
-            key={index}
-            product={product}
-          />
-        ))}
+        {products && products
+          .filter(({ title, category, info }) => {
+            if (!query) {
+              return true
+            }
+            else {
+              const nameLowerCase = title.toLowerCase();
+              const categoryLowerCase = category.toLowerCase();
+              const colorLowerCase = info.color.toLowerCase();
+
+              return (
+                nameLowerCase.includes(query.toLowerCase()) ||
+                categoryLowerCase.includes(query.toLowerCase()) ||
+                colorLowerCase.includes(query.toLowerCase())
+              )
+            }
+          })
+          .map((product, index) => {
+            return (
+              <ProductsRender
+                key={index}
+                product={product}
+              />
+            )
+          })}
       </div>
     </div>
   );

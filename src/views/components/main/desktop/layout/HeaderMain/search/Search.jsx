@@ -1,8 +1,23 @@
 import React from 'react';
+import { useLocation, useNavigate } from 'react-router-dom';
+import useSearchProducts from '../../../../../../../hooks/useSearchProducts';
 import { BsSearch } from 'react-icons/bs';
 import './Search.scss';
 
-export default function Search(props) {
+export default function Search() {
+  const [query, setSearchParams] = useSearchProducts();
+  const { pathname } = useLocation();
+  const navigate = useNavigate()
+
+  const handleInput = ({ target }) => {
+    if (pathname !== '/products/all') {
+      return navigate("/products/all");
+    }
+
+    const { value } = target;
+    setSearchParams({ q: value });
+  }
+
   return (
     <div className='search'>
       <div className="search__input-group">
@@ -43,11 +58,20 @@ export default function Search(props) {
           </select>
         </span>
 
-        <input id="search" type="text" className="search__input-group--input" name="search" placeholder="Buscar Amazén.es" />
+        <input
+          id="search"
+          value={query}
+          type="text"
+          className="search__input-group--input"
+          name="search"
+          placeholder="Buscar Amazén.es"
+          onChange={handleInput}
+        />
 
-        <button className="search__input-group--button"><BsSearch /></button>
+        <button className="search__input-group--button">
+          <BsSearch />
+        </button>
       </div>
     </div>
-
   );
 }
