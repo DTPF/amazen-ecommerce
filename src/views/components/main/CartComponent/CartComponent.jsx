@@ -43,7 +43,7 @@ export default function CartComponent() {
             <p className='cart__result--box__total-price'>
               Total: <b>{totalAmount.toFixed(2)} €</b>
             </p>
-            <div></div>
+            <button className='cart__result-box--checkout'>Comprar</button>
           </div>
         </div>
       </div>

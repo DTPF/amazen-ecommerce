@@ -88,7 +88,7 @@
               font-weight: 400;
               font-size: 1.1rem;
             }
-            
+
             div {
               font-size: 1.2rem;
               font-weight: 700;
@@ -156,7 +156,6 @@
             }
 
             button {
-              // @include buttonPrimary($colorRed, $redWarning);
               color: $redWarning;
               background-color: transparent;
               border: 0;
@@ -165,8 +164,6 @@
               &:hover {
                 border-bottom: 1px solid $redWarning;
               }
-              // border-radius: 5px;
-              // width: auto;
             }
           }
         }
@@ -212,6 +209,12 @@
         b {
           font-size: 1.2rem;
         }
+      }
+
+      // Checkout
+      button {
+        @include buttonPrimary();
+        margin: 15px auto;
       }
     }
   }

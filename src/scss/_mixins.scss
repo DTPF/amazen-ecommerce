@@ -18,6 +18,7 @@
   font-weight: 700;
   font-size: 1rem;
   box-shadow: -1px 3px 24px -7px rgba(0, 0, 0, 0.271);
+  cursor: pointer;
 
   &:hover {
     @include scale(1, 1.02, 300ms);
