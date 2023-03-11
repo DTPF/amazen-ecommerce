@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import useCartContext from '../../../../hooks/useCartContext';
 import useProductContext from '../../../../hooks/useProductContext';
 import useAuth from '../../../../hooks/useAuthContext';
@@ -11,8 +11,12 @@ import fiveStarsImage from '../../../../assets/images/five-stars.png';
 import { CgShoppingCart } from 'react-icons/cg';
 import './Products.scss';
 
-export default function Products() {
-  const { products } = useProductContext();
+export default function Products({ category }) {
+  const { products, setCategory } = useProductContext();
+
+  useEffect(() => {
+    setCategory(category);
+  }, [category, setCategory])
 
   return (
     <div className='products-container'>
