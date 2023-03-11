@@ -1,8 +1,8 @@
 import { basePath, apiVersion } from "./utils/config";
 import makeRequest from "./utils/makeRequest";
 
-export async function getProductsApi() {
-  const url = `${basePath}/${apiVersion}/get-products`;
+export async function getProductsApi(category) {
+  const url = `${basePath}/${apiVersion}/get-products/${category}`;
   return makeRequest(url, true, true, "GET");
 }
 
