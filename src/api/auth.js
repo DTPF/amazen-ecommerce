@@ -1,62 +1,44 @@
 import { basePath, apiVersion } from "./utils/config";
 import jwtDecode from "jwt-decode";
-import { DB_NAME_AMAZEN, DB_VERSION, AUTH } from "../indexedDB/utils/config";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import Cookies from 'js-cookie';
+import useAuthContext from "../hooks/useAuthContext";
 
 export function useGetAccessTokenApi() {
   const [accessToken, setAccessToken] = useState('');
-  let openRequest = indexedDB.open(DB_NAME_AMAZEN, DB_VERSION);
+  const token = Cookies.get('token')
+  const tokenParse = token && JSON?.parse(token)?.ACCESS_TOKEN;
+  const user = useAuthContext();
 
-  openRequest.onsuccess = function (e) {
-    const result = e.target.result;
-    const transaction = result.transaction([AUTH], "readwrite");
-    let auth = transaction.objectStore(AUTH);
-    let request = auth.get(0);
+  useEffect(() => {
+    setAccessToken(tokenParse);
+  }, [tokenParse])
 
-    request.onsuccess = function (e) {
-      const result = e.target.result;
-      setAccessToken(result?.ACCESS_TOKEN);
-    };
-    request.onerror = function () {
-      console.log("Error", request.error);
-    };
-  }
-  
   if (!accessToken || accessToken === "null") {
     return null;
   }
-  willExpireToken(accessToken) && logout();
+  willExpireToken(accessToken) && logout(user?.setUser);
   return willExpireToken(accessToken) ? null : accessToken;
 }
 
 export function useGetRefreshTokenApi() {
-  const [refreshToken, setRefreshToken] = useState('')
-  let openRequest = indexedDB.open(DB_NAME_AMAZEN, DB_VERSION);
+  const [refreshToken, setRefreshToken] = useState('');
+  const token = Cookies.get('token')
+  const tokenParse = token && JSON?.parse(token)?.REFRESH_TOKEN;
+  const user = useAuthContext();
 
-  openRequest.onsuccess = function (e) {
-    const result = e.target.result;
-    const transaction = result.transaction([AUTH], "readwrite");
-    let auth = transaction.objectStore(AUTH);
-    let request = auth.get(0);
-
-    request.onsuccess = function (e) {
-      const result = e.target.result;
-      setRefreshToken(result?.REFRESH_TOKEN);
-    };
-
-    request.onerror = function () {
-      console.log("Error", request.error);
-    };
-  }
+  useEffect(() => {
+    setRefreshToken(tokenParse);
+  }, [tokenParse])
 
   if (!refreshToken || refreshToken === "null") {
     return null;
   }
-  willExpireToken(refreshToken) && logout();
+  willExpireToken(refreshToken) && logout(user?.setUser);
   return willExpireToken(refreshToken) ? null : refreshToken;
 }
 
-export async function refreshAccessTokenApi(refreshToken, setUser) {
+export async function useRefreshAccessTokenApi(refreshToken, setUser) {
   const url = `${basePath}/${apiVersion}/refresh-access-token`;
   const bodyObj = {
     refreshToken: refreshToken,
@@ -79,30 +61,17 @@ export async function refreshAccessTokenApi(refreshToken, setUser) {
     .then((result) => {
       if (result) {
         const { accessToken, refreshToken } = result;
-        const openRequest = indexedDB.open(DB_NAME_AMAZEN, DB_VERSION);
-
-        openRequest.onsuccess = function (e) {
-          const result = e.target.result;
-          const transaction = result.transaction([AUTH], "readwrite");
-          let auth = transaction.objectStore(AUTH);
-          let obj = {
-            id: 0,
-            ACCESS_TOKEN: accessToken,
-            REFRESH_TOKEN: refreshToken
-          }
-          let request = auth.put(obj);
-
-          request.onsuccess = function (e) {
-            setUser({
-              isLoading: false,
-              userData: jwtDecode(accessToken),
-            });
-          };
-
-          request.onerror = function () {
-            console.log("Error", request.error);
-          };
+        let obj = {
+          id: 0,
+          ACCESS_TOKEN: accessToken,
+          REFRESH_TOKEN: refreshToken
         }
+
+        Cookies.set('token', JSON.stringify(obj))
+        setUser({
+          isLoading: false,
+          userData: jwtDecode(accessToken),
+        });
       }
     })
     .catch((err) => {
@@ -110,23 +79,13 @@ export async function refreshAccessTokenApi(refreshToken, setUser) {
     });
 }
 
-export async function logout() {
-  let openRequest = indexedDB.open(DB_NAME_AMAZEN, DB_VERSION);
-
-  openRequest.onsuccess = function (e) {
-    const result = e.target.result;
-    const transaction = result.transaction([AUTH], "readwrite");
-    let auth = transaction.objectStore(AUTH);
-    const request = auth.clear();
-
-    request.onsuccess = function (e) {
-      localStorage.removeItem('cart')
-    };
-
-    request.onerror = function () {
-      console.log("Error", request.error);
-    };
-  }
+export function logout(setUser, setCart) {
+  setUser && setUser({
+    isLoading: false,
+    userData: null,
+  });
+  setCart && setCart(0);
+  Cookies.remove('token');
 }
 
 export function willExpireToken(token) {

@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { signInApi } from '../../../../../api/user';
 import useAuthContext from '../../../../../hooks/useAuthContext';
 import jwtDecode from "jwt-decode";
-import { DB_NAME_AMAZEN, DB_VERSION, AUTH } from '../../../../../indexedDB/utils/config';
+import Cookies from 'js-cookie';
 import toaster from '../../../UI/toast/toast';
 import './LoginForm.scss';
 
@@ -29,33 +29,16 @@ export default function LoginForm({ setValtidationMsg }) {
       setValtidationMsg(result.message);
     } else {
       const { accessToken, refreshToken } = result;
-      const openRequest = indexedDB.open(DB_NAME_AMAZEN, DB_VERSION);
-
-      openRequest.onsuccess = function (e) {
-        const result = e.target.result;
-        const transaction = result.transaction([AUTH], "readwrite");
-        let auth = transaction.objectStore(AUTH);
-        const obj = {
-          id: 0,
-          ACCESS_TOKEN: accessToken,
-          REFRESH_TOKEN: refreshToken
-        }
-        const request = auth.put(obj);
-
-        request.onsuccess = function (e) {
-          setUser({
-            isLoading: false,
-            userData: jwtDecode(accessToken),
-          });
-          setValtidationMsg(undefined);
-          window.history.back();
-          toaster('¡Bienvenido/a!');
-        };
-
-        request.onerror = function () {
-          console.log("Error", request.error);
-        };
+      const obj = {
+        ACCESS_TOKEN: accessToken,
+        REFRESH_TOKEN: refreshToken
       }
+      Cookies.set('token', JSON.stringify(obj))
+      setUser({
+        isLoading: false,
+        userData: jwtDecode(accessToken),
+      });
+      toaster('¡Bienvenido/a!');
     }
   }
 
