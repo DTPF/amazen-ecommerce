@@ -2,8 +2,9 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import useAuthContext from '../../../../../../../hooks/useAuthContext';
 import useCartContext from '../../../../../../../hooks/useCartContext';
-import userLogout from '../../../../../../../hooks/useUser/userLogout';
+import { logout } from '../../../../../../../api/auth';
 import Popover from '../../../../../UI/Popover';
+import toaster from '../../../../../UI/toast/toast';
 import myAccountImageLogged from '../../../../../../../assets/images/my-account-logged.png';
 import myAccountImageNotLogged from '../../../../../../../assets/images/my-account-not-logged.png';
 import './MyAccount.scss';
@@ -15,8 +16,9 @@ export default function MyAccount() {
   const { setCart } = useCartContext();
 
   const handleLogout = () => {
-    userLogout(setUser, setCart);
-    setIsVisible(false)
+    logout(setUser, setCart);
+    toaster('¡Hasta pronto!');
+    setIsVisible(false);
   }
 
   return (
@@ -71,7 +73,11 @@ export default function MyAccount() {
                 <li>Mi Amazén Drive</li>
                 <li>Mis Apps y dispositivos</li>
                 <li>Cambiar de cuenta</li>
-                {userData && <li className='my-account__popover--lists__my-account--logout' onClick={() => handleLogout()}>Cerrar sesión</li>}
+                {userData && (
+                  <li className='my-account__popover--lists__my-account--logout' onClick={() => handleLogout()}>
+                    Cerrar sesión
+                  </li>
+                )}
               </ul>
             </div>
           </div>

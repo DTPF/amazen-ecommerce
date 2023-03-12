@@ -2,13 +2,13 @@ import React from 'react';
 import { NavLink, Link } from 'react-router-dom';
 import useAuthContext from '../../../../../../hooks/useAuthContext';
 import useCartContext from '../../../../../../hooks/useCartContext';
-import userLogout from '../../../../../../hooks/useUser/userLogout';
+import { logout } from '../../../../../../api/auth';
+import toaster from '../../../../UI/toast/toast';
 import { AiOutlineUser, AiOutlineHome, AiOutlineStar } from 'react-icons/ai';
 import { MdExitToApp } from 'react-icons/md';
 import { RiAdminLine } from 'react-icons/ri';
 import { BiCart } from 'react-icons/bi';
 import './FooterMainMobile.scss';
-
 
 export default function FooterMainMobile() {
   const { user, setUser } = useAuthContext();
@@ -16,7 +16,8 @@ export default function FooterMainMobile() {
   const { cart, setCart } = useCartContext();
 
   const handleLogout = () => {
-    userLogout(setUser, setCart);
+    logout(setUser, setCart);
+    toaster('¡Hasta pronto!');
   }
   
   return (
