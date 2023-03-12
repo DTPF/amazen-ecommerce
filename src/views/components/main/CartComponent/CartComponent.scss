@@ -212,9 +212,11 @@
       }
 
       // Checkout
-      button {
+      a {
         @include buttonPrimary();
         margin: 15px auto;
+        text-decoration: none;
+        text-align: center;
       }
     }
   }
