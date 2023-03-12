@@ -5,6 +5,7 @@
   "dependencies": {
     "antd": "^5.2.1",
     "chart.js": "^4.2.1",
+    "js-cookie": "^3.0.1",
     "jwt-decode": "^3.1.2",
     "moment": "^2.29.4",
     "node-sass": "^7.0.3",
