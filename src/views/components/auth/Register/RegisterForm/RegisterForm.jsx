@@ -12,6 +12,13 @@ export default function RegisterForm({ setValtidationMsg }) {
     password: "",
     repeatPassword: "",
     role: "user",
+    address: {
+      street: "",
+      city: "",
+      province: "",
+      country: "",
+      postalCode: ""
+    },
     createdAt: Date.now()
   });
 
@@ -26,7 +33,7 @@ export default function RegisterForm({ setValtidationMsg }) {
     
     if (result.status === 200) {
       setValtidationMsg(undefined);
-      navigate('/auth');
+      navigate('/auth/login');
     } else {
       setValtidationMsg(result.message);
     }
@@ -61,6 +68,86 @@ export default function RegisterForm({ setValtidationMsg }) {
           name='email'
           type="email"
           onChange={(e) => handleChangeForm(e)}
+        />
+      </label>
+
+      <label htmlFor='address'>
+        Calle
+        <input
+          name='address'
+          type="text"
+          placeholder='Av. de los pinos, 9'
+          onChange={(e) => setInputs({
+            ...inputs,
+            address: {
+              ...inputs.address,
+              street: e.target.value
+            }
+          })}
+        />
+      </label>
+
+      <label htmlFor='city'>
+        Ciudad
+        <input
+          name='city'
+          type="text"
+          placeholder='Palma de Mallorca'
+          onChange={(e) => setInputs({
+            ...inputs,
+            address: {
+              ...inputs.address,
+              city: e.target.value
+            }
+          })}
+        />
+      </label>
+
+      <label htmlFor='province'>
+        Provincia
+        <input
+          name='province'
+          type="text"
+          placeholder='Illes Balears'
+          onChange={(e) => setInputs({
+            ...inputs,
+            address: {
+              ...inputs.address,
+              province: e.target.value
+            }
+          })}
+        />
+      </label>
+
+      <label htmlFor='country'>
+        País
+        <input
+          name='country'
+          type="text"
+          placeholder='España'
+          onChange={(e) => setInputs({
+            ...inputs,
+            address: {
+              ...inputs.address,
+              country: e.target.value
+            }
+          })}
+        />
+      </label>
+
+      <label htmlFor='postalCode'>
+        Código postal
+        <input
+          name='postalCode'
+          type="number"
+          placeholder='078345'
+          onChange={(e) => setInputs({
+            ...inputs,
+            address: {
+              ...inputs.address,
+              postalCode: e.target.value
+            }
+          })}
         />
       </label>
 
