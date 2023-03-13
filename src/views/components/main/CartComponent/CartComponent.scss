@@ -53,10 +53,12 @@
         padding: 5px;
 
         &--image {
+          width: 170px;
+          display: flex;
+          justify-content: center;
+          
           img {
-            width: 130px;
             max-height: 90px;
-            padding: 20px;
           }
 
           @media(max-width: 815px) {
