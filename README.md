@@ -2,13 +2,13 @@
 
 # React E-commerce <!-- omit in toc -->
 
-Amazén is a full javascript project with which I put my knowledge and learning into practice. 
-Application focused with user roles and administrator panel to manage users and content.
+Amazén is a full Javascript project with which I have applied my knowledge and learning into practice. 
+This application has a custom CMS for the business management with user roles and an administrator panel.
 
 ## Table of Contents <!-- omit in toc -->
 
 - [Getting Started](#getting-started)
-- [Instructions](#instructions)
+- [Instructions](#instructions) 
 - [Available Scripts](#available-scripts)
 - [Author](#author)
 - [License](#license)
@@ -28,7 +28,7 @@ $ npm i & npm run dev
 
 Rename the config-example.js and env-example.js removing '-example', and configure this files with your server environment.
 
-Make sure you have active Mongodb service.
+Make sure you have active MongoDB service.
 
 Now clone and install the frontend:
 
@@ -37,20 +37,15 @@ $ git clone https://github.com/DTPF/amazen-ecommerce.git
 $ npm i & npm start
 ```
 
-The app will be run by default in the following url: `http://localhost:3000/`
+The app will be runnning by default in the following url: `http://localhost:3000/`
 
-## Instructions
-
-Throughout this week you will start creating the dashboard of your e-commerce. We will start this pill with the contents given during the class, and scalate as we get deepen into the information.
-
-The `main` branch of the future repos will have the favourite class solution of the previous pill so that you can get started with it, should you get stucked at any stage.
 
 
 ### App features
 
-I have created the application focusing on performance on functionalities.
+I have created the application focusing on performance.
 I have applied Lazy Load throughout the project, I have also implemented the Service Workers for improve the performance.
-For data persistence I use a backend with node.js and Mongodb.
+For data persistence I have used a backend with Node.js and MongoDB.
 
 #### Wireframes
 
