@@ -1,24 +1,20 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import useCartContext from '../../../../hooks/useCartContext';
 import useProductContext from '../../../../hooks/useProductContext';
 import useAuth from '../../../../hooks/useAuthContext';
 import { useGetAccessTokenApi } from '../../../../api/auth';
 import useSearchProducts from '../../../../hooks/useSearchProducts';
 import { addToCart } from '../../../../api/cart';
-import useGetProductImage from '../../../../hooks/useProduct/useGetProductImage';
+import { basePath, apiVersion } from '../../../../api/utils/config';
 import toaster from '../../UI/toast/toast';
 import randomProductImage from './randomProductImage';
 import fiveStarsImage from '../../../../assets/images/five-stars.png';
 import { CgShoppingCart } from 'react-icons/cg';
 import './Products.scss';
 
-export default function Products({ category, title }) {
-  const { products, setCategory } = useProductContext();
+export default function Products({ title }) {
+  const { products } = useProductContext();
   const [query] = useSearchProducts();
-
-  useEffect(() => {
-    setCategory(category);
-  }, [category, setCategory]);
 
   return (
     <div className='products-container'>
@@ -59,7 +55,7 @@ function ProductsRender({ product }) {
   const { user } = useAuth();
   const { userData } = user;
   const { cart, setCart } = useCartContext();
-  const [image] = useGetProductImage(images && images[defaultImage - 1]);
+  const image = `${basePath}/${apiVersion}/get-product-image/${images[defaultImage - 1]}`;
   const token = useGetAccessTokenApi();
 
   const handleAddToCart = async () => {

@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useCallback } from 'react';
 import { useDropzone } from 'react-dropzone'
 import { useGetAccessTokenApi } from '../../../../../api/auth';
-import useGetProductImage from '../../../../../hooks/useProduct/useGetProductImage';
+import { apiVersion, basePath } from '../../../../../api/utils/config';
 import { addProductApi, uploadProductImageApi, updateProductApi, deleteProductImageApi } from '../../../../../api/products';
 import useProductContext from '../../../../../hooks/useProductContext';
 import toaster from '../../../UI/toast/toast';
@@ -357,7 +357,7 @@ export default function ProductForm({ product, setIsVisibleAddModal, setIsVisibl
 }
 
 function Images({ imageName, product, token, products, setProducts }) {
-  const [image] = useGetProductImage(imageName);
+  const image = `${basePath}/${apiVersion}/get-product-image/${imageName[product.defaultImage - 1]}`;
 
   const handleDeleteImage = () => {
     Swal.fire({

@@ -4,7 +4,7 @@ import useCartContext from '../../../../hooks/useCartContext';
 import { getProductByIdApi } from '../../../../api/products';
 import { deleteCartItemApi, updateCartItemQuantityApi } from '../../../../api/cart';
 import { useGetAccessTokenApi } from '../../../../api/auth';
-import useGetProductImage from '../../../../hooks/useProduct/useGetProductImage';
+import { apiVersion, basePath } from '../../../../api/utils/config';
 import randomProductImage from '../Products/randomProductImage';
 import toaster from '../../UI/toast/toast';
 import './CartComponent.scss';
@@ -69,7 +69,7 @@ export default function CartComponent() {
 
 function CartRender({ item, cart, setCart }) {
   const [product, setProduct] = useState(undefined);
-  const [image] = useGetProductImage(product && product.images[product.defaultImage - 1]);
+  const image = `${basePath}/${apiVersion}/get-product-image/${product.images[product.defaultImage - 1]}`;
   const [showQuantityButton, setQuantityButton] = useState(false);
   const token = useGetAccessTokenApi();
   const [quantityInput, setQuantityInput] = useState(0);
