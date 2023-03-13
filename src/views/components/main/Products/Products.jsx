@@ -3,7 +3,6 @@ import useCartContext from '../../../../hooks/useCartContext';
 import useProductContext from '../../../../hooks/useProductContext';
 import useAuth from '../../../../hooks/useAuthContext';
 import { useGetAccessTokenApi } from '../../../../api/auth';
-import useSearchProducts from '../../../../hooks/useSearchProducts';
 import { addToCart } from '../../../../api/cart';
 import { basePath, apiVersion } from '../../../../api/utils/config';
 import toaster from '../../UI/toast/toast';
@@ -12,25 +11,8 @@ import fiveStarsImage from '../../../../assets/images/five-stars.png';
 import { CgShoppingCart } from 'react-icons/cg';
 import './Products.scss';
 
-export default function Products() {
+export default function Products( { query, title }) {
   const { products } = useProductContext();
-  const [query] = useSearchProducts();
-
-  const title = () => {
-    switch (query) {
-      case 'travel':
-        return 'Productos para viaje';
-
-      case 'book':
-        return 'Libros y revistas';
-
-      case 'technology':
-        return 'Lo mejor en tecnología';
-
-      default:
-        return 'Los mejores productos';
-    }
-  }
 
   return (
     <div className='products-container'>
