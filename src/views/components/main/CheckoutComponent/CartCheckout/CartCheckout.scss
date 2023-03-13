@@ -1,0 +1,32 @@
+@import '../../../../../scss/mixins';
+
+.checkout-cart {
+  @include boxShadow();
+
+  &__item {
+    border-top: 0;
+    padding: 10px 5px;
+    background-color: #f8f6f6;
+    border-bottom: 1px solid rgb(202, 202, 202);
+
+    &:last-child {
+      border: 0;
+    }
+
+    &--title,
+    &--quantity,
+    &--price {
+      padding: 2px 0;
+    }
+
+    &--title {
+      font-weight: 500;
+    }
+
+    &--price {
+      span {
+        font-weight: 500;
+      }
+    }
+  }
+}
