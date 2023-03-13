@@ -24,7 +24,12 @@ export default function ProductForm({ product, setIsVisibleAddModal, setIsVisibl
     images: [],
     waitShippingTime: 0,
     category: '',
-    defaultImage: 1
+    defaultImage: 1,
+    discount: {
+      shop: '',
+      percent: '',
+      discountName: ''
+    }
   })
   const token = useGetAccessTokenApi();
   const { products, setProducts } = useProductContext();
@@ -82,21 +87,24 @@ export default function ProductForm({ product, setIsVisibleAddModal, setIsVisibl
     setInputs({ ...inputs, [e.target.name]: e.target.value })
   }
 
-  const onDrop = useCallback(async acceptedFiles => {
-    acceptedFiles[0] && await uploadProductImageApi(token, product._id, acceptedFiles[0])
-      .then(res => {
-        let newProduct = [...products];
-        newProduct.forEach((data, key) => {
-          if (data._id === product._id) {
-            newProduct[key] = res.product;
-          }
+  const onDrop = useCallback(acceptedFiles => {
+    let image = acceptedFiles[0];
+    if (typeof image === "object") {
+      image && uploadProductImageApi(token, product?._id, image)
+        .then(res => {
+          let newProduct = [...products];
+          products.forEach((data, key) => {
+            if (data?._id === product?._id) {
+              newProduct[key] = res.product;
+            }
+          })
+          setProducts(newProduct);
+          toaster(res.message, 'success');
         })
-        setProducts(newProduct);
-        toaster(res.message, 'success');
-      })
-      .catch(err => {
-        toaster(err.message, 'success');
-      })
+        .catch(err => {
+          toaster(err.message, 'success');
+        })
+    }
   }, [product, products, setProducts, token])
 
   const { getRootProps, getInputProps } = useDropzone({ onDrop });
@@ -105,23 +113,23 @@ export default function ProductForm({ product, setIsVisibleAddModal, setIsVisibl
     <div className='product-form'>
       {product && (
         <div className='product-form__images'>
-            <div className='product-form__images--container'>
-              {products && products.map((item, key) => {
-                if (item._id === product._id) {
-                  return products[key].images.map((img, key) => (
-                    <Images
-                      key={key}
-                      imageName={img}
-                      product={product}
-                      token={token}
-                      products={products}
-                      setProducts={setProducts}
-                    />
-                  ))
-                }
-                return null;
-              })}
-            </div>
+          <div className='product-form__images--container'>
+            {products && products?.map((item) => {
+              if ((item?._id === product?._id)) {
+                return item?.images?.map((img, key) => (
+                  <Images
+                    key={key}
+                    imageName={img}
+                    product={product}
+                    token={token}
+                    products={products}
+                    setProducts={setProducts}
+                  />
+                ))
+              }
+              return null;
+            })}
+          </div>
           <section className='product-form__images--dropzone-container'>
             <div {...getRootProps({ className: 'product-form__images--dropzone-container__input' })}>
               <input {...getInputProps()} />
@@ -286,6 +294,57 @@ export default function ProductForm({ product, setIsVisibleAddModal, setIsVisibl
             name='category'
             value={inputs?.category}
             onChange={(e) => handleInputs(e)}
+          />
+        </label>
+
+        <label htmlFor='shop'>
+          Tienda descuento
+          <input
+            type='text'
+            name='shop'
+            value={inputs?.discount?.shop ? inputs?.discount?.shop : ''}
+            onChange={(e) => setInputs({
+              ...inputs,
+              discount: {
+                shop: e.target.value,
+                percent: inputs?.discount?.percent,
+                discountName: inputs?.discount?.discountName
+              }
+            })}
+          />
+        </label>
+
+        <label htmlFor='discountName'>
+          Nombre de descuento
+          <input
+            type='text'
+            name='discountName'
+            value={inputs?.discount?.discountName ? inputs?.discount?.discountName : ''}
+            onChange={(e) => setInputs({
+              ...inputs,
+              discount: {
+                shop: inputs?.discount?.shop,
+                percent: inputs?.discount?.percent,
+                discountName: e.target.value
+              }
+            })}
+          />
+        </label>
+
+        <label htmlFor='percent'>
+          Descuento
+          <input
+            type='number'
+            name='percent'
+            value={inputs?.discount?.percent ? inputs?.discount?.percent : ''}
+            onChange={(e) => setInputs({
+              ...inputs,
+              discount: {
+                shop: inputs?.discount?.shop,
+                percent: e.target.value,
+                discountName: inputs?.discount?.discountName
+              }
+            })}
           />
         </label>
 
