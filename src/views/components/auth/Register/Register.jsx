@@ -46,7 +46,7 @@ function Help() {
     <div className='register__form-container--help'>
       <div>
         ¿Ya tiene una cuenta?
-        <Link to={'/auth'}>Iniciar sesión</Link>
+        <Link to={'/auth/login'}>Iniciar sesión</Link>
       </div>
       <div>
         ¿Compras para tu empresa?

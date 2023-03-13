@@ -12,7 +12,7 @@ export const sectionsData = [
     title: 'Los más vendidos',
     img: echoShowImg,
     linkName: 'Ver más',
-    linkRouter: '/bestsellers',
+    linkRouter: '/products/all',
     isActive: true
   },
   {
@@ -33,7 +33,7 @@ export const sectionsData = [
     title: 'Amazén Basics',
     img: informaticaImg,
     linkName: 'Descubre más',
-    linkRouter: '/stores',
+    linkRouter: '/products/all',
     isActive: true
   },
   {

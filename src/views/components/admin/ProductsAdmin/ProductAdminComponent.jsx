@@ -45,7 +45,6 @@ export default function ProductAdminComponent() {
 }
 
 function Product({ product, products, setProducts, setIsVisibleEditModal, setChoosedProduct }) {
-  const { title, createdAt, updatedAt } = product;
   const token = useGetAccessTokenApi();
 
   const handleDeleteProduct = () => {
@@ -85,11 +84,11 @@ function Product({ product, products, setProducts, setIsVisibleEditModal, setCho
       <div className='product-admin-component__product-container--product--row1'>
         <div>
           <div className='product-admin-component__product-container--product--row1__title'>
-            {title}
+            {product?.title}
           </div>
           <div className='product-admin-component__product-container--product--row1__date'>
-            {createdAt === updatedAt ? 'Creado:' : 'Actualizado:'}
-            <span> {moment(updatedAt).fromNow()}</span>
+            {product?.createdAt === product?.updatedAt ? 'Creado:' : 'Actualizado:'}
+            <span> {moment(product?.updatedAt).fromNow()}</span>
           </div>
         </div>
       </div>

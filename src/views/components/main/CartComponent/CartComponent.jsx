@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import useCartContext from '../../../../hooks/useCartContext';
 import { getProductByIdApi } from '../../../../api/products';
 import { deleteCartItemApi, updateCartItemQuantityApi } from '../../../../api/cart';
@@ -43,7 +44,7 @@ export default function CartComponent() {
             <p className='cart__result--box__total-price'>
               Total: <b>{totalAmount.toFixed(2)} €</b>
             </p>
-            <button className='cart__result-box--checkout'>Comprar</button>
+            <Link to={'/checkout'} className='cart__result-box--checkout'>Comprar</Link>
           </div>
         </div>
       </div>
