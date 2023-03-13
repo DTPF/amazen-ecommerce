@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import './NavBarMobile.scss';
+import './navBarMobile.scss';
 
 export default function NavBarMobile() {
   return (

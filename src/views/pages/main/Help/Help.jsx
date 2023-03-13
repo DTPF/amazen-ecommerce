@@ -1,7 +1,7 @@
 import React from 'react';
 import HelmetSEO from "../../../utils/HelmetSEO/HelmetSEO";
 import CommingSoon from '../../messages/CommingSoon';
-import './Help.scss';
+import './help.scss';
 
 export default function Help() {
   return (

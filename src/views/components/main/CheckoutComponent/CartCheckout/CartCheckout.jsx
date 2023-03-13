@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { getProductByIdApi } from '../../../../../api/products';
-import './CartCheckout.scss';
+import './cartCheckout.scss';
 
 export default function CartCheckOut({ cart }) {
   return (

@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useGetAccessTokenApi } from '../../../../../api/auth';
 import { newOrderApi } from '../../../../../api/order';
 import toaster from '../../../UI/toast/toast';
-import './PaymentCheckout.scss';
+import './paymentCheckout.scss';
 
 export default function PaymentCheckout({ cart, userData, discount }) {
   const [creditCard, setCreditCard] = useState({

@@ -1,5 +1,5 @@
 import React from 'react';
-import './FooterAdmin.scss';
+import './footerAdmin.scss';
 
 export default function FooterAdmin() {
   return (

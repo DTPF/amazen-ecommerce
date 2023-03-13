@@ -5,7 +5,7 @@ import PaymentCheckout from './PaymentCheckout';
 import useAuthContext from '../../../../hooks/useAuthContext';
 import useCartContext from '../../../../hooks/useCartContext';
 import OrderResult from './OrderResult';
-import './CheckoutComponent.scss';
+import './checkoutComponent.scss';
 
 export default function CheckoutComponent() {
   const { user } = useAuthContext();

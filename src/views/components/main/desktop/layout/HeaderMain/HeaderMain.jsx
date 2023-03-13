@@ -6,7 +6,7 @@ import Chart from './shoppingCart';
 import OrderHistory from './oderHistory';
 import MyAccount from './myAccount';
 import Language from './language';
-import './HeaderMain.scss';
+import './headerMain.scss';
 
 export default function HeaderMain() {
   return (

@@ -1,6 +1,6 @@
 import React from 'react';
 import orderHistoryImage from '../../../../../../../assets/images/order-history.png';
-import './OrderHistory.scss';
+import './orderHistory.scss';
 
 export default function OrderHistory() {
   return (

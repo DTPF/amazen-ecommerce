@@ -4,7 +4,7 @@ import useAuthContext from '../../../../../hooks/useAuthContext';
 import jwtDecode from "jwt-decode";
 import Cookies from 'js-cookie';
 import toaster from '../../../UI/toast/toast';
-import './LoginForm.scss';
+import './loginForm.scss';
 
 export default function LoginForm({ setValtidationMsg }) {
   const { setUser } = useAuthContext();

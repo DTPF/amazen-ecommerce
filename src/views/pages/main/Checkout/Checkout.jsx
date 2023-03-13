@@ -1,7 +1,7 @@
 import React from 'react';
 import CheckoutComponent from '../../../components/main/CheckoutComponent';
 import HelmetSEO from "../../../utils/HelmetSEO/HelmetSEO";
-import './Checkout.scss';
+import './checkout.scss';
 
 export default function Checkout() {
   return (

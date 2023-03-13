@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { BiMenu } from 'react-icons/bi';
-import './MenuMain.scss';
+import './menuMain.scss';
 
 export default function MenuMain() {
   return (

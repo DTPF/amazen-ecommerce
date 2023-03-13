@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { signUpApi } from '../../../../../api/user';
-import './RegisterForm.scss';
+import './registerForm.scss';
 
 export default function RegisterForm({ setValtidationMsg }) {
   let navigate = useNavigate();

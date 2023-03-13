@@ -7,7 +7,7 @@ import Popover from '../../../../../UI/Popover';
 import toaster from '../../../../../UI/toast/toast';
 import myAccountImageLogged from '../../../../../../../assets/images/my-account-logged.png';
 import myAccountImageNotLogged from '../../../../../../../assets/images/my-account-not-logged.png';
-import './MyAccount.scss';
+import './myAccount.scss';
 
 export default function MyAccount() {
   const [isVisible, setIsVisible] = useState(false);

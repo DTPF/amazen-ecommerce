@@ -1,6 +1,6 @@
 import React from 'react';
 import validationWarningIcon from '../../../../../assets/images/validation-warning-icon.png';
-import './ValidationMessage.scss';
+import './validationMessage.scss';
 
 export default function ValidationMessage({ valtidationMsg }) {
   return (

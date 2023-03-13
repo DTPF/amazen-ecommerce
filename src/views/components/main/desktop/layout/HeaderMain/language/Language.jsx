@@ -1,6 +1,6 @@
 import React from 'react';
 import languageImage from '../../../../../../../assets/images/lang.png';
-import './Language.scss';
+import './language.scss';
 
 export default function Language() {
   return (

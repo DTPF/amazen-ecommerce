@@ -1,6 +1,6 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import './NavAdmin.scss';
+import './navAdmin.scss';
 
 export default function NavAdmin() {
   return (

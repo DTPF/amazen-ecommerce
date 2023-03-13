@@ -1,6 +1,6 @@
 import React from 'react';
 import { BsSearch, BsCamera } from 'react-icons/bs';
-import './HeaderMainMobile.scss';
+import './headerMainMobile.scss';
 
 export default function HeaderMainMobile() {
   return (

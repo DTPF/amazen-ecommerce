@@ -1,5 +1,5 @@
 import React from 'react';
-import './UserCheckout.scss'
+import './userCheckout.scss'
 
 export default function UserCheckout({ userData }) {
 

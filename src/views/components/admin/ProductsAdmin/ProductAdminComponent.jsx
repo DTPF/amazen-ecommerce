@@ -9,7 +9,7 @@ import 'moment/locale/es';
 import toaster from '../../UI/toast/toast';
 import Swal from 'sweetalert2';
 import { AiOutlineEdit, AiOutlineDelete } from 'react-icons/ai';
-import './ProductAdminComponent.scss';
+import './productAdminComponent.scss';
 
 export default function ProductAdminComponent() {
   const { products, setProducts } = useProductContext();

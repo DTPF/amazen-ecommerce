@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import RegisterForm from './RegisterForm/RegisterForm';
 import ValidationMessage from '../layout/ValidationMessage';
 import amazenLogo from '../../../../assets/images/amazen-logo-white.png';
-import './Register.scss';
+import './register.scss';
 
 export default function Register() {
   const [valtidationMsg, setValtidationMsg] = useState(undefined);

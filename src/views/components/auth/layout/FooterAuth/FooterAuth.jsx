@@ -1,5 +1,5 @@
 import React from 'react';
-import './FooterAuth.scss';
+import './footerAuth.scss';
 
 export default function FooterAuth(props) {
   return (

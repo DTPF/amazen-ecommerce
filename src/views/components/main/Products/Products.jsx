@@ -9,7 +9,7 @@ import toaster from '../../UI/toast/toast';
 import randomProductImage from './randomProductImage';
 import fiveStarsImage from '../../../../assets/images/five-stars.png';
 import { CgShoppingCart } from 'react-icons/cg';
-import './Products.scss';
+import './products.scss';
 
 export default function Products( { query, title }) {
   const { products } = useProductContext();

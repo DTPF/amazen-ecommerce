@@ -7,7 +7,7 @@ import { useGetAccessTokenApi } from '../../../../api/auth';
 import { apiVersion, basePath } from '../../../../api/utils/config';
 import randomProductImage from '../Products/randomProductImage';
 import toaster from '../../UI/toast/toast';
-import './CartComponent.scss';
+import './cartComponent.scss';
 
 export default function CartComponent() {
   const { cart, setCart } = useCartContext();

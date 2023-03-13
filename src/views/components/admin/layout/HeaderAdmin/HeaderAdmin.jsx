@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import logoAdmin from '../../../../../assets/images/amazen-logo-admin.png';
 import primeImage from '../../../../../assets/images/prime.png';
-import './HeaderAdmin.scss';
+import './headerAdmin.scss';
 
 export default function HeaderAdmin(props) {
   return (

@@ -2,7 +2,7 @@ import React, { Suspense, lazy } from "react";
 import { Outlet } from "react-router-dom";
 import useWindowSizeReport from "../../../hooks/useWindowSizeReport";
 import { responsiveBreak } from "../../utils/componentsConstants";
-import './MainLayout.scss';
+import './mainLayout.scss';
 // Desktop
 const HeaderMainDesktop = lazy(() => import('../../components/main/desktop/layout/HeaderMain'));
 const FooterMainDesktop = lazy(() => import('../../components/main/desktop/layout/FooterMain'));

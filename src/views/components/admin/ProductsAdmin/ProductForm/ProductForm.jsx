@@ -6,7 +6,7 @@ import { addProductApi, uploadProductImageApi, updateProductApi, deleteProductIm
 import useProductContext from '../../../../../hooks/useProductContext';
 import toaster from '../../../UI/toast/toast';
 import Swal from 'sweetalert2';
-import './ProductForm.scss';
+import './productForm.scss';
 
 export default function ProductForm({ product, setIsVisibleAddModal, setIsVisibleEditModal }) {
   const [inputs, setInputs] = useState({

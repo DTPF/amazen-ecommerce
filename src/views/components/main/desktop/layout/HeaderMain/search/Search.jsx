@@ -2,7 +2,7 @@ import React from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import useSearchProducts from '../../../../../../../hooks/useSearchProducts';
 import { BsSearch } from 'react-icons/bs';
-import './Search.scss';
+import './search.scss';
 
 export default function Search() {
   const [query, setSearchParams] = useSearchProducts();

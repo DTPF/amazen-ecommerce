@@ -1,7 +1,7 @@
 import React from 'react';
 import HelmetSEO from "../../../utils/HelmetSEO/HelmetSEO";
 import { Result } from 'antd';
-import './Error.scss';
+import './error.scss';
 
 export default function Error() {
   return (

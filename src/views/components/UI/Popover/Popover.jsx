@@ -1,5 +1,5 @@
 import React from 'react';
-import './Popover.scss';
+import './popover.scss';
 
 export default function Popover({ children, setIsVisible }) {
 

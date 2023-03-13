@@ -1,6 +1,6 @@
 import React from 'react';
 import ProductForm from '../ProductForm';
-import '../AddEditProductModal.scss';
+import '../addEditProductModal.scss';
 
 export default function EditProduct({ product, setIsVisibleEditModal }) {
   return (

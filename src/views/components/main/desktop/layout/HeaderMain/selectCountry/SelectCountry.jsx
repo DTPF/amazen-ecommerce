@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import selectCountryImage from '../../../../../../../assets/images/select_country.png';
 import Modal from "../../../../../UI/Modal";
 import { TfiLayoutLineSolid } from 'react-icons/tfi';
-import './SelectCountry.scss';
+import './selectCountry.scss';
 
 
 export default function SelectCountry() {

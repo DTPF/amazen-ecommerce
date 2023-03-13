@@ -8,7 +8,7 @@ import { AiOutlineUser, AiOutlineHome, AiOutlineStar } from 'react-icons/ai';
 import { MdExitToApp } from 'react-icons/md';
 import { RiAdminLine } from 'react-icons/ri';
 import { BiCart } from 'react-icons/bi';
-import './FooterMainMobile.scss';
+import './footerMainMobile.scss';
 
 export default function FooterMainMobile() {
   const { user, setUser } = useAuthContext();

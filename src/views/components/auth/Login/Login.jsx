@@ -4,7 +4,7 @@ import LoginForm from './LoginForm/LoginForm';
 import ValidationMessage from '../layout/ValidationMessage/ValidationMessage';
 import amazenLogo from '../../../../assets/images/amazen-logo-white.png';
 import { RxTriangleRight } from 'react-icons/rx';
-import './Login.scss';
+import './login.scss';
 
 export default function Login() {
   const [valtidationMsg, setValtidationMsg] = useState(undefined);

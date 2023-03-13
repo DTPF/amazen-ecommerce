@@ -1,7 +1,7 @@
 import React from 'react';
-import './HomeAdminComponent.scss';
 import DoughnutChart from './DoughnutChart';
 import RadarChart from './RadarChart'
+import './homeAdminComponent.scss';
 
 export default function HomeAdminComponent() {
   return (
