@@ -29,6 +29,7 @@ import ProductsAdmin from "../views/pages/admin/ProductsAdmin";
 // MESSAGES PAGES
 import Error from '../views/pages/messages/Error';
 import CommingSoon from "../views/pages/messages/CommingSoon";
+import Checkout from "../views/pages/main/Checkout";
 
 const router = createBrowserRouter([
   {
@@ -68,6 +69,10 @@ const router = createBrowserRouter([
       {
         path: "cart",
         element: <ProtectedRoute><Cart /></ProtectedRoute>,
+      },
+      {
+        path: "checkout",
+        element: <ProtectedRoute><Checkout /></ProtectedRoute>,
       },
       {
         path: "comming-soon",
