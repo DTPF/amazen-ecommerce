@@ -69,7 +69,7 @@ export default function CartComponent() {
 
 function CartRender({ item, cart, setCart }) {
   const [product, setProduct] = useState(undefined);
-  const image = `${basePath}/${apiVersion}/get-product-image/${product.images[product.defaultImage - 1]}`;
+  const image = `${basePath}/${apiVersion}/get-product-image/${product?.images[product.defaultImage - 1]}`;
   const [showQuantityButton, setQuantityButton] = useState(false);
   const token = useGetAccessTokenApi();
   const [quantityInput, setQuantityInput] = useState(0);
@@ -140,12 +140,11 @@ function CartRender({ item, cart, setCart }) {
     setQuantityButton(true);
   }
 
-
   return (
     <div className='cart__component--item'>
       <div className='cart__component--item__product'>
         <div className='cart__component--item__product--image'>
-          <img src={image ? image : randomProductImage()} alt={product?.title} />
+          <img src={(product && image) ? image : randomProductImage()} alt={product?.title} />
         </div>
         <div className='cart__component--item__product--info'>
           <div className='cart__component--item__product--info__title-price'>
