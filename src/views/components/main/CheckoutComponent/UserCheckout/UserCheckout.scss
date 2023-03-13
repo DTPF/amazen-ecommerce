@@ -1,0 +1,22 @@
+.user-checkout {
+  min-width: 200px;
+  padding: 10px 0;
+  padding-top: 20px;
+
+  &__name,
+  &__email,
+  &__phone-number {
+    padding: 2px 5px;
+  }
+
+  &__address {
+    padding: 5px;
+    background-color: #eeeeee6c;
+
+    &--street,
+    &--city-country,
+    &--postal-code {
+      padding-bottom: 2px;
+    }
+  }
+}
