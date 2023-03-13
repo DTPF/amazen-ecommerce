@@ -6,15 +6,15 @@ import './MenuMain.scss';
 export default function MenuMain() {
   return (
     <div className='menu-main'>
-      <Link className='menu-main__all' to={'/products/all'}>
+      <Link className='menu-main__all' to={'/products/s'}>
         <span className='menu-main__all--icon'>
           <BiMenu />
         </span>
         Todos los productos
       </Link>
-      <Link to={'/products/travel'}>Viajes</Link>
-      <Link to={'/products/book'}>Libros</Link>
-      <Link to={'/products/technology'}>Tecnología</Link>
+      <Link to={'/products/s?q=travel'}>Viajes</Link>
+      <Link to={'/products/s?q=book'}>Libros</Link>
+      <Link to={'/products/s?q=travel'}>Tecnología</Link>
       <Link to={'/help'}>Atención al Cliente</Link>
       <div className='menu-main__kindle'>eBooks Kindle</div>
       <div className='menu-main__computing'>Informática</div>
