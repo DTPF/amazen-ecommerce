@@ -64,7 +64,7 @@ export default function Search() {
           type="text"
           className="search__input-group--input"
           name="search"
-          placeholder="Buscar Amazén.es"
+          placeholder="Buscar en Amazén.es"
           onChange={handleInput}
         />
 
