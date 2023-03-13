@@ -12,13 +12,29 @@ import fiveStarsImage from '../../../../assets/images/five-stars.png';
 import { CgShoppingCart } from 'react-icons/cg';
 import './Products.scss';
 
-export default function Products({ title }) {
+export default function Products() {
   const { products } = useProductContext();
   const [query] = useSearchProducts();
 
+  const title = () => {
+    switch (query) {
+      case 'travel':
+        return 'Productos para viaje';
+
+      case 'book':
+        return 'Libros y revistas';
+
+      case 'technology':
+        return 'Lo mejor en tecnología';
+
+      default:
+        return 'Los mejores productos';
+    }
+  }
+
   return (
     <div className='products-container'>
-      <h1>{title}</h1>
+      <h1>{title()}</h1>
       <div className='products-container__products'>
         {products && products
           .filter(({ title, category, info }) => {
