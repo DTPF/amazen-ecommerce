@@ -1,0 +1,40 @@
+@import '../../../../../scss/mixins';
+
+.payment-checkout {
+  display: flex;
+  flex-direction: column;
+
+  p {
+    text-align: center;
+    font-size: 1.1rem;
+    font-weight: 500;
+    padding-bottom: 0px;
+  }
+
+  &__form {
+    margin: 0 auto;
+
+    input {
+      margin: 0 auto;
+      width: 263px;
+      margin: 5px;
+      padding: 7px 5px;
+      margin-bottom: 10px;
+    }
+
+    &--expires-ccv {
+      display: flex;
+
+      label {
+        input {
+          width: 120px;
+        }
+      }
+    }
+
+    input[type='submit'] {
+      @include buttonPrimary();
+      width: 263px;
+    }
+  }
+}
