@@ -49,7 +49,7 @@ export default function Products( { query, title }) {
 }
 
 function ProductsRender({ product }) {
-  const { _id, title, stars, sizeAndPrice, images, defaultImage } = product;
+  const { _id, title, stars, sizeAndPrice, images, defaultImage, waitShippingTime } = product;
   const { user } = useAuth();
   const { userData } = user;
   const { cart, setCart } = useCartContext();
@@ -60,7 +60,8 @@ function ProductsRender({ product }) {
     const productObj = {
       userId: userData.id,
       productId: _id,
-      price: sizeAndPrice[0].price
+      price: sizeAndPrice[0].price,
+      shippingDate: waitShippingTime
     }
 
     await addToCart(token, productObj)
