@@ -357,7 +357,7 @@ export default function ProductForm({ product, setIsVisibleAddModal, setIsVisibl
 }
 
 function Images({ imageName, product, token, products, setProducts }) {
-  const image = `${basePath}/${apiVersion}/get-product-image/${imageName[product.defaultImage - 1]}`;
+  const image = `${basePath}/${apiVersion}/get-product-image/${imageName}`;
 
   const handleDeleteImage = () => {
     Swal.fire({
@@ -393,5 +393,5 @@ function Images({ imageName, product, token, products, setProducts }) {
     })
   }
 
-  return <img onClick={() => handleDeleteImage()} src={image ? image : ''} alt={'Product'} />
+  return <img onClick={() => handleDeleteImage()} src={imageName ? image : ''} alt={'Product'} />
 }
