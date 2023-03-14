@@ -14,6 +14,7 @@ serviceWorkerRegistration.register({
     if (registration && registration.waiting) {
       registration.waiting.postMessage({ type: "SKIP_WAITING" });
       registration.update();
+      window.location.reload();
     }
   }
 });
