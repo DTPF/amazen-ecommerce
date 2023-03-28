@@ -1,0 +1,24 @@
+.order-result {
+  text-align: center;
+
+  &__info {
+    p {
+      span {
+        font-size: 1.1rem;
+        font-weight: 500;
+      }
+    }
+  }
+
+  &__discount {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    
+    input {
+      max-width: 250px;
+      padding: 5px;
+      margin: 10px auto;
+    }
+  }
+}
