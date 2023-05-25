@@ -13,10 +13,6 @@ This application has a custom CMS for the business management with user roles an
 - [Author](#author)
 - [License](#license)
 
-## Visit the E-comerce website
-
-#### [Amazén.es](https://amazen.dtpf.es/)
-
 ## Getting Started
 
 First, you have to clone and install the backend:
