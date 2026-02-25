@@ -2,7 +2,7 @@ import React, { Suspense, lazy } from 'react';
 import { Outlet } from 'react-router-dom';
 import NavAdmin from '../../components/admin/layout/NavAdmin';
 import './adminLayout.scss';
-const HeaderAdmin = lazy(() => import('../../components/admin/layout/HeaderAdmin/HeaderAdmin'));
+const HeaderAdmin = lazy(() => import('../../components/admin/layout/HeaderAdmin'));
 const FooterAdmin = lazy(() => import('../../components/admin/layout/FooterAdmin'));
 
 export default function AdminLayout() {
