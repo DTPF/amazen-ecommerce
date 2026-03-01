@@ -1,78 +1,33 @@
-`#react` `#node` `#mongodb` `#sass` `#service-workers` `#assembler-institute-of-technology` `#master-in-software-engineering`
+# Amazen E-commerce
 
-# React E-commerce <!-- omit in toc -->
+Full-stack e-commerce platform with a custom CMS for business management, role-based admin panel, and service workers for performance.
 
-Amazén is a full Javascript project with which I have applied my knowledge and learning into practice. 
-This application has a custom CMS for the business management with user roles and an administrator panel.
+## Features
 
-## Table of Contents <!-- omit in toc -->
+- Product catalog with categories, search and filters
+- Shopping cart and checkout flow
+- Custom CMS for business content management
+- Admin panel with role-based access control
+- User authentication with JWT
+- Lazy loading and service workers for performance
+- Responsive design
 
-- [Getting Started](#getting-started)
-- [Instructions](#instructions) 
-- [Available Scripts](#available-scripts)
-- [Author](#author)
-- [License](#license)
+## Tech Stack
+
+- **Frontend:** React, JavaScript, Sass, Ant Design
+- **State:** React Context + useReducer
+- **Auth:** JWT (custom implementation)
+- **PWA:** Service workers via Workbox
 
 ## Getting Started
 
-First, you have to clone and install the backend:
+1. Clone and set up the backend first — see [amazen-ecommerce-node](https://github.com/DTPF/amazen-ecommerce-node)
+2. Clone this repo: `git clone https://github.com/DTPF/amazen-ecommerce.git`
+3. Install dependencies: `npm install`
+4. Start the dev server: `npm start`
 
-```bash
-$ git clone https://github.com/DTPF/amazen-ecommerce-node.git
-$ npm i & npm run dev
-```
+The app runs at `http://localhost:3000`
 
-Rename the config-example.js and env-example.js removing '-example', and configure this files with your server environment.
+## Related
 
-Make sure you have active MongoDB service.
-
-Now clone and install the frontend:
-
-```bash
-$ git clone https://github.com/DTPF/amazen-ecommerce.git
-$ npm i & npm start
-```
-
-The app will be runnning by default in the following url: `http://localhost:3000/`
-
-
-
-### App features
-
-I have created the application focusing on performance.
-I have applied Lazy Load throughout the project, I have also implemented the Service Workers for improve the performance.
-For data persistence I have used a backend with Node.js and MongoDB.
-
-#### Wireframes
-
-##### Public web
-<img src='/src/resources/wireframes/landscape-1.png' width='600'>
-<img src='/src/resources/wireframes/landscape-2.png' width='600'>
-<img src='/src/resources/wireframes/landscape-3.png' width='600'>
-<img src='/src/resources/wireframes/portrait-1.png' height='600'>
-<img src='/src/resources/wireframes/portrait-2.png' height='600'>
-
-##### Admin web
-<img src='/src/resources/wireframes/landscape-admin-1.png' width='600'>
-<img src='/src/resources/wireframes/landscape-admin-2.png' width='600'>
-<img src='/src/resources/wireframes/portrait-admin.png' height='600'>
-
-## Available Scripts
-
-In the project directory, you can run:
-
-### `yarn start`
-
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
-
-## Author
-
-##### [David T. Pizarro Frick](https://www.linkedin.com/in/david-tomas-pizarro-frick/)
-
-## License
-
-Licensed under the [MIT License](./LICENSE).
+- [amazen-ecommerce-node](https://github.com/DTPF/amazen-ecommerce-node) — Express.js backend
